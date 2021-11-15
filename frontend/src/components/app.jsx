@@ -15,7 +15,7 @@ import LogoutContainer from './groups/logout_container';
 
 const App = () => (
     <div>
-        <LogoutContainer />
+        {/* <LogoutContainer /> */}
         <Switch>
             <ProtectedRoute exact path="/groups" component={GroupsIndex} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />

@@ -43,36 +43,69 @@ class LoginForm extends React.Component {
 
     // Render the session errors if there are any
     renderErrors() {
-        return (
+        const renderErr = Object.keys(this.state.errors).includes("username") ? (
+                <ul>
+                    {Object.keys(this.state.errors).map((error, i) => (
+                        <li className="login-errors" key={`error-${i}`}>
+                            {this.state.errors[error]}
+                        </li>
+                    ))}
+                </ul>
+        ) : (
             <ul>
                 {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="login-pwerror" key={`error-${i}`}>
                         {this.state.errors[error]}
                     </li>
                 ))}
             </ul>
-        );
+        )
+
+        return renderErr;
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
+            <div className="login-background">
+                <div className="login-intro">
+                    <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
+                    <br/>
+                    <p>Intro intro intro</p>
+                    <p>Intro intro intro intro</p>
+                    <p>Intro intro intro intro intro</p>
+                </div>
+
+                <form className="login-form" onSubmit={this.handleSubmit}>
+                    <h1 className="border-bottom-light">LOGIN</h1>
+                    <h1>SIGNUP</h1>
+                    <div className="login-input">
+
+                        {this.renderErrors()}
+
+                        <label>USERNAME
+                        <input className="border-bottom-light" type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
-                            placeholder="Username"
+                            // placeholder="Username"
                         />
+                        </label>
+
                         <br />
-                        <input type="password"
+
+                        <label>PASSWORD
+                        <input className="border-bottom-light" type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            placeholder="Password"
+                            // placeholder="Password"
                         />
+                        </label>
+                        
                         <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
+                        
+                        <div className="login-buttons">
+                            <input className="login-demo" type="submit" value="Demo" />
+                            <input className="login-submit" type="submit" value="Submit" />
+                        </div>
                     </div>
                 </form>
             </div>
