@@ -6,6 +6,10 @@ const MovieSchema = new Schema({
         type: String,
         required: true
     },
+    imdb_movie_id:{
+        type: String,
+        required: true
+    },
     year: {
         type: Number
     },

@@ -28,6 +28,7 @@ router.post('/:group_id', (req,res) => {
 
     const newMovie = new Movie({
         title: req.body.title,
+        imdb_movie_id: req.body.imdb_movie_id,
         year: req.body.year,
         plot: req.body.plot,
         imdb: req.body.imdb,
