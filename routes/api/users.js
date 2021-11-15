@@ -6,8 +6,8 @@ const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require('../../validation/users/register');
+const validateLoginInput = require('../../validation/users/login');
 
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -34,7 +34,8 @@ router.post('/register', (req, res) => {
                 // Otherwise create a new user
                 const newUser = new User({
                     username: req.body.username,
-                    password: req.body.password
+                    password: req.body.password,
+                    avatar: req.body.avatar
                 })
 
                 bcrypt.genSalt(10, (err, salt) => {
