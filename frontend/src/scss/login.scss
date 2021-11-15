@@ -54,6 +54,7 @@
                 font-family: 'Bebas Neue', cursive;
                 color: $white;
                 font-size: 25px;
+                padding-top: 7px;
                 
                 .border-bottom-light {
                     outline: none;
@@ -89,7 +90,7 @@
             li:first-child {
                 position: absolute;
                 top: 150px;
-                left: 188px;
+                left: 187px;
 
                 color: red;
             }
@@ -97,7 +98,7 @@
             li:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 195px;
+                top: 205px;
                 left: 190px;
             }
         }
