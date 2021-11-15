@@ -27,6 +27,8 @@
     .login-form {
         position: relative;
         background-color: $purple-1;
+        border-radius: 10px;
+        box-shadow: 0 0 20px $purple-1;
         padding: 30px;
         top: 100px;
         height: 350px;
@@ -46,6 +48,7 @@
             display: flex;
             flex-direction: column;
             background-color: $purple-3;
+            border-radius: 10px;
             margin-top: 20px;
             padding: 20px;
             height: 170px;
@@ -60,7 +63,6 @@
                     outline: none;
                     margin-left: 30px;
                     font-size: 20px;
-                    text-align: center;
                 }
             }
 
@@ -85,21 +87,27 @@
                 font-family: 'Montserrat', sans-serif; 
                 font-weight:400;
                 font-size: 13px;
+                width: 200px;
+                left: 175px;
+                text-align: center;
             }
          
-            li:first-child {
+            .login-errors:first-child {
                 position: absolute;
                 top: 150px;
-                left: 187px;
-
                 color: red;
             }
 
-            li:nth-child(2) {
+            .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
                 top: 205px;
-                left: 190px;
+            }
+
+            .login-pwerror {
+                position: absolute;
+                color: red;
+                top: 205px;
             }
         }
     }

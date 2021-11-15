@@ -43,15 +43,25 @@ class LoginForm extends React.Component {
 
     // Render the session errors if there are any
     renderErrors() {
-        return (
+        const renderErr = Object.keys(this.state.errors).includes("username") ? (
+                <ul>
+                    {Object.keys(this.state.errors).map((error, i) => (
+                        <li className="login-errors" key={`error-${i}`}>
+                            {this.state.errors[error]}
+                        </li>
+                    ))}
+                </ul>
+        ) : (
             <ul>
                 {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li className="login-pwerror" key={`error-${i}`}>
                         {this.state.errors[error]}
                     </li>
                 ))}
             </ul>
-        );
+        )
+
+        return renderErr;
     }
 
     render() {
@@ -69,7 +79,9 @@ class LoginForm extends React.Component {
                     <h1 className="border-bottom-light">LOGIN</h1>
                     <h1>SIGNUP</h1>
                     <div className="login-input">
+
                         {this.renderErrors()}
+
                         <label>USERNAME
                         <input className="border-bottom-light" type="text"
                             value={this.state.username}
