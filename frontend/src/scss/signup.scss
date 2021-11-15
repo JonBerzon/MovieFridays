@@ -1,2 +1,44 @@
-@import './scss/base.scss';
+@import './base.scss';
 
+.checkbox-background{
+  height:55px;
+  width: 55px;
+  background-color: $purple-3;
+  border-radius: 100%;
+}
+
+.signup-avatar-container{
+  display:flex;
+  width: 250px;
+  height:130px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+input[type=checkbox]{
+  display:none;
+}
+
+label:before {
+  position: absolute;
+}
+
+.avatar-image{
+  height:55px;
+  width: 55px; 
+  padding: 11px;
+}
+
+.selected{
+  height: 55px;
+  width: 55px;
+  border: 3px solid $golden;
+  border-radius: 100%;
+}
+
+.selected > .avatar-image{
+  height:55px;
+  width: 55px; 
+  margin-top:-3px;
+  margin-left: -3px;
+}
