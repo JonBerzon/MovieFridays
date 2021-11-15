@@ -10,10 +10,10 @@ const ReviewSchema = new Schema({
         type: String
     },
     reviewer: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
+        type: Object,
+        required: true
     },
-    movie: {
+    movie_id: {
         type: Schema.Types.ObjectId,
         ref: "movies"
     }
