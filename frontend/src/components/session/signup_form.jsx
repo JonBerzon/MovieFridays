@@ -7,6 +7,7 @@ class SignupForm extends React.Component {
         this.state = {
             username: '',
             password: '',
+            avatar_url: '',
             errors: {}
         };
 
