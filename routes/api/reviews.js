@@ -44,14 +44,14 @@ router.post('/create', async (req,res) =>{
         .catch(() => res.status(400).json({savefail: "Could not save review"}))
 })
 
-router.patch('/:id', async (req, res) => {
+router.patch('/update', async (req, res) => {
     const { errors, isValid } = validateReviewInput(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
     }
 
-    let review = await Review.findOne({_id: req.params.id}).then(review => review)
+    let review = await Review.findOne({_id: req.body.id}).then(review => review)
     if (!review) return res.json({noreview: "No review found"})
 
     review.rating = req.body.rating

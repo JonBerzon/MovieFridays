@@ -9,7 +9,7 @@ export const createReview = review => (
 )
 
 export const updateReview = review => (
-    axios.patch(`/api/reviews/${review.id}`, review)
+    axios.patch('/api/reviews/update', review)
 )
 
 export const deleteReview = id => (

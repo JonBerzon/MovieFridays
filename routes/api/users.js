@@ -24,11 +24,9 @@ router.post('/register', (req, res) => {
         return res.status(400).json(errors);
     }
 
-    // Check to make sure nobody has already registered with a duplicate username
     User.findOne({ username: req.body.username })
         .then(user => {
             if (user) {
-                // Throw a 400 error if the username address already exists
                 return res.status(400).json({ username: "A user has already registered with this username" })
             } else {
                 // Otherwise create a new user
@@ -78,7 +76,6 @@ router.post('/login', (req, res) => {
                         jwt.sign(
                             payload,
                             process.env.REACT_APP_SECRET_OR_KEY,
-                            // Tell the key to expire in one hour
                             { expiresIn: 3600 },
                             (err, token) => {
                                 res.json({

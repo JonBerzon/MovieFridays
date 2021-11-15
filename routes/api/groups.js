@@ -5,14 +5,11 @@ const User = require('../../models/User');
 const passport = require('passport');
 const validateCreateInput = require('../../validation/groups/create')
 const validateAddUserInput = require('../../validation/groups/add_user')
-// const Group = require('../../models/Group')
 
 router.get('/', (req,res) => {
     Group.find()
         .then(groups => res.json(groups))
         .catch(() => res.status(404).json({nogroupsfound: "No groups found"}))
-
-        // .then(res => console.log(res))
 })
 
 router.get('/:id', (req, res) => {

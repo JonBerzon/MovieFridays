@@ -19,7 +19,7 @@ router.get('/show/:movie_id', (req,res) => {
         .catch(() => res.status(404).json({ nomovie: "No movie found" }))
 })
 
-router.post('/:group_id', (req,res) => {
+router.post('/create', (req,res) => {
     const { errors, isValid } = validateCreateMovies(req.body);
 
     if (!isValid) {
@@ -37,8 +37,8 @@ router.post('/:group_id', (req,res) => {
         genre: req.body.genre,
         director: req.body.director,
         runtime: req.body.runtime,
-        group: req.params.group_id,
-        submitter: req.body.user_id,
+        group_id: req.body.group_id,
+        submitter_id: req.body.user_id,
     })
     newMovie.save()
         .then(movie => res.json(movie))

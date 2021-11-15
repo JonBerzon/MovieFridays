@@ -9,12 +9,18 @@ const MoviesReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_MOVIE:
-            return {...state, [action.movie.id]: action.movie};
+            return {...state, [action.movie._id]: action.movie};
         case RECEIVE_MOVIES:
-            return action.movies
+            let newState = {};
+
+            action.movies.forEach(movie => {
+                newState[movie._id] = movie
+            });
+
+            return newState;
         case REMOVE_MOVIE:
-            nextState = {...state}
-            delete nextState[action.id]
+            let nextState = {...state}
+            delete nextState[action.movie_id]
             return nextState;
         default:
             return state;

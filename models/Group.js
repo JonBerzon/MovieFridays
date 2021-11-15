@@ -6,18 +6,11 @@ const GroupSchema = new Schema({
         type: String,
         required: true
     },
-    // owner: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'users'
-    // },
     owner: {
         type: Object,
         required: true
     },
-    // users: [{type: Schema.Types.ObjectId, ref: 'users'}],
     users: [{type: Object}],
-
-    // movies: [{ type: Schema.Types.ObjectId, ref: 'movies' }]
 }, {
     timestamps: true
 })

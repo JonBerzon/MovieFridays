@@ -1,16 +1,17 @@
+import * as GroupAPIUtil from '../util/group_api_util';
+
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_GROUPS = 'RECEIVE_GROUPS';
 export const REMOVE_GROUP = 'REMOVE_GROUP';
-import * as GroupAPIUtil from '../util/group_api_util'
 
 const receiveGroup = group => ({
     type: RECEIVE_GROUP,
-    group
+    group: group.data
 });
 
 const receiveGroups = groups => ({
     type: RECEIVE_GROUPS,
-    groups
+    groups: groups.data
 });
 
 const removeGroup = group_id => ({
@@ -38,7 +39,7 @@ export const addUserToGroup = group => dispatch => (
         .then(group => dispatch(receiveGroup(group)))
 )
 
-export const deleteGroup = id => dispatch (
+export const deleteGroup = id => dispatch => (
     GroupAPIUtil.deleteGroup(id)
         .then(() => dispatch(removeGroup(id)))
 )

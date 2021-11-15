@@ -9,11 +9,18 @@ const GroupsReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_GROUP:
-            return {...state, [action.group.id]: action.group};
+            return {...state, [action.group._id]: action.group};
         case RECEIVE_GROUPS:
-            return action.groups
+            let newState = {};
+
+            action.groups.forEach(group => {
+                newState[group._id] = group
+            });
+
+            return newState;
+            
         case REMOVE_GROUP:
-            nextState = {...state}
+            let nextState = {...state}
             delete nextState[action.id]
             return nextState;
         default:

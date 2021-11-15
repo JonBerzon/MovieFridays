@@ -9,7 +9,7 @@ export const fetchMovies = group_id => (
 )
 
 export const createMovie = movie => (
-    axios.post(`/api/movies/${movie.group_id}`, movie)
+    axios.post('/api/movies/create', movie)
 )
 
 export const deleteMovie = id => (

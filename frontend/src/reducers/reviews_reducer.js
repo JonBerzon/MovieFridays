@@ -9,12 +9,18 @@ const ReviewsReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_REVIEW:
-            return {...state, [action.review.id]: action.review};
+            return {...state, [action.review._id]: action.review};
         case RECEIVE_REVIEWS:
-            return action.reviews
+            let newState = {};
+
+            action.reviews.forEach(review => {
+                newState[review._id] = review
+            });
+
+            return newState;
         case REMOVE_REVIEW:
-            nextState = {...state}
-            delete nextState[action.id]
+            let nextState = {...state};
+            delete nextState[action.review_id];
             return nextState;
         default:
             return state;

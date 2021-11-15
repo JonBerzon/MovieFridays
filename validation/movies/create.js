@@ -5,15 +5,15 @@ module.exports = function validateCreateMovies(data) {
     let errors = {}
 
     data.title = validText(data.title) ? data.title : '';
-    data.user_id = validText(data.user_id) ? data.user_id : '';
+    data.submitter_id = validText(data.submitter_id) ? data.submitter_id : '';
     
 
     if (Validator.isEmpty(data.title)) {
         errors.title = 'Title field is required';
     }
 
-    if (Validator.isEmpty(data.user_id)) {
-        errors.user_id = 'User_id is required';
+    if (Validator.isEmpty(data.submitter_id)) {
+        errors.submitter_id = 'User_id is required';
     }
 
     return {

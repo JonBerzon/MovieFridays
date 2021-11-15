@@ -1,16 +1,17 @@
+import * as MovieAPIUtil from '../util/movie_api_util';
+
 export const RECEIVE_MOVIE = 'RECEIVE_MOVIE';
 export const RECEIVE_MOVIES = 'RECEIVE_MOVIES';
 export const REMOVE_MOVIE = 'REMOVE_MOVIE';
-import * as MovieAPIUtil from '../util/movie_api_util'
 
 const receiveMovie = movie => ({
     type: RECEIVE_MOVIE,
-    movie
+    movie: movie.data
 });
 
 const receiveMovies = movies => ({
     type: RECEIVE_MOVIES,
-    movies
+    movies: movies.data
 });
 
 const removeMovie = movie_id => ({
@@ -23,8 +24,8 @@ export const fetchMovie = id => dispatch => (
         .then(movie => dispatch(receiveMovie(movie)))
 )
 
-export const fetchMovies = () => dispatch => (
-    MovieAPIUtil.fetchMovies()
+export const fetchMovies = group_id => dispatch => (
+    MovieAPIUtil.fetchMovies(group_id)
         .then(movies => dispatch(receiveMovies(movies)))
 )
 
@@ -33,7 +34,7 @@ export const createMovie = movie => dispatch => (
         .then(movie => dispatch(receiveMovie(movie)))
 )
 
-export const deleteMovie = id => dispatch (
+export const deleteMovie = id => dispatch => (
     MovieAPIUtil.deleteMovie(id)
         .then(() => dispatch(removeMovie(id)))
 )

@@ -4,12 +4,12 @@ const validText = require('../valid-text');
 module.exports = function validateReviewInput(data) {
     let errors = {}
 
-    data.rating = validText(data.rating) ? data.rating : '';
+    // data.rating = validText(data.rating) ? data.rating : '';
 
 
-    if (Validator.isEmpty(data.rating)) {
-        errors.rating = 'Rating field is required';
-    }
+    // if (Validator.isInt(data.rating)) {
+    //     errors.rating = 'Rating field is required';
+    // }
 
     return {
         errors,
