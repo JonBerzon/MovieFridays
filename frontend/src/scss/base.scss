@@ -14,6 +14,7 @@ $golden: #FCB424;
 
 html {
   background-color: $purple-1;
+  color: $white;
 }
 
 h1{
@@ -30,6 +31,19 @@ h2{
 p{
   font-family: 'Montserrat', sans-serif; 
   font-weight:300;
+  color:$white;
+}
+
+input{
+  font-family: 'Montserrat', sans-serif; 
+  font-weight:400;
+  color:$white;
+}
+
+button{
+  font-family: 'Montserrat', sans-serif; 
+  font-weight:400;
+  color:$white; 
 }
 
 .border-bottom-light {
