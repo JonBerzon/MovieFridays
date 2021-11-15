@@ -1,0 +1,47 @@
+$white: #F9F4f5; 
+$purple-1:#170114;
+$purple-2:#2C0024;
+$purple-3:#39022E;
+$purple-4:#590F4D;
+$purple-5:#751463;
+$golden: #FCB424; 
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&display=swap');
+
+// main font = font-family: 'Bebas Neue', cursive;
+// secondary font = font-family: 'Montserrat', sans-serif; font-weight:400;
+// light font = font-family: 'Montserrat', sans-serif; font-weight:300;
+
+html {
+  background-color: $purple-1;
+}
+
+h1{
+  font-family: 'Bebas Neue', cursive;
+  color: $white; 
+}
+
+h2{
+  font-family: 'Montserrat', sans-serif; 
+  font-weight:400;
+  color:$white;
+}
+
+p{
+  font-family: 'Montserrat', sans-serif; 
+  font-weight:300;
+}
+
+.border-bottom-light {
+  border:none; 
+  border-bottom: 2px solid $golden;
+}
+
+.border-bottom-heavy {
+  border:none; 
+  border-bottom: 5px solid $golden;
+}
+
+
+
+
