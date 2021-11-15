@@ -26,6 +26,10 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.use("/api/users", users);
+app.use("/api/groups", groups);
+app.use("/api/movies", movies);
+app.use("/api/reviews", reviews);
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(process.env));
