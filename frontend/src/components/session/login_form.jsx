@@ -69,6 +69,7 @@ class LoginForm extends React.Component {
                     <h1 className="border-bottom-light">LOGIN</h1>
                     <h1>SIGNUP</h1>
                     <div className="login-input">
+                        {this.renderErrors()}
                         <label>USERNAME
                         <input className="border-bottom-light" type="text"
                             value={this.state.username}
@@ -93,7 +94,6 @@ class LoginForm extends React.Component {
                             <input className="login-demo" type="submit" value="Demo" />
                             <input className="login-submit" type="submit" value="Submit" />
                         </div>
-                        {this.renderErrors()}
                     </div>
                 </form>
             </div>

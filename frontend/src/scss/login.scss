@@ -80,6 +80,26 @@
                 }
             }
             
+            li {
+                font-family: 'Montserrat', sans-serif; 
+                font-weight:400;
+                font-size: 13px;
+            }
+         
+            li:first-child {
+                position: absolute;
+                top: 150px;
+                left: 188px;
+
+                color: red;
+            }
+
+            li:nth-child(2) {
+                position: absolute;
+                color: red;
+                top: 195px;
+                left: 190px;
+            }
         }
     }
 }
