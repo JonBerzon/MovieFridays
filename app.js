@@ -8,6 +8,9 @@ const passport = require("passport");
 require("dotenv").config();
 const db = process.env.REACT_APP_MONGO_URI;
 const path = require("path");
+const groups = require("./routes/api/groups");
+const movies = require("./routes/api/movies");
+
 
 app.use(express.static("frontend/build"));
 app.get("/", (req, res) => {
@@ -28,8 +31,8 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/groups", groups);
 app.use("/api/movies", movies);
-app.use("/api/reviews", reviews);
+// app.use("/api/reviews", reviews);
 
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(process.env));
+app.listen(port, () => console.log(`On port ${port}`));

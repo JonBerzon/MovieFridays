@@ -7,12 +7,10 @@ const MovieSchema = new Schema({
         required: true
     },
     year: {
-        type: Number,
-        required: true
+        type: Number
     },
     plot: {
-        type: String,
-        required: true
+        type: String
     },
     imdb: {
         type: Number
