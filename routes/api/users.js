@@ -76,7 +76,7 @@ router.post('/login', (req, res) => {
 
                         jwt.sign(
                             payload,
-                            keys.secretOrKey,
+                            process.env.REACT_APP_SECRET_OR_KEY,
                             // Tell the key to expire in one hour
                             { expiresIn: 3600 },
                             (err, token) => {
