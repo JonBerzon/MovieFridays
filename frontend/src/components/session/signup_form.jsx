@@ -54,7 +54,8 @@ class SignupForm extends React.Component {
             avatar: this.state.avatar,
         };
 
-        this.props.signup(user, this.props.history);
+        this.props.signup(user, this.props.history).then(() => this.props.login(user))
+        // await this.props.login(user)
     }
 
     renderErrors() {
