@@ -47,7 +47,7 @@
         .login-signup {
             font-family: 'Bebas Neue', cursive;
             color: $white; 
-            margin-left: 17px;
+            margin-left: 15px;
             font-size: 25px;
         }
 
@@ -111,20 +111,20 @@
          
             .login-errors:first-child {
                 position: absolute;
-                top: 140px;
+                top: 150px;
                 color: red;
             }
 
             .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 195px;
+                top: 205px;
             }
 
             .login-pwerror {
                 position: absolute;
                 color: red;
-                top: 195px;
+                top: 205px;
             }
         }
     }
