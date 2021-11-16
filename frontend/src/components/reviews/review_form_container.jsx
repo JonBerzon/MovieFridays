@@ -4,16 +4,12 @@ import { createReview } from '../../actions/review_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
-    user: state.session.user,
+  user: state.session.user,
+  errors: state.errors.session
 })
 
 const mDTP = dispatch => ({
   createReview: review => dispatch(createReview(review)),
-  otherForm: (
-    <button onClick={() => dispatch(openModal('review'))}>
-      !review!
-    </button>
-  ),
   closeModal: () => dispatch(closeModal())
 })
 

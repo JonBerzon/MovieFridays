@@ -59,14 +59,12 @@ class ReviewForm extends React.Component {
     console.log(this.state)
     console.log(this.props)
     return (
-      <div className="review-form-background">
-        <div classname="review-form-modal">
-          {this.renderErrors()}
-          
-
-
-        </div>
+      
+      <div className="review-form">
+        {this.renderErrors()}
+        <h1>This is the review modal</h1>
       </div>
+      
     )
   }; 
 
