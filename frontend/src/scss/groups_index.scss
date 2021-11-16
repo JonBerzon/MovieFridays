@@ -1,0 +1,21 @@
+@import './base.scss';
+
+.groups-index-main-div {
+    display: flex;
+}
+
+.temp-sidebar-template {
+    width: 200px;
+    height: 100vh;
+    background: $purple-2;
+}
+
+.groups-index-popular-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
