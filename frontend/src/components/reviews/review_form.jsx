@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 class ReviewForm extends React.Component {
   constructor(props){
@@ -10,6 +9,10 @@ class ReviewForm extends React.Component {
       body:'', 
       errors:{}
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+
   }; 
 
 // Handle field updates (called in the render method)
@@ -27,7 +30,7 @@ class ReviewForm extends React.Component {
       rating: this.state.rating, 
       body: this.state.body, 
       reviewer: this.props.user.id,
-      movie_id: this.props.match.params.movie_id
+      movie_id: '6193cb9188a480b912b2f' // >>>>>>>>>>>>>>>>>>>>>>>>> THIS NEEDS TO CHANGE TO BE DYNAMIC
     }
 
     this.props.createReview(review);
@@ -56,13 +59,43 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     console.log(this.props)
     return (
       
-      <div className="review-form">
+      <div className="review-form-container">
         {this.renderErrors()}
-        <h1>This is the review modal</h1>
+
+        <h1 className="movie-title">Movie Title</h1>
+        <h1>Add your Review</h1>
+
+        <form className="review-form" onSubmit={this.handleSubmit}>
+          <div>
+            <select id="selectRating" onChange={this.update('rating')}>
+              <option value="1">1/10</option>
+              <option value="2">2/10</option>
+              <option value="3">3/10</option>
+              <option value="4">4/10</option>
+              <option value="5">5/10</option>
+              <option value="6">6/10</option>
+              <option value="7">7/10</option>
+              <option value="8">8/10</option>
+              <option value="9">9/10</option>
+              <option value="10">10/10</option>
+            </select>
+          </div>
+          
+          <textarea 
+            className="body-textarea"
+            value={this.state.body}
+            onChange={this.update('body')}
+            placeholder="How did you enjoy the movie?"
+           ></textarea>
+
+          <div>
+            <button>Add Review</button>
+          </div>
+
+        </form>
       </div>
       
     )

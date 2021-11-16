@@ -1,11 +1,11 @@
 import ReviewForm from './review_form';
 import { connect } from 'react-redux'
 import { createReview } from '../../actions/review_actions'
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
   user: state.session.user,
-  errors: state.errors.session
+  errors: state.errors
 })
 
 const mDTP = dispatch => ({
