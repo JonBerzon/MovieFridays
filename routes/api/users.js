@@ -14,7 +14,13 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     res.json({
         id: req.user.id,
         username: req.user.username,
+        avatar: req.user.avatar
     });
+})
+
+router.get('/show', (req, res) => {
+    User.findOne({_id: req.body.id}) // fix later
+        .then(user => res.json(user))
 })
 
 router.post('/register', (req, res) => {
@@ -71,7 +77,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = { id: user.id, username: user.username };
+                        const payload = { id: user.id, username: user.username, avatar: user.avatar };
 
                         jwt.sign(
                             payload,

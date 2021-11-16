@@ -46,6 +46,10 @@ button{
   color:$white; 
 }
 
+li {
+  list-style-type: none;
+}
+
 .border-bottom-light {
   border:none;
   border-bottom: 2px solid $golden;
