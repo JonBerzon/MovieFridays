@@ -62,7 +62,7 @@ class SignupForm extends React.Component {
       const renderErr = Object.keys(this.state.errors).includes("username") ? (
           <ul>
               {Object.keys(this.state.errors).map((error, i) => (
-                  <li className="login-errors" key={`error-${i}`}>
+                  <li className="signup-errors" key={`error-${i}`}>
                       {this.state.errors[error]}
                   </li>
               ))}
@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
         ) : (
           <ul>
               {Object.keys(this.state.errors).map((error, i) => (
-                  <li className="login-pwerror" key={`error-${i}`}>
+                  <li className="signup-pwerror" key={`error-${i}`}>
                       {this.state.errors[error]}
                   </li>
               ))}

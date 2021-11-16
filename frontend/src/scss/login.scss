@@ -111,26 +111,25 @@
                 font-weight:400;
                 font-size: 13px;
                 width: 200px;
-                left: 175px;
-                text-align: center;
+                left: 166px;
             }
          
             .login-errors:first-child {
                 position: absolute;
-                top: 155px;
+                top: 205px;
                 color: red;
             }
 
             .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 210px;
+                top: 263px;
             }
 
             .login-pwerror {
                 position: absolute;
                 color: red;
-                top: 210px;
+                top: 263px;
             }
         }
     }

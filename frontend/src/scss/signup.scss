@@ -74,6 +74,33 @@
   margin-top: 25px;
   height: 370px;
   border-radius: 10px;
+
+  li {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight:400;
+    font-size: 13px;
+    width: 200px;
+    left: 166px;
+  }
+
+  .signup-errors:first-child {
+      position: absolute;
+      top: 205px;
+      color: red;
+  }
+
+  .signup-errors:nth-child(2) {
+      position: absolute;
+      color: red;
+      top: 263px;
+  }
+
+  .signup-pwerror {
+      position: absolute;
+      color: red;
+      top: 263px;
+  }
+
 }
 
 .signup-username, .signup-password{
