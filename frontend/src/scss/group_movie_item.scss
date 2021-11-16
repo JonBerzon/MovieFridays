@@ -1,0 +1,120 @@
+@import "./base.scss";
+
+.group-movie-item-container {
+  display: flex;
+  background: $purple-5;
+  width: 1000px;
+  padding: 15px;
+  border-radius: 5px;
+  gap: 15px;
+  height: 180px;
+}
+
+.group-movie-poster-container {
+  height: 155px;
+}
+
+.group-movie-poster {
+  height: 155px;
+}
+
+.group-movie-item-movie-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.group-movie-item-movie-title-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.group-movie-item-movie-title {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 30px;
+  background: $purple-4;
+  min-width: 200px;
+  padding: 5px 10px 0px 10px;
+  border-radius: 3px;
+}
+
+.group-movie-item-your-rating-container {
+  display: flex;
+  gap: 10px;
+  background: $golden;
+  padding: 0px 5px 0px 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.group-movie-item-your-rating-text {
+  font-family: "Bebas Neue", cursive;
+  color: $purple-2;
+  font-size: 30px;
+}
+
+.group-movie-item-your-rating {
+  font-family: "Bebas Neue", cursive;
+  color: $purple-2;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.group-movie-item-havent-rated-container {
+  display: flex;
+  gap: 10px;
+  background: $golden;
+  padding: 0px 5px 0px 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.group-movie-item-havent-rated-text {
+  font-family: "Bebas Neue", cursive;
+  color: $purple-2;
+  font-size: 30px;
+}
+
+.group-movie-item-movie-plot-container {
+  height: 50px;
+}
+
+.group-movie-item-movie-plot {
+  margin-top: 10px;
+  width: 800px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: $white;
+  font-size: 20px;
+}
+
+.group-movie-item-movie-ratings-container {
+  display: flex;
+  margin-top: 35px;
+  background: $purple-4;
+  padding: 5px 10px 5px 10px;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+
+.group-movie-item-rating {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: $white;
+  font-size: 18px;
+  display: flex;
+  gap: 15px;
+}
+
+.group-movie-item-rating-number {
+  font-weight: 600;
+}
+
+.vertical-line {
+  height: 100%;
+  border-left: 5px solid $golden;
+}
