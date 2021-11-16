@@ -1,8 +1,12 @@
 import React from "react";
+
+import PopularContainer from "../popular/popular_container";
+
+
 class GroupsIndex extends React.Component{
     render(){
         return(
-            <h1>in groups index</h1>
+            <PopularContainer />
         )
     }
 

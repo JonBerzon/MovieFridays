@@ -6,14 +6,14 @@ class Popular extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchPopular();
+        // this.props.fetchPopular();
     }
 
     render(){
-        let {popular} = this.props;
-        if (!popular) return null;
-        let test = Object.values(popular).slice(0,6)
-        // let test = [1,2,3,4,5,6]
+        // let {popular} = this.props;
+        // if (!popular) return null;
+        // let test = Object.values(popular).slice(0,6)
+        let test = [1,2,3,4,5,6]
         return(
             <div className="popular-parent-div">
                 <div className="popular-inner-div">
@@ -24,13 +24,13 @@ class Popular extends React.Component{
                         test.map(ele =>{
                             return (
                                 <div key={ele} className="popular-movie-index">
-                                    {/* <div className="popular-movie-poster"></div> */}
-                                    <img src={ele.image} className="popular-movie-poster" />
+                                    <div className="popular-movie-poster"></div>
+                                    {/* <img src={ele.image} className="popular-movie-poster" /> */}
                                     
                                     <p>10/10 <span>★</span></p>
-                                    {/* <h4>Shang-Chi and the Legend of the Ten Rings</h4> */}
+                                    <h4>Shang-Chi and the Legend of the Ten Rings</h4>
 
-                                    <h4>{ele.title}</h4>
+                                    {/* <h4>{ele.title}</h4> */}
                                 </div>
                             )
                         })
