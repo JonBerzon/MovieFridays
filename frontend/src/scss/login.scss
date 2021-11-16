@@ -37,15 +37,17 @@
         p {
             font-family: 'Bebas Neue', cursive;
             color: $white; 
+            border:none; 
+            border-bottom: 2px solid $golden;
             font-size: 50px;
             width: 90px;
             margin-left: 13px;
         }
 
-        p:nth-child(2) {
+        .login-signup {
             font-family: 'Bebas Neue', cursive;
             color: $white; 
-            margin-top: 10px;
+            margin-left: 17px;
             font-size: 25px;
         }
 
@@ -54,19 +56,17 @@
             flex-direction: column;
             background-color: $purple-3;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 30px;
             padding: 20px;
             height: 170px;
 
             label {
-                position: relative;
                 font-family: 'Bebas Neue', cursive;
                 color: $white;
                 font-size: 25px;
                 padding-top: 7px;
                 
                 .login-username {
-                    position: relative;
                     border:none; 
                     border-bottom: 2px solid $golden;
                     outline: none;
@@ -75,7 +75,6 @@
                 }
 
                 .login-password {
-                    position: relative;
                     border:none; 
                     border-bottom: 2px solid $golden;
                     outline: none;
@@ -112,20 +111,20 @@
          
             .login-errors:first-child {
                 position: absolute;
-                top: 150px;
+                top: 140px;
                 color: red;
             }
 
             .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 195px;
             }
 
             .login-pwerror {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 195px;
             }
         }
     }
