@@ -8,7 +8,7 @@
   background-color: $purple-3;
   border-radius: 10px;
   padding: 15px;
-
+  animation: popup .5s 1 ease-in-out;
 }
 
 
@@ -54,7 +54,6 @@
   height: 25px; 
   width: 70px;
   font-weight: 400;
-  // font-family: 'Montserrat', sans-serif;
   text-indent: 8px;
   border-radius: 5px;
   margin: 10px;
@@ -80,4 +79,34 @@
 .review-form button:hover {
   text-decoration: 2px underline $golden;
   text-underline-offset: 2px;
+}
+
+.review-form div:last-of-type{
+  justify-content: space-between;
+}
+
+.hide{
+  display:none;
+}
+
+.display-errors{
+  display:block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400;
+  font-size: 15px;
+  padding:10px;
+  padding-top:0px;
+  padding-left:25px;
+  color:red;
+}
+
+@keyframes popup {
+  from{
+    transform: scale(.5);
+    opacity: 50%;
+  }
+  to{
+    transform: scale(1);
+    opacity:100%;
+  }
 }
