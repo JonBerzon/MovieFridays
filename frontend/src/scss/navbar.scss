@@ -5,6 +5,10 @@
   justify-content: center;
   background: $purple-5;
   height: 60px;
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0px 0px 20px black;
+  overflow-x: hidden;
 }
 
 .navbar-container {
@@ -74,5 +78,7 @@
   letter-spacing: 1px;
 }
 
-.navbar-dropdown-menu:hover {
+.navbar-cushion {
+  width: 100vw;
+  height: 60px;
 }

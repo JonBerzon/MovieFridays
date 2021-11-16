@@ -17,6 +17,10 @@ html {
   color: $white;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 h1{
   font-family: 'Bebas Neue', cursive;
   color: $white; 
