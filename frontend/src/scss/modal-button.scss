@@ -1,6 +1,6 @@
 @import "./base.scss";
 
-.review-button {
+.modal-button {
   position:absolute;
   display:flex;
   justify-content: center;
@@ -14,7 +14,7 @@
   border-radius: 100%;
 }
 
-.review-button img{
+.modal-button img{
   height: 40px; 
   width:40px;
 }

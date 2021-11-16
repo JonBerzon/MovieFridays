@@ -7,7 +7,6 @@ class ReviewForm extends React.Component {
     this.state = {
       rating: '', 
       body:'', 
-      errors:{}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

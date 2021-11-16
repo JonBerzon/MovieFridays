@@ -5,7 +5,6 @@ import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = state => ({
   user: state.session.user,
-  errors: state.errors
 })
 
 const mDTP = dispatch => ({

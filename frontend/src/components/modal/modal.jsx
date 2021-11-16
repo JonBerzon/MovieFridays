@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ReviewFormContainer from '../reviews/review_form_container';
+import GroupFormContainer from '../groups/group_form_container';
+
 
 
 function Modal({modal, closeModal}) {
@@ -13,6 +15,9 @@ function Modal({modal, closeModal}) {
     case 'review':
       component = <ReviewFormContainer />;
       break;
+    case 'group':
+      component = <GroupFormContainer />;
+      break; 
     default:
       return null;
   }

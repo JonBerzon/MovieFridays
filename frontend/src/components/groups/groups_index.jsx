@@ -1,7 +1,7 @@
 import React from "react";
 
 import PopularContainer from "../popular/popular_container";
-import ReviewButtonContainer from '../reviews/review_button_container'
+import ModalButtonContainer from '../modal/modal_button_container'
 
 
 class GroupsIndex extends React.Component{
@@ -9,7 +9,7 @@ class GroupsIndex extends React.Component{
         return(
           <div>
             <PopularContainer />
-            <ReviewButtonContainer />
+            <ModalButtonContainer modalType={"group"} />
           </div>
         )
     }

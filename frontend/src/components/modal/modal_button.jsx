@@ -1,14 +1,14 @@
 import React from 'react';
 import purplePlus from '../../assets/icons/plus-symbol-dk-purple.svg'
 
-const ReviewButton = ({ openModal }) => {
+const ModalButton = ({ openModal, modalType }) => {
   return (
-    <div className="review-button">
-      <button onClick={() => openModal('review')}>
+    <div className="modal-button">
+      <button onClick={() => openModal(modalType)}>
         <img src={purplePlus} alt="add review" />
       </button>
     </div>
   );
 };
 
-export default ReviewButton;
+export default ModalButton;

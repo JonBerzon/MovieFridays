@@ -1,0 +1,28 @@
+.group-form-container{
+  height: 200px; 
+  width: 550px; 
+}
+
+.group-form{
+  margin-top: 15px;
+  height: 160px;
+}
+
+.group-form > input {
+  background-color: $purple-1;
+  margin: 10px; 
+  height: 40px; 
+  width: 500px; 
+  border-radius: 10px;
+  padding:10px;
+}
+
+.group-form > div {
+  height:20px;
+}
+
+.group-form > div:last-of-type {
+  display:flex; 
+  width:100%;
+  justify-content: flex-end;
+}
