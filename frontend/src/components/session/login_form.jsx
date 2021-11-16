@@ -76,14 +76,14 @@ class LoginForm extends React.Component {
                 </div>
 
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <h1 className="border-bottom-light">LOGIN</h1>
-                    <h1>SIGNUP</h1>
+                    <p className="border-bottom-light">LOGIN</p>
+                    <p>SIGNUP</p>
                     <div className="login-input">
 
                         {this.renderErrors()}
 
                         <label>USERNAME
-                        <input className="border-bottom-light" type="text"
+                        <input className="login-username" type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
                             // placeholder="Username"
@@ -93,7 +93,7 @@ class LoginForm extends React.Component {
                         <br />
 
                         <label>PASSWORD
-                        <input className="border-bottom-light" type="password"
+                        <input className="login-password" type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             // placeholder="Password"
