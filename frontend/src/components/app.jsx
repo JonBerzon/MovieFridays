@@ -12,11 +12,13 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import { logout } from '../actions/session_actions';
 import LogoutContainer from './groups/logout_container';
+import PopularContainer from './popular/popular_container';
 
 const App = () => (
     <div>
         {/* <LogoutContainer /> */}
         <Switch>
+            <Route exact path="/popular" component={PopularContainer} />
             <ProtectedRoute exact path="/groups" component={GroupsIndex} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

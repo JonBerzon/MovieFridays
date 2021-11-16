@@ -12,3 +12,7 @@ export const searchMovie = (search) => {
 export const fetchMovie = id => {
     return axios.get(`https://imdb-api.com/en/API/Title/${IMDB}/${id}`)
 }
+
+export const fetchPopular = () => {
+    return axios.get(`https://imdb-api.com/en/API/MostPopularMovies/${IMDB}`)
+}
