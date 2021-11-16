@@ -140,10 +140,12 @@ class SignupForm extends React.Component {
         <div className="signup-background">
 
           <div className="signup-intro">
-            <h1>Movie Fridays</h1>
-                  <div id="goldline"></div>
-            <p>Blurb blurb blurb</p>
-          </div>
+                    <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
+                    <br/>
+                    <p>Intro intro intro</p>
+                    <p>Intro intro intro intro</p>
+                    <p>Intro intro intro intro intro</p>
+                </div>
 
           <div className="signup-form">
             <form onSubmit={this.handleSubmit}>
