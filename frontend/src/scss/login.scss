@@ -41,13 +41,12 @@
             border-bottom: 2px solid $golden;
             font-size: 50px;
             width: 90px;
-            margin-left: 13px;
+            margin-bottom: 10px;
         }
 
         .login-signup {
             font-family: 'Bebas Neue', cursive;
             color: $white; 
-            margin-left: 15px;
             font-size: 25px;
         }
 
@@ -56,15 +55,15 @@
             flex-direction: column;
             background-color: $purple-3;
             border-radius: 10px;
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 25px;
+            padding: 10px;
             height: 170px;
 
             label {
                 font-family: 'Bebas Neue', cursive;
                 color: $white;
                 font-size: 25px;
-                padding-top: 7px;
+                padding: 15px;
                 input:-webkit-autofill,
                 input:-webkit-autofill:hover, 
                 input:-webkit-autofill:focus, 
@@ -118,20 +117,20 @@
          
             .login-errors:first-child {
                 position: absolute;
-                top: 150px;
+                top: 155px;
                 color: red;
             }
 
             .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 210px;
             }
 
             .login-pwerror {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 210px;
             }
         }
     }

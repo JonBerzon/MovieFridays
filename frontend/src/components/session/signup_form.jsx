@@ -196,8 +196,8 @@ class SignupForm extends React.Component {
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">
-                    <input type="submit" value="Submit" />
                     <a href="/login">Demo</a>
+                    <input type="submit" value="Submit" />
                   </div>
               </div>
             </form>  
