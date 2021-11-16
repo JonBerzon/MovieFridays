@@ -1,0 +1,78 @@
+@import "./base.scss";
+
+.group-ratings-div{
+    margin-top: 20px;
+    h1{
+        font-size: 30px;
+    }
+    hr{
+        width: 40vw;
+        color: $golden;
+    }
+}
+
+.group-ratings-flex{
+    display: flex;
+    overflow-x: scroll;
+    width: 40vw;
+    // max-width: 600px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow:  0 0 45px $purple-4, inset 0 0 45px $purple-5; 
+    
+    h1{
+        font-size: 20px;
+    }
+
+    // div{
+    //     margin-right: 15px;
+    // }
+
+    &::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+    
+    }
+
+    &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px $purple-4; 
+    border-radius: 10px;
+    }
+    
+
+    &::-webkit-scrollbar-thumb {
+    background: $purple-3; 
+    border-radius: 10px;
+    }
+}
+
+.group-rating-circle{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: $purple-5;
+    display: flex;
+    // margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    box-shadow: 0 0 3px 3px $purple-5; 
+
+    h5{
+        color: $golden;
+        font-family: 'Montserrat', sans-serif; 
+        font-weight: 1000;
+        font-size: 20px;
+    }
+}
+
+
+.group-ratings-index{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}

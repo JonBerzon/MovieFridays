@@ -11,7 +11,7 @@
 }
 
 .movie-show-main-content-div{
-    // max-width: 1000px;
+    max-width: 1450px;
     width: 70%;
     height: 100vh;
     background-color: $purple-3;
@@ -93,5 +93,10 @@
         width: 40vw;
         color: $golden;
     }
+}
+
+
+.movie-show-reviews{
+    margin-top: 20px;
 }
 
