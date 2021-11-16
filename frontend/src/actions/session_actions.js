@@ -28,6 +28,11 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
+
+export const fetchUser = id => dispatch => (
+    APIUtil.fetchUser(id).then(user => dispatch(receiveCurrentUser(user)))
+)
+
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (

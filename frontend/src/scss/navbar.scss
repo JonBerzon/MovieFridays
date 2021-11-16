@@ -1,0 +1,79 @@
+@import "./base.scss";
+
+.navbar-flex-container {
+  display: flex;
+  justify-content: center;
+  background: $purple-5;
+  height: 60px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+
+.navbar-logo-container {
+  display: flex;
+  justify-content: center;
+  border-bottom: 3px solid $golden;
+  width: 180px;
+}
+
+.navbar-logo {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 35px;
+}
+
+.navbar-dropdown-img-container {
+  background: $golden;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.navbar-user-avatar {
+  height: 35px;
+}
+
+.navbar-dropdown-button {
+  position: relative;
+}
+
+.navbar-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 45px;
+}
+
+.navbar-dropdown-button:hover {
+  .navbar-dropdown-menu {
+    display: flex;
+    background: $purple-4;
+    padding: 10px;
+    border-radius: 10px;
+    width: 80px;
+    justify-content: center;
+    // box-shadow: 0px 0px 11px 9px rgba(165,34,255,0.65);
+    box-shadow: 0 0 20px $purple-1;
+    &:hover {
+      background: $purple-5;
+    }
+  }
+}
+
+.navbar-logout {
+  cursor: pointer;
+  font-family: "Bebas Neue", cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.navbar-dropdown-menu:hover {
+}
