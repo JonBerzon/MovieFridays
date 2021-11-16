@@ -6,7 +6,7 @@ import GroupShowContainer from './groups/group_show_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
-import MovieShowContainer from './movies/movie_show_container';
+import MovieShowContainer from './movie_show/movie_show_container';
 
 
 const App = () => (
