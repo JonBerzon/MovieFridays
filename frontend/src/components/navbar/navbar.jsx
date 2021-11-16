@@ -13,7 +13,7 @@ const Navbar = props => (
 
         <div className="navbar-dropdown-button">
           <div className="navbar-dropdown-img-container">
-            <img className="navbar-user-avatar" src={props.user.avatar} />
+            <img className="navbar-user-avatar" src={props.user.avatar} alt='User Avatar' />
           </div>
           <div className="navbar-dropdown-menu">
             <li className="navbar-logout" onClick={props.logout}>

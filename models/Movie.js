@@ -12,16 +12,16 @@ const MovieSchema = new Schema(
       required: true,
     },
     year: {
-      type: Number,
+      type: String,
     },
     plot: {
       type: String,
     },
     imdb: {
-      type: Number,
+      type: String,
     },
     meta: {
-      type: Number,
+      type: String,
     },
     poster: {
       type: String,
@@ -43,6 +43,7 @@ const MovieSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "users",
     },
+    similar_movies: [{type: Object}]
   },
   {
     timestamps: true,
