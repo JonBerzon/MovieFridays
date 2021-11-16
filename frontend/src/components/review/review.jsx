@@ -30,7 +30,7 @@ class Review extends React.Component{
                         <hr />
                         {
                             lorem.split(" ").length > 40 ? (
-                                <div>
+                                <div className="test1">
                                     <p
                                         className={this.state.body === "show more" ? "review-content-show-more" : "review-content-show-less"}
                                     >

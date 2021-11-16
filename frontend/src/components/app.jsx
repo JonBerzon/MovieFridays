@@ -8,6 +8,7 @@ import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
 import MovieShowContainer from './movies/movie_show_container';
 
+
 const App = () => (
     <div>
         <ProtectedRoute path='/' component={NavbarContainer} />
