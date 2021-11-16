@@ -1,0 +1,162 @@
+@import "./base.scss";
+
+.groups-blurb-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  max-width: 1000px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .groups-blurb-container {
+    justify-content: center;
+  }
+}
+
+.group-blurb-container {
+  display: flex;
+  flex-direction: column;
+  width: 490px;
+  background: $purple-4;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.group-blurb-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-blurb-name {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 30px;
+  margin-left: 10px;
+  align-self: flex-end;
+}
+
+.group-blurb-join-button,
+.group-blurb-view-button {
+  cursor: pointer;
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 25px;
+  background: $purple-2;
+  padding: 3px 10px;
+  border-radius: 10px;
+  align-self: flex-start;
+  letter-spacing: 1px;
+}
+
+.group-blurb-header-underline {
+  margin-top: 5px;
+  border-top: 2px solid $golden;
+}
+
+.group-blurb-members-picks-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-blurb-members-container {
+  display: flex;
+  flex-direction: column;
+  background: $purple-2;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 225px;
+}
+
+.group-blurb-members-h4 {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+.group-blurb-members-underline {
+  margin-top: 2px;
+  border-top: 1px solid $golden;
+}
+
+.group-blurb-members {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.group-blurb-member-avatar-container {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: $purple-5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-blurb-owner-crown {
+    background-image: url(../assets/crown.png);
+    background-size: cover;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    top: -13px;
+    z-index: 2;
+}
+
+.group-blurb-member-avatar {
+  width: 35px;
+}
+
+.group-blurb-our-top-picks-container {
+  background: $purple-2;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 225px;
+}
+
+.group-blurb-our-top-picks-h4 {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+.group-blurb-top-picks-underline {
+  margin-top: 2px;
+  border-top: 1px solid $golden;
+}
+
+.group-blurb-our-top-picks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.group-blurb-top-pick {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-blurb-top-pick-title {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 20px;
+}
+
+.group-blurb-top-pick-rating {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 20px;
+}
+
+.group-blurb-top-pick-number {
+    margin-right: 5px;
+}
