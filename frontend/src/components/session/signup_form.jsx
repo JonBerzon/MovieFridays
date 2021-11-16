@@ -7,10 +7,8 @@ import lion from '../../avatars/avatar-lion.svg'
 import monkey from '../../avatars/avatar-monkey.svg'
 import panda from '../../avatars/avatar-panda.svg'
 import unicorn from '../../avatars/avatar-unicorn.svg'
-
-
-
 import { withRouter } from 'react-router-dom';
+
 
 
 
