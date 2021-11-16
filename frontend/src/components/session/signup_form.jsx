@@ -7,9 +7,7 @@ import lion from '../../avatars/avatar-lion.svg'
 import monkey from '../../avatars/avatar-monkey.svg'
 import panda from '../../avatars/avatar-panda.svg'
 import unicorn from '../../avatars/avatar-unicorn.svg'
-import { withRouter } from 'react-router-dom';
-
-
+import { withRouter, Link } from 'react-router-dom';
 
 
 class SignupForm extends React.Component {
@@ -138,7 +136,6 @@ class SignupForm extends React.Component {
     }
 
     render() {
-      console.log(this.state)
       return (
         <div className="signup-background">
 
@@ -153,7 +150,7 @@ class SignupForm extends React.Component {
               <div className="signup-login">
                 <h1>SignUp</h1>
                   <div></div>
-                <h1>Login</h1>
+                <Link id="loginButtonSignup" to="/login">Login</Link>
               </div>
               
               <div className="signup-input">

@@ -60,18 +60,21 @@
     width: 110px;
     border-bottom: 2px solid $golden;
   }
-  h1:nth-child(3) {
-    margin-top: 10px;
-    font-size: 25px;
-    padding-bottom: 20px;
-  }
 }
+
+#loginButtonSignup {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-family: 'Bebas Neue', cursive;
+    color: $white; 
+  }
 
 .signup-input {
   display: flex;
   flex-direction: column;
   background-color: $purple-3;
   padding: 10px;
+  margin-top:20px;
   height: 370px;
   border-radius: 10px;
 }
