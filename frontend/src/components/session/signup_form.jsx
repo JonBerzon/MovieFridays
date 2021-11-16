@@ -59,15 +59,25 @@ class SignupForm extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        );
+      const renderErr = Object.keys(this.state.errors).includes("username") ? (
+          <ul>
+              {Object.keys(this.state.errors).map((error, i) => (
+                  <li className="login-errors" key={`error-${i}`}>
+                      {this.state.errors[error]}
+                  </li>
+              ))}
+          </ul>
+        ) : (
+          <ul>
+              {Object.keys(this.state.errors).map((error, i) => (
+                  <li className="login-pwerror" key={`error-${i}`}>
+                      {this.state.errors[error]}
+                  </li>
+              ))}
+          </ul>
+        )
+
+        return renderErr;
     }
 
     renderAvatars() {
