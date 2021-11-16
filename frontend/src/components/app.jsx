@@ -8,10 +8,12 @@ import GroupsIndex from './groups/groups_index';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
+import SidebarContainer from './sidebar/sidebar_container';
 
 const App = () => (
     <div>
         <ProtectedRoute path='/' component={NavbarContainer} />
+        <ProtectedRoute path='/' component={SidebarContainer} />
         <Switch>
             <ProtectedRoute exact path="/groups" component={GroupsIndex} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />

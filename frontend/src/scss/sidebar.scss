@@ -1,0 +1,64 @@
+.sidebar-parent-div {
+    background-color: $purple-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 200px;
+
+    .sidebar-user-groups {
+        height: 600px;
+        overflow: scroll;
+
+        .sidebar-user-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: $purple-3;
+            font-family: 'Bebas Neue', cursive;
+            color: $white;
+            border:none;
+            border-bottom: 2px solid $golden;
+            font-size: 25px;
+            height: 35px;
+            width: 150px;
+            margin: 30px;
+            padding: 7px;
+            cursor: default;
+            position: relative;
+
+            .sidebar-group-members {
+                position: absolute;
+                display: none;
+                background-color: white;
+                top: 37px;
+                overflow: scroll;
+                
+            }
+        }
+
+        .sidebar-user-group:hover {
+            .sidebar-group-members {
+                display: flex;
+                flex-direction: row;
+                align-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+                height: 300px;
+                width: 150px;
+
+                .sidebar-group-member {
+                    height: 50px;
+                    width: 50px;
+                    background-color: red;
+                    margin: 10px;
+                }
+            }
+        }
+    
+        .sidebar-user-group:hover {
+            background-color: $purple-5;
+        }
+    }
+
+}
