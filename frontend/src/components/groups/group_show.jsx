@@ -97,11 +97,23 @@ class GroupShow extends React.Component {
       : filterBox.classList.add("hidden");
   }
 
+  removeUser(e) {
+    e.preventDefault();
+    this.props
+      .removeUserFromGroup({
+        user_id: this.props.currentUser.id,
+        group_id: this.props.group._id,
+      })
+  }
+
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    if (this.props.movies.length === 0 && this.state.fetched) return <div>ADD MOVIES</div>
-    let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
+    if (this.props.movies.length === 0 && this.state.fetched)
+      return <div>ADD MOVIES</div>;
+    let moviesFiltered = this.props.movies.filter(
+      movie => movie.group_id === this.props.group._id
+    );
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
@@ -112,9 +124,19 @@ class GroupShow extends React.Component {
         movie.genre.includes(this.state.genre)
       );
     } else if (this.state.groupRating) {
-      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? -1 : 1));
+      moviesFiltered.sort((a, b) =>
+        a.cumulative_rating / a.num_reviews >
+        b.cumulative_rating / b.num_reviews
+          ? -1
+          : 1
+      );
     } else if (this.state.groupRating === false) {
-      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? 1 : -1));
+      moviesFiltered.sort((a, b) =>
+        a.cumulative_rating / a.num_reviews >
+        b.cumulative_rating / b.num_reviews
+          ? 1
+          : -1
+      );
     }
 
     let genreArr = [
@@ -128,7 +150,10 @@ class GroupShow extends React.Component {
     return (
       <div className="group-show-main-div">
         {/* <div className="temp-sidebar-template"></div> */}
-        <Sidebar currentUser={this.props.currentUser} group={this.props.group}/>
+        <Sidebar
+          currentUser={this.props.currentUser}
+          group={this.props.group}
+        />
         <div className="filter-movies-container">
           <div className="group-show-header-container">
             <div className="filter-header-group-name-container">
@@ -214,6 +239,7 @@ class GroupShow extends React.Component {
               />
             ))}
           </div>
+          <button onClick={e => this.removeUser(e)}>Leave Group</button>
         </div>
       </div>
     );
