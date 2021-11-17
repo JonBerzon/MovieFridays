@@ -63,21 +63,11 @@ const Sidebar = props => {
             <div className="sidebar-parent-div">
                 <p>GROUP MEMBERS</p>
                 <ul className="sidebar-user-groups">
-                    {props.groups.map(group => {
-                        let list;
-                        // if (`/groups/${group._id}` === props.location.pathname) {
-                            console.log(group)
-                            group.users.map(user => {
-                                if (user._id !== props.currentUser.id) {
-                                    list = (
-                                        <li className="sidebar-user-group">{user.username}</li>
-                                    )
-                                }
-                            })
-                        // }
-
-                        return list;
-                    })}
+                    {Object.values(props.group.users).map(user => {
+                        if (user._id !== props.currentUser.id) {
+                            return <li className="sidebar-user-group">{user.username}</li>
+                        }
+                        })}
                 </ul>
 
                 <div className="social-network">

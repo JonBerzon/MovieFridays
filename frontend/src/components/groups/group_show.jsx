@@ -1,5 +1,7 @@
 import React from "react";
 import GroupMovieItem from "./group_movie_item";
+import SidebarContainer from '../sidebar/sidebar_container';
+
 class GroupShow extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,8 @@ class GroupShow extends React.Component {
     if (!this.props.group) return null;
     return (
       <div className='group-show-main-div'>
-          <div className='temp-sidebar-template'></div>
+          {/* <div className='temp-sidebar-template'></div> */}
+          <SidebarContainer />
         <div className="group-show-movies-container">
           {this.props.movies.map((movie, idx) => (
             <GroupMovieItem

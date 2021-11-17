@@ -13,9 +13,9 @@ class GroupsIndex extends React.Component {
 
     return (
       <div className="groups-index-main-div">
-        <div className="temp-sidebar-template"></div>
-        <div className="groups-index-popular-container">
+        {/* <div className="temp-sidebar-template"></div> */}
           <SidebarContainer display="group" />
+        <div className="groups-index-popular-container">
           <PopularContainer />
           <GroupsBlurbs groups={this.props.groups} addUserToGroup={this.props.addUserToGroup} currentUser={this.props.currentUser} />
         </div>
