@@ -26,9 +26,7 @@ const MovieSchema = new Schema(
     poster: {
       type: String,
     },
-    genre: {
-      type: String,
-    },
+    genre: [],
     director: {
       type: String,
     },
