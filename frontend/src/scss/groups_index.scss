@@ -10,6 +10,11 @@
     background: $purple-2;
 }
 
+.main-content-nav-bar-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .groups-index-popular-container {
     display: flex;
     flex-direction: column;

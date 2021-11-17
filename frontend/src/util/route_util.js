@@ -28,6 +28,20 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
     />
 );
 
+const Blocked = ({ component: Component, loggedIn, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            loggedIn ? (
+                <Redirect to="/groups" />
+            ) : (
+                // Redirect to the login page if the user is already authenticated
+                <Redirect to="/login" />
+            )
+        }
+    />
+);
+
 // Use the isAuthenitcated slice of state to determine whether a user is logged in
 
 const mapStateToProps = state => (
@@ -37,3 +51,4 @@ const mapStateToProps = state => (
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const BlockedRoute = withRouter(connect(mapStateToProps)(Blocked));

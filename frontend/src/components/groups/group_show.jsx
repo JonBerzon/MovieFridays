@@ -1,7 +1,7 @@
 import React from "react";
 import GroupMovieItemContainer from "./group_movie_item_container";
 import ModalButtonContainer from "../modal/modal_button_container";
-
+import NavbarContainer from "../navbar/navbar_container";
 import Sidebar from "../sidebar/sidebar";
 
 class GroupShow extends React.Component {
@@ -137,8 +137,6 @@ class GroupShow extends React.Component {
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    // let moviesFiltered = [...this.props.movies];
-    // let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
     let moviesFiltered = this.props.movies.filter(
       movie => movie.group_id === this.props.group._id
     );
@@ -210,132 +208,130 @@ class GroupShow extends React.Component {
           currentUser={this.props.currentUser}
           group={this.props.group}
         />
-        {/* <div className="temp-sidebar-template"></div> */}
-        <Sidebar
-          currentUser={this.props.currentUser}
-          group={this.props.group}
-        />
-        <div className="filter-movies-container">
-          <div className="group-show-header-container">
-            <div className="filter-header-group-name-container">
-              <div className="group-title-edit-container">
-                {this.state.editOpen ? (
-                  <form
-                    className="edit-group-name-form"
-                    onSubmit={e => this.handleSubmit(e)}
-                  >
-                    <input
-                      type="text"
-                      value={this.state.groupName}
-                      placeholder="Enter A Group Name"
-                      onChange={this.handleNameChange}
-                      className="edit-group-name-input"
-                    />
-                    {this.state.error}
-                  </form>
-                ) : (
-                  <h3 className="group-title-h3">{this.props.group.name}</h3>
-                )}
-                {this.props.currentUser.id === this.props.group.owner._id ? (
-                  <div
-                    className="edit-group-name-button"
-                    onClick={e =>
-                      this.state.editOpen
-                        ? this.handleSubmit(e)
-                        : this.setState({ editOpen: true })
-                    }
-                  ></div>
-                ) : (
-                  <div></div>
-                )}
+        <div className="group-show-navbar-main-div">
+          <NavbarContainer />
+          <div className="filter-movies-container">
+            <div className="group-show-header-container">
+              <div className="filter-header-group-name-container">
+                <div className="group-title-edit-container">
+                  {this.state.editOpen ? (
+                    <form
+                      className="edit-group-name-form"
+                      onSubmit={e => this.handleSubmit(e)}
+                    >
+                      <input
+                        type="text"
+                        value={this.state.groupName}
+                        placeholder="Enter A Group Name"
+                        onChange={this.handleNameChange}
+                        className="edit-group-name-input"
+                      />
+                      {this.state.error}
+                    </form>
+                  ) : (
+                    <h3 className="group-title-h3">{this.props.group.name}</h3>
+                  )}
+                  {this.props.currentUser.id === this.props.group.owner._id ? (
+                    <div
+                      className="edit-group-name-button"
+                      onClick={e =>
+                        this.state.editOpen
+                          ? this.handleSubmit(e)
+                          : this.setState({ editOpen: true })
+                      }
+                    ></div>
+                  ) : (
+                    <div></div>
+                  )}
+                </div>
+                <button
+                  className="filter-header-button"
+                  onClick={e => this.toggleClass(e)}
+                >
+                  FILTER MOVIES
+                </button>
               </div>
-              <button
-                className="filter-header-button"
-                onClick={e => this.toggleClass(e)}
-              >
-                FILTER MOVIES
-              </button>
-            </div>
-            <div id="filter" className="filter-input-flex-container hidden">
-              <hr className="filter-box-hr" />
-              <div className="filter-input-container">
-                <div className="filter-genre-container">
-                  <button
-                    tabIndex="0"
-                    className="filter-genre-label"
-                    onFocus={e => this.genreSwitch(e)}
-                    onBlur={e => this.genreSwitch(e)}
-                  >
-                    GENRE
-                  </button>
-                  <div
-                    className={
-                      this.state.genreSwitch === true
-                        ? "genre-dropdown visible"
-                        : "genre-dropdown hidden"
-                    }
-                  >
-                    <ul>
-                      <li onClick={e => this.setGenre(e, "none")}>None</li>
-                      {genreArr.map((genre, idx) => (
-                        <li
-                          onClick={e => this.setGenre(e)}
-                          key={`${genre}${idx}`}
-                        >
-                          {genre}
-                        </li>
-                      ))}
-                    </ul>
+              <div id="filter" className="filter-input-flex-container hidden">
+                <hr className="filter-box-hr" />
+                <div className="filter-input-container">
+                  <div className="filter-genre-container">
+                    <button
+                      tabIndex="0"
+                      className="filter-genre-label"
+                      onFocus={e => this.genreSwitch(e)}
+                      onBlur={e => this.genreSwitch(e)}
+                    >
+                      GENRE
+                    </button>
+                    <div
+                      className={
+                        this.state.genreSwitch === true
+                          ? "genre-dropdown visible"
+                          : "genre-dropdown hidden"
+                      }
+                    >
+                      <ul>
+                        <li onClick={e => this.setGenre(e, "none")}>None</li>
+                        {genreArr.map((genre, idx) => (
+                          <li
+                            onClick={e => this.setGenre(e)}
+                            key={`${genre}${idx}`}
+                          >
+                            {genre}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="filter-name-container">
+                    <button
+                      className="filter-name-button"
+                      onClick={e => this.handleChange(e, "title")}
+                    >
+                      Title
+                    </button>
+                    {this.state.title ? (
+                      <div className="down-arrow"></div>
+                    ) : this.state.title === false ? (
+                      <div className="up-arrow"></div>
+                    ) : (
+                      <div className="no-arrow"></div>
+                    )}
+                  </div>
+                  <div className="filter-group-rating-container">
+                    <button
+                      className="filter-group-rating-button"
+                      onClick={e => this.handleChange(e, "groupRating")}
+                    >
+                      GROUP RATING
+                    </button>
+                    {this.state.groupRating ? (
+                      <div className="down-arrow"></div>
+                    ) : this.state.groupRating === false ? (
+                      <div className="up-arrow"></div>
+                    ) : (
+                      <div className="no-arrow"></div>
+                    )}
                   </div>
                 </div>
-                <div className="filter-name-container">
-                  <button
-                    className="filter-name-button"
-                    onClick={e => this.handleChange(e, "title")}
-                  >
-                    Title
-                  </button>
-                  {this.state.title ? (
-                    <div className="down-arrow"></div>
-                  ) : this.state.title === false ? (
-                    <div className="up-arrow"></div>
-                  ) : (
-                    <div className="no-arrow"></div>
-                  )}
-                </div>
-                <div className="filter-group-rating-container">
-                  <button
-                    className="filter-group-rating-button"
-                    onClick={e => this.handleChange(e, "groupRating")}
-                  >
-                    GROUP RATING
-                  </button>
-                  {this.state.groupRating ? (
-                    <div className="down-arrow"></div>
-                  ) : this.state.groupRating === false ? (
-                    <div className="up-arrow"></div>
-                  ) : (
-                    <div className="no-arrow"></div>
-                  )}
-                </div>
               </div>
             </div>
+            <div className="group-show-movies-container">
+              {moviesFiltered.map((movie, idx) => (
+                <GroupMovieItemContainer
+                  key={`${movie._id}${idx}`}
+                  movie={movie}
+                  currentUser={this.props.currentUser}
+                />
+              ))}
+            </div>
+            <button
+              className="leave-group-button"
+              onClick={e => this.removeUser(e)}
+            >
+              Leave Group
+            </button>
           </div>
-          <div className="group-show-movies-container">
-            {moviesFiltered.map((movie, idx) => (
-              <GroupMovieItemContainer
-                key={`${movie._id}${idx}`}
-                movie={movie}
-                currentUser={this.props.currentUser}
-              />
-            ))}
-          </div>
-          <button
-            className="leave-group-button"
-            onClick={e => this.removeUser(e)}
-          >
-            Leave Group
-          </button>
         </div>
       </div>
     );
