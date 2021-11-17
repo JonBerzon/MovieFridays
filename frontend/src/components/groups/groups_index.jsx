@@ -15,7 +15,7 @@ class GroupsIndex extends React.Component {
 
     return (
       <div className="groups-index-main-div">
-        {/* <div className="temp-sidebar-template"></div> */}
+        <div className="temp-sidebar-template"></div>
         <Sidebar display="group" currentUser={this.props.currentUser} groups={this.props.groups}/>
         <div className="groups-index-popular-container">
           <ModalButtonContainer modalType={{type:'group'}} />

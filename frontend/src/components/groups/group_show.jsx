@@ -103,7 +103,6 @@ class GroupShow extends React.Component {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
     // let moviesFiltered = [...this.props.movies];
-    if (this.props.movies.length === 0 && this.state.fetched) return <div>ADD MOVIES</div>
     let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
@@ -133,6 +132,8 @@ class GroupShow extends React.Component {
       return obj._id;
     });
 
+    console.log(this.state.fetched)
+    console.log(this.props.movies.length)
 
     return (
 
@@ -158,8 +159,7 @@ class GroupShow extends React.Component {
           )
         }
 
-        {/* <div className="temp-sidebar-template"></div> */}
-        {/* <div className="temp-sidebar-template"></div> */}
+        <div className="temp-sidebar-template"></div>
         <Sidebar currentUser={this.props.currentUser} group={this.props.group}/>
         <div className="filter-movies-container">
           <div className="group-show-header-container">
