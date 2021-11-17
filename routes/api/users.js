@@ -82,7 +82,7 @@ router.post('/login', (req, res) => {
                         jwt.sign(
                             payload,
                             process.env.REACT_APP_SECRET_OR_KEY,
-                            { expiresIn: 3600 },
+                            { expiresIn: 21600 },
                             (err, token) => {
                                 res.json({
                                     success: true,

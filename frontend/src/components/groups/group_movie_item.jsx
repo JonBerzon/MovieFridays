@@ -2,18 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class GroupMovieItem extends React.Component {
-  componentDidMount() {
-    this.props.fetchReviews(this.props.movie._id);
+  constructor(props) {
+    super(props);
+    this.state = { fetched: false };
   }
+  componentDidMount() {
+    this.props
+      .fetchReviews(this.props.movie._id)
+      .then(() => this.setState({ fetched: true }));
+  }
+
 
   render() {
     if (!this.props.movie) return null;
-    let groupRating = 0;
+    if (this.props.reviews.length === 0 && !this.state.fetched) return null;
+    let groupRating = this.props.movie.cumulative_reviews / this.props.movie.num_reviews;
+    if (!groupRating) groupRating = '?'
     let userRating;
-    this.props.reviews.forEach(review => {
-      groupRating += review.rating;
-      if (review.reviewer._id === this.props.currentUser.id)
+    let reviews = [...this.props.reviews];
+    reviews = reviews.filter(
+      review => review.movie_id === this.props.movie._id
+    );
+    reviews.forEach(review => {
+      if (review.reviewer._id === this.props.currentUser.id) {
         userRating = review.rating;
+      }
     });
     return (
       <Link
@@ -51,26 +64,29 @@ class GroupMovieItem extends React.Component {
           </div>
           <div className="group-movie-item-movie-plot-container">
             <p className="group-movie-item-movie-plot">
-              {this.props.movie.plot.slice(0, 243).split("&#39;").join("'")}...
+              {this.props.movie.plot
+                ? this.props.movie.plot.slice(0, 200).split("&#39;").join("'")
+                : ""}
+              ...
             </p>
           </div>
           <div className="group-movie-item-movie-ratings-container">
             <li className="group-movie-item-rating">
-              IMDB RATING{" "}
+              IMDB RATING
               <span className="group-movie-item-rating-number">
                 {this.props.movie.imdb} / 10
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
-              METACRITIC RATING{" "}
+              METACRITIC RATING
               <span className="group-movie-item-rating-number">
                 {this.props.movie.meta} / 100
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
-              GROUPS RATING{" "}
+              GROUPS RATING
               <span className="group-movie-item-rating-number">
                 {groupRating} / 10
               </span>

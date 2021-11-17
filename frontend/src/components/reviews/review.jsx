@@ -15,19 +15,20 @@ class Review extends React.Component{
 
 
     render(){
-        let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus vitae aliquet nec ullamcorper sit amet risus. Elementum facilisis leo vel fringilla est. Elementum tempus egestas sed sed risus pretium quam vulputate dignissim. Ipsum faucibus vitae aliquet nec. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Tincidunt dui ut ornare lectus sit amet est. Facilisis magna etiam tempor orci. Ut morbi tincidunt augue interdum. Cum sociis natoque penatibus et magnis dis parturient. Sit amet consectetur adipiscing elit ut aliquam purus."
-        // let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit "
+        let {body, rating, reviewer} = this.props.review
+        let lorem = body
 
+        // debugger
         return(
             <div className="review-parent-div">
                 <div className="review-content-flex">
                     <div className="review-avatar-border"></div>
                     <div className="review-content">
                         <div className="review-content-top">
-                            <h1>Member Name</h1>
-                            <h1>7/10</h1>
+                            <h1>{reviewer.username}</h1>
+                            <h1>{rating}/10</h1>
                         </div>
-                        <hr />
+                        {/* <hr /> */}
                         {
                             lorem.split(" ").length > 40 ? (
                                 <div className="test1">

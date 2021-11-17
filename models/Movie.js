@@ -26,9 +26,7 @@ const MovieSchema = new Schema(
     poster: {
       type: String,
     },
-    genre: {
-      type: String,
-    },
+    genre: [],
     director: {
       type: String,
     },
@@ -42,6 +40,12 @@ const MovieSchema = new Schema(
     submitter_id: {
       type: Schema.Types.ObjectId,
       ref: "users",
+    },
+    num_reviews: {
+      type: Number
+    },
+    cumulative_reviews: {
+      type: Number
     },
     similar_movies: [{type: Object}]
   },

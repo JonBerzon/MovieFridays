@@ -6,13 +6,13 @@ import {
 
 const ReviewsReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = {};
-
+  
   switch (action.type) {
     case RECEIVE_REVIEW:
       return { ...state, [action.review._id]: action.review };
-    case RECEIVE_REVIEWS:
-
+      case RECEIVE_REVIEWS:
+        let newState = {...state};
+        
       action.reviews.forEach(review => {
         newState[review._id] = review;
       });
