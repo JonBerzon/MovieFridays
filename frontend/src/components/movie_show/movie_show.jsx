@@ -2,7 +2,8 @@ import React from "react";
 import Review from "../reviews/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
-import ModalButtonContainer from '../modal/modal_button_container'
+import ModalButtonContainer from '../modal/modal_button_container';
+import NavbarContainer from '../navbar/navbar_container'
 
 import Sidebar from "../sidebar/sidebar";
 
@@ -53,6 +54,9 @@ class MovieShow extends React.Component {
                   )
                 }
                 <div className="movie-show-dummy-div"></div>
+                <div className='movie-show-navbar-main-content'>
+
+                <NavbarContainer />
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
                         <img src={movie.poster} className="movie-show-poster" />
@@ -93,7 +97,7 @@ class MovieShow extends React.Component {
                     </div>
 
                 </div>
-
+                </div>
             </div>
         )
     }
