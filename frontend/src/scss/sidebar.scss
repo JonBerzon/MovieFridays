@@ -23,6 +23,10 @@
         height: 500px;
         overflow: scroll;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
         .sidebar-user-group {
             background-color: $purple-3;
             font-family: 'Bebas Neue', cursive;
@@ -49,6 +53,10 @@
         height: 500px;
         overflow: scroll;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
         .sidebar-user-name {
             background-color: $purple-3;
             font-family: 'Bebas Neue', cursive;

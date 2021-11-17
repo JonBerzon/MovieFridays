@@ -85,20 +85,20 @@
 
   .signup-errors:first-child {
       position: absolute;
-      top: 205px;
+      top: 208px;
       color: red;
   }
 
   .signup-errors:nth-child(2) {
       position: absolute;
       color: red;
-      top: 263px;
+      top: 266px;
   }
 
   .signup-pwerror {
       position: absolute;
       color: red;
-      top: 263px;
+      top: 266px;
   }
 
 }
@@ -123,7 +123,7 @@
 
 .border-bottom-light {
   outline: none;
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 20px;
   text-align: left;
   background-color: transparent;
