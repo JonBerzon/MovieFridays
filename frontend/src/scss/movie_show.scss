@@ -13,7 +13,8 @@
 .movie-show-main-content-div{
     max-width: 1450px;
     width: 70%;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
     background-color: $purple-3;
     margin: auto;
     display: flex;

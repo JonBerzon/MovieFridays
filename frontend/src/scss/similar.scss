@@ -7,14 +7,18 @@
         font-size: 18px;
         // color: $golden;
         text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 120px;
         
     }
 }
 
 .similar-movie-img{
-    height: auto;
+    height: 170px;
     width: 120px;
-    box-shadow: 0 10px 50px 0px $purple-1;
+    box-shadow: 0 5px 10px 3px $purple-1;
     
 
 }

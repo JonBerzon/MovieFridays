@@ -28,6 +28,8 @@ class MovieShow extends React.Component {
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
         let reviewArr = Object.values(reviews).filter(review => review.movie_id === movie._id)
+        let {similar_movies} = movie
+        // debugger
         return (
             <div className="movie-show-parent-div">
                 {
@@ -46,8 +48,8 @@ class MovieShow extends React.Component {
                             <hr />
                             <div className="movie-show-similar-index">
                                 {
-                                    similar.map(movie => {
-                                        return <Similar key={movie} />
+                                    similar_movies.map(movie => {
+                                        return <Similar key={movie} movie={movie} />
                                     })
                                 }
                             </div>

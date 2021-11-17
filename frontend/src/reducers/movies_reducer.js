@@ -11,7 +11,7 @@ const MoviesReducer = (state={}, action) => {
         case RECEIVE_MOVIE:
             return {...state, [action.movie._id]: action.movie};
         case RECEIVE_MOVIES:
-            let newState = {};
+            let newState = {...state};
             action.movies.forEach(movie => {
                 newState[movie._id] = movie
             });

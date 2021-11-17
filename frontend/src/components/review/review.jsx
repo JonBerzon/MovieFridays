@@ -22,7 +22,7 @@ class Review extends React.Component{
         return(
             <div className="review-parent-div">
                 <div className="review-content-flex">
-                    <div className="review-avatar-border"></div>
+                    <div className="review-avatar-border"> <img src={reviewer.avatar}/> </div>
                     <div className="review-content">
                         <div className="review-content-top">
                             <h1>{reviewer.username}</h1>
