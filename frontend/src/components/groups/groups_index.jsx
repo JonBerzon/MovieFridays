@@ -1,6 +1,7 @@
 import React from "react";
 import PopularContainer from "../popular/popular_container";
 import GroupsBlurbs from "./groups_blurbs";
+import SidebarContainer from "../sidebar/sidebar_container";
 
 class GroupsIndex extends React.Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class GroupsIndex extends React.Component {
       <div className="groups-index-main-div">
         <div className="temp-sidebar-template"></div>
         <div className="groups-index-popular-container">
+          <SidebarContainer display="group" />
           <PopularContainer />
           <GroupsBlurbs groups={this.props.groups} addUserToGroup={this.props.addUserToGroup} currentUser={this.props.currentUser} />
         </div>

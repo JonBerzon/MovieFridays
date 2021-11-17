@@ -13,7 +13,7 @@ import SidebarContainer from './sidebar/sidebar_container';
 const App = () => (
     <div>
         <ProtectedRoute path='/' component={NavbarContainer} />
-        <ProtectedRoute path='/' component={SidebarContainer} />
+        {/* <ProtectedRoute path='/' component={SidebarContainer} /> */}
         <Switch>
             <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
