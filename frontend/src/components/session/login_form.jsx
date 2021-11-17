@@ -22,6 +22,15 @@ class LoginForm extends React.Component {
         }
     }
 
+    loginDemoUser(){
+      const user = {
+          username: 'Demo',
+          password: 'password',
+      }
+
+      this.props.login(user);
+    }
+
     // Handle field updates (called in the render method)
     update(field) {
         return e => this.setState({
@@ -110,7 +119,7 @@ class LoginForm extends React.Component {
                         </label>
                         
                         <div className="login-buttons">
-                            <input className="login-demo" type="submit" value="Demo" />
+                            <input className="login-demo" onClick={() => this.loginDemoUser()} type="button" value="Demo" />
                             <input className="login-submit" type="submit" value="Submit" />
                         </div>
                     </div>

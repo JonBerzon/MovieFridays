@@ -46,6 +46,15 @@ class SignupForm extends React.Component {
         }
     }
 
+    loginDemoUser(){
+      const user = {
+          username: 'Demo',
+          password: 'password',
+      }
+
+      this.props.login(user);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -54,8 +63,7 @@ class SignupForm extends React.Component {
             avatar: this.state.avatar,
         };
 
-        this.props.signup(user, this.props.history).then(() => this.props.login(user))
-        // await this.props.login(user)
+        this.props.signup(user, this.props.history).then(() => this.props.login(user));
     }
 
     renderErrors() {
@@ -81,6 +89,7 @@ class SignupForm extends React.Component {
     }
 
     renderAvatars() {
+
       return(
         <div className="signup-avatar-container" >
           <h1>Select an Avatar</h1>
@@ -149,7 +158,6 @@ class SignupForm extends React.Component {
     render() {
       return (
         <div className="signup-background">
-
           <div className="signup-intro">
               <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
               <div>
@@ -206,7 +214,7 @@ class SignupForm extends React.Component {
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">
-                    <a href="/login">Demo</a>
+                    <input className="login-demo" onClick={() => this.loginDemoUser()} type="button" value="Demo" />
                     <input type="submit" value="Submit" />
                   </div>
               </div>
