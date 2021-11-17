@@ -6,14 +6,12 @@ import GroupShowContainer from './groups/group_show_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
-import SidebarContainer from './sidebar/sidebar_container';
 import MovieShowContainer from './movie_show/movie_show_container';
 
 
 const App = () => (
     <div>
         <ProtectedRoute path='/' component={NavbarContainer} />
-        {/* <ProtectedRoute path='/' component={SidebarContainer} /> */}
         <Switch>
             <ProtectedRoute exact path="/groups/:groupId" component={GroupShowContainer} />
             <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />

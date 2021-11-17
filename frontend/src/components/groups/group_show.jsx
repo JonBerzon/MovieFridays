@@ -1,7 +1,7 @@
 import React from "react";
 import GroupMovieItem from "./group_movie_item";
-import SidebarContainer from '../sidebar/sidebar_container';
 import GroupMovieItemContainer from "./group_movie_item_container";
+import Sidebar from "../sidebar/sidebar";
 
 class GroupShow extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class GroupShow extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props);
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
     let moviesFiltered = [...this.props.movies];
@@ -99,24 +99,11 @@ class GroupShow extends React.Component {
     } else if (this.state.groupRating === false) {
       moviesFiltered.sort((a, b) => (a.groupRating > b.id ? 1 : -1));
     }
+    // console.log(this.props)
     return (
-<<<<<<< HEAD
-      <div className='group-show-main-div'>
-          {/* <div className='temp-sidebar-template'></div> */}
-          <SidebarContainer />
-        <div className="group-show-movies-container">
-          {this.props.movies.map((movie, idx) => (
-            <GroupMovieItem
-              key={`${movie._id}${idx}`}
-              movie={movie}
-              fetchReviews={this.props.fetchReviews}
-              reviews={this.props.reviews}
-              currentUser={this.props.currentUser}
-            />
-          ))}
-=======
       <div className="group-show-main-div">
-        <div className="temp-sidebar-template"></div>
+        {/* <div className="temp-sidebar-template"></div> */}
+        <Sidebar currentUser={this.props.currentUser} group={this.props.group}/>
         <div className="filter-movies-container">
           <div className="filter-box">
             <div className="filter-header-container">
@@ -180,7 +167,6 @@ class GroupShow extends React.Component {
               />
             ))}
           </div>
->>>>>>> main
         </div>
       </div>
     );

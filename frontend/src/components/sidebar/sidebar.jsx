@@ -58,16 +58,66 @@ const Sidebar = props => {
                 
             </div>
         )
+    } else if (props.display === 'show') {
+        return (
+            <div className="sidebar-parent-div">
+                <p>GROUP MEMBERS</p>
+                <ul className="sidebar-user-names">
+                    {
+                        Object.values(props.groups.users).map(user => {
+                            if (user._id !== props.currentUser.id) {
+                                return <li className="sidebar-user-name">{user.username}</li>
+                            }
+                        })
+                    }
+                </ul>
+
+                <div className="social-network">
+                    <div className="members">
+                        <div className="links">
+                            <div>Link1</div>
+                            <div>Link2</div>
+                            <div>Link3</div>
+                        </div>
+                    </div>
+                    <div className="members">
+                        <div className="links">
+                            <div>Link1</div>
+                            <div>Link2</div>
+                            <div>Link3</div>
+                        </div>
+                    </div>
+                    <div className="members">
+                        <div className="links">
+                            <div>Link1</div>
+                            <div>Link2</div>
+                            <div>Link3</div>
+                        </div>
+                    </div>
+                    <div className="members">
+                        <div className="links">
+                            <div>Link1</div>
+                            <div>Link2</div>
+                            <div>Link3</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        )
     } else {
         return (
             <div className="sidebar-parent-div">
                 <p>GROUP MEMBERS</p>
                 <ul className="sidebar-user-names">
-                    {Object.values(props.group.users).map(user => {
-                        if (user._id !== props.currentUser.id) {
-                            return <li className="sidebar-user-name">{user.username}</li>
-                        }
-                        })}
+                    {
+                        Object.values(props.group.users).map(user => {
+                            if (user._id !== props.currentUser.id) {
+                                return <li className="sidebar-user-name">{user.username}</li>
+                            }
+                        })
+                    }
                 </ul>
 
                 <div className="social-network">

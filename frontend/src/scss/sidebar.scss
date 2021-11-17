@@ -1,15 +1,17 @@
 .sidebar-parent-div {
+    position: fixed;
     background-color: $purple-2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: -60px;
     height: 100%;
     width: 200px;
-    border-radius: 10px;
+    z-index: 5;
 
     p {
-        margin-top: 20px;
+        margin-top: 80px;
         font-family: 'Bebas Neue', cursive;
         color: $white;
         border:none;

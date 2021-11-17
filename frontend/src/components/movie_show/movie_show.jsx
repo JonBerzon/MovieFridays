@@ -2,6 +2,7 @@ import React from "react";
 import Review from "../review/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
+import Sidebar from "../sidebar/sidebar";
 
 class MovieShow extends React.Component {
     constructor(props) {
@@ -20,7 +21,6 @@ class MovieShow extends React.Component {
         }
     }
 
-
     render() {
         let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
@@ -30,6 +30,13 @@ class MovieShow extends React.Component {
         let reviewArr = Object.values(reviews).filter(review => review.movie_id === movie._id)
         return (
             <div className="movie-show-parent-div">
+                {
+                this.props.movie ? (
+                    <Sidebar display="show" currentUser={this.props.currentUser} groups={this.props.groups[this.props.movie.group_id]} />
+                ) : (
+                    null
+                )
+                }
                 <div className="movie-show-dummy-div"></div>
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
