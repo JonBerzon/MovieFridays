@@ -59,7 +59,55 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  padding: 15px 0px 10px 0px;
+  padding: 15px 0px 15px 0px;
+}
+
+.group-title-edit-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.edit-group-name-button {
+  width: 30px;
+  height: 30px;
+  background: url(../assets//edit-pencil.png);
+  background-size: cover;
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.edit-group-name-button:hover {
+  filter: invert(75%);
+
+}
+
+.edit-group-name-button:active {
+  transform: translateY(2px);
+  filter: invert(50%);
+}
+
+.edit-group-name-input {
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 50px;
+  text-decoration: underline 5px solid $golden;
+  text-underline-offset: 7px;
+  border: 1px solid $white;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.edit-group-name-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-name-errors {
+  color: red;
+  margin-top: 5px;
 }
 
 .group-title-h3 {
