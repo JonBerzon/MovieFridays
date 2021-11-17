@@ -62,10 +62,10 @@ const Sidebar = props => {
         return (
             <div className="sidebar-parent-div">
                 <p>GROUP MEMBERS</p>
-                <ul className="sidebar-user-groups">
+                <ul className="sidebar-user-names">
                     {Object.values(props.group.users).map(user => {
                         if (user._id !== props.currentUser.id) {
-                            return <li className="sidebar-user-group">{user.username}</li>
+                            return <li className="sidebar-user-name">{user.username}</li>
                         }
                         })}
                 </ul>
