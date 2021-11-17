@@ -1,6 +1,6 @@
 import React from "react";
 import GroupMovieItemContainer from "./group_movie_item_container";
-import ModalButtonContainer from '../modal/modal_button_container'
+import ModalButtonContainer from "../modal/modal_button_container";
 
 import Sidebar from "../sidebar/sidebar";
 
@@ -14,10 +14,15 @@ class GroupShow extends React.Component {
       genre: null,
       title: null,
       genreSwitch: false,
+      editOpen: false,
+      groupName: null,
     };
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
   componentDidMount() {
-    this.props.fetchGroup(this.props.match.params.groupId);
+    this.props
+      .fetchGroup(this.props.match.params.groupId)
+      .then(res => this.setState({ groupName: res.group.name }));
     this.props
       .fetchMovies(this.props.match.params.groupId)
       .then(() => this.setState({ fetched: true }));
@@ -99,11 +104,44 @@ class GroupShow extends React.Component {
       : filterBox.classList.add("hidden");
   }
 
+  removeUser(e) {
+    e.preventDefault();
+    this.props.removeUserFromGroup({
+      user_id: this.props.currentUser.id,
+      group_id: this.props.group._id,
+    });
+  }
+
+  handleNameChange(e) {
+    this.setState({ groupName: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.groupName.length === 0) {
+      this.setState({
+        error: <li className="group-name-errors">Group Name Cant Be Blank</li>,
+      });
+    } else {
+      this.setState({ error: null });
+      let group = {
+        group_name: this.state.groupName,
+        group_id: this.props.group._id,
+      };
+      this.props
+        .editGroupName(group)
+        .then(() => this.setState({ editOpen: false }));
+    }
+  }
+
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
     // let moviesFiltered = [...this.props.movies];
-    let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
+    // let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
+    let moviesFiltered = this.props.movies.filter(
+      movie => movie.group_id === this.props.group._id
+    );
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
@@ -114,9 +152,19 @@ class GroupShow extends React.Component {
         movie.genre.includes(this.state.genre)
       );
     } else if (this.state.groupRating) {
-      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? -1 : 1));
+      moviesFiltered.sort((a, b) => {
+        return a.cumulative_reviews / a.num_reviews >
+          b.cumulative_reviews / b.num_reviews
+          ? -1
+          : 1;
+      });
     } else if (this.state.groupRating === false) {
-      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? 1 : -1));
+      moviesFiltered.sort((a, b) =>
+        a.cumulative_reviews / a.num_reviews >
+        b.cumulative_reviews / b.num_reviews
+          ? 1
+          : -1
+      );
     }
 
     let genreArr = [
@@ -128,40 +176,79 @@ class GroupShow extends React.Component {
       "Animated",
     ];
 
-    const members = this.props.group.users.map(obj =>  {
+    const members = this.props.group.users.map(obj => {
       return obj._id;
     });
 
-    return (
 
-    this.props.movies.length === 0 && this.state.fetched ? (
+
+    return this.props.movies.length === 0 && this.state.fetched ? (
       <div>
         <h1>Add movies to your group</h1>
-        {
-          members.includes(this.props.currentUser.id) ? (
-            <ModalButtonContainer modalType={{type:'movie', groupId: this.props.match.params.groupId}} />
-          ) : (
-            null
-          )
-        }
+        {members.includes(this.props.currentUser.id) ? (
+          <ModalButtonContainer
+            modalType={{
+              type: "movie",
+              groupId: this.props.match.params.groupId,
+            }}
+          />
+        ) : null}
       </div>
     ) : (
       <div className="group-show-main-div">
-        
-        {
-          members.includes(this.props.currentUser.id) ? (
-            <ModalButtonContainer modalType={{type:'movie', groupId: this.props.match.params.groupId}} />
-          ) : (
-            null
-          )
-        }
+        {members.includes(this.props.currentUser.id) ? (
+          <ModalButtonContainer
+            modalType={{
+              type: "movie",
+              groupId: this.props.match.params.groupId,
+            }}
+          />
+        ) : null}
 
         <div className="temp-sidebar-template"></div>
-        <Sidebar currentUser={this.props.currentUser} group={this.props.group}/>
+        <Sidebar
+          currentUser={this.props.currentUser}
+          group={this.props.group}
+        />
+        {/* <div className="temp-sidebar-template"></div> */}
+        <Sidebar
+          currentUser={this.props.currentUser}
+          group={this.props.group}
+        />
         <div className="filter-movies-container">
           <div className="group-show-header-container">
             <div className="filter-header-group-name-container">
-              <h3 className="group-title-h3">{this.props.group.name}</h3>
+              <div className="group-title-edit-container">
+                {this.state.editOpen ? (
+                  <form
+                    className="edit-group-name-form"
+                    onSubmit={e => this.handleSubmit(e)}
+                  >
+                    <input
+                      type="text"
+                      value={this.state.groupName}
+                      placeholder="Enter A Group Name"
+                      onChange={this.handleNameChange}
+                      className="edit-group-name-input"
+                    />
+                    {this.state.error}
+                  </form>
+                ) : (
+                  <h3 className="group-title-h3">{this.props.group.name}</h3>
+                )}
+                {this.props.currentUser.id === this.props.group.owner._id ? (
+                  <div
+                    className="edit-group-name-button"
+                    onClick={e =>
+                      this.state.editOpen
+                        ? this.handleSubmit(e)
+                        : this.setState({ editOpen: true })
+                    }
+                  ></div>
+                ) : (
+                  <div></div>
+                )}
+              </div>
               <button
                 className="filter-header-button"
                 onClick={e => this.toggleClass(e)}
@@ -243,10 +330,15 @@ class GroupShow extends React.Component {
               />
             ))}
           </div>
+          <button
+            className="leave-group-button"
+            onClick={e => this.removeUser(e)}
+          >
+            Leave Group
+          </button>
         </div>
       </div>
-    )
-  )
+    );
   }
 }
 

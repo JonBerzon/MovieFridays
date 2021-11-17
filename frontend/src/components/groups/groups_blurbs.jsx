@@ -21,7 +21,7 @@ class GroupsBlurbs extends React.Component {
     let moviesSorted = props.movies;
     moviesSorted = moviesSorted.filter(movie => movie.group_id === group._id);
     moviesSorted.sort((a, b) =>
-      a.cumulative_rating / a.num_reviews > b.cumulative_rating / b.num_reviews
+      a.cumulative_reviews / a.num_reviews > b.cumulative_reviews / b.num_reviews
         ? -1
         : 1
     );
