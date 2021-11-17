@@ -16,14 +16,14 @@ class GroupMovieItem extends React.Component {
   render() {
     if (!this.props.movie) return null;
     if (this.props.reviews.length === 0 && !this.state.fetched) return null;
-    let groupRating = 0;
+    let groupRating = this.props.movie.cumulative_reviews / this.props.movie.num_reviews;
+    if (!groupRating) groupRating = '?'
     let userRating;
     let reviews = [...this.props.reviews];
     reviews = reviews.filter(
       review => review.movie_id === this.props.movie._id
     );
     reviews.forEach(review => {
-      groupRating += review.rating;
       if (review.reviewer._id === this.props.currentUser.id) {
         userRating = review.rating;
       }
@@ -72,21 +72,21 @@ class GroupMovieItem extends React.Component {
           </div>
           <div className="group-movie-item-movie-ratings-container">
             <li className="group-movie-item-rating">
-              IMDB RATING{" "}
+              IMDB RATING
               <span className="group-movie-item-rating-number">
                 {this.props.movie.imdb} / 10
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
-              METACRITIC RATING{" "}
+              METACRITIC RATING
               <span className="group-movie-item-rating-number">
                 {this.props.movie.meta} / 100
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
-              GROUPS RATING{" "}
+              GROUPS RATING
               <span className="group-movie-item-rating-number">
                 {groupRating} / 10
               </span>

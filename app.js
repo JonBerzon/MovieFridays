@@ -11,6 +11,8 @@ const path = require("path");
 const groups = require("./routes/api/groups");
 const movies = require("./routes/api/movies");
 const reviews = require("./routes/api/reviews");
+const popular = require("./routes/api/popular");
+
 
 
 
@@ -34,6 +36,8 @@ app.use("/api/users", users);
 app.use("/api/groups", groups);
 app.use("/api/movies", movies);
 app.use("/api/reviews", reviews);
+app.use("/api/popular", popular);
+
 
 
 const port = process.env.PORT || 5000;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchPopular } from '../../actions/popular_action';
+import { getPopular } from '../../actions/popular_action';
 import Popular from './popular';
 
 const mSTP = state => ({
@@ -7,7 +7,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchPopular: () => dispatch(fetchPopular())
+    getPopular: () => dispatch(getPopular())
 })
 
 export default connect(mSTP,mDTP)(Popular)
