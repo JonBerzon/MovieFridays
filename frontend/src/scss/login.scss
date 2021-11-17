@@ -31,7 +31,7 @@
         box-shadow: 0 0 50px $purple-1;
         padding: 30px;
         top: 100px;
-        height: 350px;
+        height: 360px;
         width: 450px;
 
         p {
@@ -41,13 +41,12 @@
             border-bottom: 2px solid $golden;
             font-size: 50px;
             width: 90px;
-            margin-left: 13px;
+            margin-bottom: 10px;
         }
 
         .login-signup {
             font-family: 'Bebas Neue', cursive;
             color: $white; 
-            margin-left: 15px;
             font-size: 25px;
         }
 
@@ -56,15 +55,16 @@
             flex-direction: column;
             background-color: $purple-3;
             border-radius: 10px;
-            margin-top: 30px;
-            padding: 20px;
-            height: 170px;
+            margin-top: 25px;
+            padding: 10px;
+            height: 180px;
 
             label {
+                display: flex;
                 font-family: 'Bebas Neue', cursive;
                 color: $white;
                 font-size: 25px;
-                padding-top: 7px;
+                padding: 15px;
                 input:-webkit-autofill,
                 input:-webkit-autofill:hover, 
                 input:-webkit-autofill:focus, 
@@ -77,7 +77,7 @@
                     border:none; 
                     border-bottom: 2px solid $golden;
                     outline: none;
-                    margin-left: 30px;
+                    margin-left: 25px;
                     font-size: 20px;
                 }
 
@@ -85,7 +85,7 @@
                     border:none; 
                     border-bottom: 2px solid $golden;
                     outline: none;
-                    margin-left: 30px;
+                    margin-left: 25px;
                     font-size: 20px;
                 }
             }
@@ -93,7 +93,7 @@
             .login-buttons {
                 display: flex;
                 flex-direction: row;
-                padding: 10px;
+                padding: 15px;
                 justify-content: center;
                 column-gap: 50px;
                 font-size: 20px;
@@ -112,26 +112,25 @@
                 font-weight:400;
                 font-size: 13px;
                 width: 200px;
-                left: 175px;
-                text-align: center;
+                left: 166px;
             }
          
             .login-errors:first-child {
                 position: absolute;
-                top: 150px;
+                top: 208px;
                 color: red;
             }
 
             .login-errors:nth-child(2) {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 266px;
             }
 
             .login-pwerror {
                 position: absolute;
                 color: red;
-                top: 205px;
+                top: 266px;
             }
         }
     }

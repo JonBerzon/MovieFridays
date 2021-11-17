@@ -42,7 +42,7 @@
   position: relative;
   background-color: $purple-1;
   padding: 30px;
-  top: 8%;
+  top: 100px;
   height: 550px;
   width: 450px;
   align-items: right;
@@ -55,6 +55,7 @@
     font-size: 50px;
     width: 110px;
     border-bottom: 2px solid $golden;
+    margin-bottom: 10px;
   }
 }
 
@@ -70,9 +71,36 @@
   flex-direction: column;
   background-color: $purple-3;
   padding: 10px;
-  margin-top:20px;
+  margin-top: 25px;
   height: 370px;
   border-radius: 10px;
+
+  li {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight:400;
+    font-size: 13px;
+    width: 200px;
+    left: 166px;
+  }
+
+  .signup-errors:first-child {
+      position: absolute;
+      top: 208px;
+      color: red;
+  }
+
+  .signup-errors:nth-child(2) {
+      position: absolute;
+      color: red;
+      top: 266px;
+  }
+
+  .signup-pwerror {
+      position: absolute;
+      color: red;
+      top: 266px;
+  }
+
 }
 
 .signup-username, .signup-password{
@@ -80,6 +108,7 @@
 }
 
 .signup-input label {
+  display: flex;
     font-family: 'Bebas Neue', cursive;
     color: $white;
     font-size: 25px;
@@ -94,7 +123,7 @@
 
 .border-bottom-light {
   outline: none;
-  margin-left: 30px;
+  margin-left: 25px;
   font-size: 20px;
   text-align: left;
   background-color: transparent;

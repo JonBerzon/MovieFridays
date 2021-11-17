@@ -9,7 +9,8 @@ const mSTP = (state, ownProps) => ({
     group: state.entities.groups[ownProps.match.params.groupId],
     movies: Object.values(state.entities.movies),
     reviews: Object.values(state.entities.reviews),
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    ownProps: ownProps
 });
 
 const mDTP = dispatch => ({

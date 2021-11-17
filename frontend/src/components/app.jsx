@@ -17,8 +17,8 @@ const App = () => (
         <ProtectedRoute path='/' component={NavbarContainer} />
         <Route path="/movies/:movie_id/review" component={ReviewForm} /> 
         <Switch>
-            <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />
             <ProtectedRoute exact path="/groups/:groupId" component={GroupShowContainer} />
+            <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />
             <ProtectedRoute exact path="/movies/:movieId" component={MovieShowContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />

@@ -1,4 +1,5 @@
 import React from "react";
+import MovieShow from "./movie_show";
 
 class Similar extends React.Component{
     constructor(props){
@@ -6,10 +7,11 @@ class Similar extends React.Component{
     }
 
     render(){
+        let {movie} = this.props
         return(
             <div className="similar-movie-div">
-                <h1>Interstellar</h1>
-                <img className="similar-movie-img" src="https://imdb-api.com/images/original/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_Ratio0.6763_AL_.jpg" />
+                <h1>{movie.title}</h1>
+                <img className="similar-movie-img" src={movie.image}/>
             </div>
         )
     }

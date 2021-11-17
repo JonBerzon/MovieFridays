@@ -5,7 +5,7 @@ class ReviewForm extends React.Component {
     super(props)
 
     this.state = {
-      rating: '', 
+      rating: '1', 
       body:'', 
     };
 

@@ -67,6 +67,7 @@
   border-radius: 10px;
   margin-top: 10px;
   width: 225px;
+  height: fit-content;
 }
 
 .group-blurb-members-h4 {
@@ -149,6 +150,14 @@
   font-family: "Bebas Neue", cursive;
   color: $white;
   font-size: 20px;
+}
+
+.group-blurb-no-movies-rated {
+  margin-top: 30px;
+  font-family: "Bebas Neue", cursive;
+  color: $white;
+  font-size: 28px;
+  text-align: center;
 }
 
 .group-blurb-top-pick-rating {

@@ -4,6 +4,7 @@ import GroupRatings from "./group_ratings";
 import Similar from "./similar";
 import ModalButtonContainer from '../modal/modal_button_container'
 
+import Sidebar from "../sidebar/sidebar";
 
 class MovieShow extends React.Component {
     constructor(props) {
@@ -22,7 +23,6 @@ class MovieShow extends React.Component {
         }
     }
 
-
     render() {
         let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
@@ -34,10 +34,17 @@ class MovieShow extends React.Component {
         const members = this.props.groups[groupId].users.map(obj =>  {
             return obj._id;
         });
-        console.log(this.props)
-        
+        let {similar_movies} = movie
         return (
             <div className="movie-show-parent-div">
+                {
+                this.props.movie ? (
+                    <Sidebar display="show" currentUser={this.props.currentUser} groups={this.props.groups[this.props.movie.group_id]} />
+                ) : (
+                    null
+                )
+                }
+                
                 {
                   members.includes(this.props.currentUser.id) ? (
                     <ModalButtonContainer modalType={{type:'review', movieId: this.props.movie._id}} />
@@ -54,8 +61,8 @@ class MovieShow extends React.Component {
                             <hr />
                             <div className="movie-show-similar-index">
                                 {
-                                    similar.map(movie => {
-                                        return <Similar key={movie} />
+                                    similar_movies.map(movie => {
+                                        return <Similar key={movie} movie={movie} />
                                     })
                                 }
                             </div>

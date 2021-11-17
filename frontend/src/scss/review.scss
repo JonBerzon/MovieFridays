@@ -14,9 +14,17 @@
     height: 80px;
     width: 80px;
     border-radius: 50%;
-    background-color: $purple-2;
+    background-color: $purple-5;
     margin-left: 10px;
     align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        height: 70px;
+        width: auto;
+    }
 }
 
 .review-content-flex{

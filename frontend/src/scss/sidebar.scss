@@ -1,0 +1,101 @@
+.sidebar-parent-div {
+    position: fixed;
+    background-color: $purple-2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -60px;
+    height: 100%;
+    width: 200px;
+    z-index: 5;
+
+    p {
+        margin-top: 80px;
+        font-family: 'Bebas Neue', cursive;
+        color: $white;
+        border:none;
+        border-bottom: 2px solid $golden;
+        font-size: 30px;
+    }
+
+    .sidebar-user-groups {
+        height: 500px;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sidebar-user-group {
+            background-color: $purple-3;
+            font-family: 'Bebas Neue', cursive;
+            color: $white;
+            font-size: 25px;
+            height: 35px;
+            width: 150px;
+            margin: 20px;
+            padding: 7px;
+            border-radius: 10px;
+            overflow:hidden; 
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+            
+            &:hover {
+                background-color: $purple-5;
+            }
+
+        }
+    }
+    
+    .sidebar-user-names {
+        height: 500px;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sidebar-user-name {
+            background-color: $purple-3;
+            font-family: 'Bebas Neue', cursive;
+            color: $white;
+            font-size: 25px;
+            height: 35px;
+            width: 150px;
+            margin: 20px;
+            padding: 7px;
+            border-radius: 10px;
+            overflow:hidden; 
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+    }
+
+    .social-network {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        height: 180px;
+        width: 200px;
+        
+        .members {
+            height: 50px;
+            width: 50px;
+            position: relative;
+            
+            .links {
+                border: 2px solid $golden;
+                border-radius: 50%;
+                height: 50px;
+                width: auto;
+                left: 25px;
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import GroupMovieItemContainer from "./group_movie_item_container";
 import ModalButtonContainer from '../modal/modal_button_container'
 
+import Sidebar from "../sidebar/sidebar";
 
 class GroupShow extends React.Component {
   constructor(props) {
@@ -101,7 +102,9 @@ class GroupShow extends React.Component {
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    let moviesFiltered = [...this.props.movies];
+    // let moviesFiltered = [...this.props.movies];
+    if (this.props.movies.length === 0 && this.state.fetched) return <div>ADD MOVIES</div>
+    let moviesFiltered = this.props.movies.filter(movie => movie.group_id === this.props.group._id)
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
@@ -116,6 +119,7 @@ class GroupShow extends React.Component {
     } else if (this.state.groupRating === false) {
       moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? 1 : -1));
     }
+
     let genreArr = [
       "Comedy",
       "Action",
@@ -154,7 +158,9 @@ class GroupShow extends React.Component {
           )
         }
 
-        <div className="temp-sidebar-template"></div>
+        {/* <div className="temp-sidebar-template"></div> */}
+        {/* <div className="temp-sidebar-template"></div> */}
+        <Sidebar currentUser={this.props.currentUser} group={this.props.group}/>
         <div className="filter-movies-container">
           <div className="group-show-header-container">
             <div className="filter-header-group-name-container">
