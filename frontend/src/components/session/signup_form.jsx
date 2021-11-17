@@ -41,10 +41,10 @@ class SignupForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.errors !== prevProps.errors){
+        if (this.props.errors !== prevProps.errors) {
             this.setState({ errors: this.props.errors })
         }
-    }
+      }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -54,8 +54,22 @@ class SignupForm extends React.Component {
             avatar: this.state.avatar,
         };
 
-        this.props.signup(user, this.props.history).then(() => this.props.login(user))
-        // await this.props.login(user)
+        if (user.username.length < 4) {
+          <li className="signup-errors">fix me</li>
+        }
+        // let handleError = user.username.length < 4 || user.username.length > 20 ? (
+        //   <li className="signup-errors">
+        //     Username must be between 4 and 20 characters
+        //   </li>
+        // ) : !user.avatar ? (
+        //   <li className="signup-avatar-error">
+        //     Username must be between 4 and 20 characters
+        //   </li>
+        // ) : (
+          this.props.signup(user, this.props.history).then(() => this.props.login(user))
+        // )
+
+        // return handleError;
     }
 
     renderErrors() {
@@ -67,7 +81,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        ) : (
+      ) : (
           <ul>
               {Object.keys(this.state.errors).map((error, i) => (
                   <li className="signup-pwerror" key={`error-${i}`}>
@@ -75,7 +89,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        )
+      )
 
         return renderErr;
     }
