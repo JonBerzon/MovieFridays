@@ -41,6 +41,11 @@ router.post('/create', async (req,res) =>{
     })
     newReview.save()
         .then(review => res.json(review))
+        .then(() => {
+            movie.num_reviews += 1,
+            movie.cumulative_reviews += newReview.rating
+            movie.save()
+        })
         .catch(() => res.status(400).json({savefail: "Could not save review"}))
 })
 
