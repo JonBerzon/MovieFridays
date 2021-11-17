@@ -1,5 +1,5 @@
 import React from "react";
-import Review from "../review/review";
+import Review from "../reviews/review"; /// ACCEPT INCOMING CHANGE
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
 
@@ -9,7 +9,7 @@ class MovieShow extends React.Component{
     }
 
 
-    render(){
+    render(){ 
         let similar = [1,2,3,4]
         return(
             <div className="movie-show-parent-div">

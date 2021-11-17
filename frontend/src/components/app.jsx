@@ -8,7 +8,6 @@ import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
 import ReviewForm from './reviews/review_form_container'
 import Modal from './modal/modal'
-// import MovieShowContainer from './movies/movie_show_container';
 import MovieShowContainer from './movie_show/movie_show_container';
 
 

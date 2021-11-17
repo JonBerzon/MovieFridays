@@ -16,13 +16,17 @@
 }
 
 
-.review-form-container h1:first-of-type, .group-form-container > h1:first-of-type{
+.review-form-container h1:first-of-type, 
+.group-form-container > h1:first-of-type,
+.movie-form-container h1:first-of-type{
   font-size: 40px;
   text-decoration: 2px underline $golden;
   text-underline-offset: 4px;
 }
 
-.review-form-container, .group-form-container{
+.review-form-container, 
+.group-form-container,
+.movie-form-container{
   display: flex; 
   flex-direction: column;
   height: 400px; 
@@ -33,7 +37,9 @@
   animation: popup .5s 1 ease-in-out;
 }
 
-.review-form, .group-form{
+.review-form, 
+.group-form,
+.movie-form{
   display:flex; 
   flex-direction: column;
   align-items: flex-start;
@@ -54,12 +60,16 @@
   }
 }
 
-.review-form button:hover, .group-form button:hover  {
+.review-form button:hover, 
+.group-form button:hover,
+.movie-form button:hover{
   text-decoration: 2px underline $golden;
   text-underline-offset: 2px;
 }
 
-.review-form button, .group-form button {
+.review-form button, 
+.group-form button,
+.movie-form button{
   margin: 10px;
   margin-top:0px;
 }

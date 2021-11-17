@@ -17,7 +17,7 @@ class GroupsIndex extends React.Component {
         <div className="groups-index-popular-container">
           <PopularContainer />
           <GroupsBlurbs groups={this.props.groups} addUserToGroup={this.props.addUserToGroup} currentUser={this.props.currentUser} />
-          <ModalButtonContainer modalType={"group"} />
+          <ModalButtonContainer modalType={"movie"} />
         </div>
       </div>
     );
