@@ -2,19 +2,39 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class GroupMovieItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { fetched: false };
+  }
   componentDidMount() {
-    this.props.fetchReviews(this.props.movie._id);
+    this.props
+      .fetchReviews(this.props.movie._id)
+      .then(() => this.setState({ fetched: true }));
+  }
+
+  componentDidUpdate() {
+    // debugger
   }
 
   render() {
     if (!this.props.movie) return null;
+    if (this.props.reviews.length === 0 && !this.state.fetched) return null;
+    // if (!this.props.reviews) return null;
     let groupRating = 0;
+    // debugger
     let userRating;
-    this.props.reviews.forEach(review => {
+    let reviews = [...this.props.reviews];
+    reviews = reviews.filter(
+      review => review.movie_id === this.props.movie._id
+    );
+    reviews.forEach(review => {
       groupRating += review.rating;
-      if (review.reviewer._id === this.props.currentUser.id)
+      if (review.reviewer._id === this.props.currentUser.id) {
+        // debugger
         userRating = review.rating;
+      }
     });
+    // debugger;
     return (
       <Link
         to={`/movies/${this.props.movie._id}`}
@@ -51,7 +71,10 @@ class GroupMovieItem extends React.Component {
           </div>
           <div className="group-movie-item-movie-plot-container">
             <p className="group-movie-item-movie-plot">
-              {this.props.movie.plot.slice(0, 243).split("&#39;").join("'")}...
+              {this.props.movie.plot
+                ? this.props.movie.plot.slice(0, 200).split("&#39;").join("'")
+                : ""}
+              ...
             </p>
           </div>
           <div className="group-movie-item-movie-ratings-container">
