@@ -2,7 +2,23 @@ import React from "react";
 import { withRouter, Link } from 'react-router-dom';
 
 const Sidebar = props => {
-    console.log(props)
+    const socialNetwork = (
+        <div className="social-network">
+            <a className="members" href="https://github.com/JonBerzon" target="_blank">
+                <img className="links" src="https://avatars.githubusercontent.com/u/43277845?v=4"/>
+            </a>
+            <a className="members" href="https://github.com/yudagn" target="_blank">
+                <img className="links" src="https://avatars.githubusercontent.com/u/84539591?v=4"/>
+            </a>
+            <a className="members" href="https://github.com/maisiejillbt" target="_blank">
+                <img className="links" src="https://avatars.githubusercontent.com/u/86322564?v=4"/>
+            </a>
+            <a className="members" href="https://github.com/rlachivirus" target="_blank">
+                <img className="links" src="https://avatars.githubusercontent.com/u/84352016?v=4"/>
+            </a>
+        </div>
+    )
+
     if (props.display === 'group') {
         return (
             <div className="sidebar-parent-div">
@@ -13,8 +29,8 @@ const Sidebar = props => {
                         group.users.map(user => {
                             if (user._id === props.currentUser.id) {
                                 list = (
-                                    <Link to={`/groups/${group._id}`}>
-                                        <li className="sidebar-user-group">{group.name}</li>
+                                    <Link key={group._id} to={`/groups/${group._id}`}>
+                                        <li key={group._id} className="sidebar-user-group">{group.name}</li>
                                     </Link>
                                 )
                             }  
@@ -24,37 +40,7 @@ const Sidebar = props => {
                     })}
                 </ul>
 
-                <div className="social-network">
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-
-                </div>
+                {socialNetwork}
                 
             </div>
         )
@@ -66,43 +52,13 @@ const Sidebar = props => {
                     {
                         Object.values(props.groups.users).map(user => {
                             if (user._id !== props.currentUser.id) {
-                                return <li className="sidebar-user-name">{user.username}</li>
+                                return <li key={user._id} className="sidebar-user-name">{user.username}</li>
                             }
                         })
                     }
                 </ul>
 
-                <div className="social-network">
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-
-                </div>
+                {socialNetwork}
 
             </div>
         )
@@ -114,43 +70,13 @@ const Sidebar = props => {
                     {
                         Object.values(props.group.users).map(user => {
                             if (user._id !== props.currentUser.id) {
-                                return <li className="sidebar-user-name">{user.username}</li>
+                                return <li key={user._id} className="sidebar-user-name">{user.username}</li>
                             }
                         })
                     }
                 </ul>
 
-                <div className="social-network">
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-                    <div className="members">
-                        <div className="links">
-                            <div>Link1</div>
-                            <div>Link2</div>
-                            <div>Link3</div>
-                        </div>
-                    </div>
-
-                </div>
+                {socialNetwork}
 
             </div>
         )

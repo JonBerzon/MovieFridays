@@ -80,7 +80,6 @@ class GroupShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
     let moviesFiltered = [...this.props.movies];
@@ -99,7 +98,7 @@ class GroupShow extends React.Component {
     } else if (this.state.groupRating === false) {
       moviesFiltered.sort((a, b) => (a.groupRating > b.id ? 1 : -1));
     }
-    // console.log(this.props)
+
     return (
       <div className="group-show-main-div">
         {/* <div className="temp-sidebar-template"></div> */}

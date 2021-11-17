@@ -72,26 +72,22 @@
         justify-content: center;
         align-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        gap: 35px;
         height: 180px;
         width: 200px;
         
         .members {
-            background-color: white;
-            border-radius: 50%;
             height: 50px;
             width: 50px;
             position: relative;
-        }
-
-        .links {
-            display: none;
-            position: absolute;
-            background-color: white;
-            height: 50px;
-            width: 200px;
-            left: 25px;
-
+            
+            .links {
+                border: 2px solid $golden;
+                border-radius: 50%;
+                height: 50px;
+                width: auto;
+                left: 25px;
+            }
         }
     }
 }
