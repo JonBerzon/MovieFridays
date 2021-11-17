@@ -1,5 +1,5 @@
 import React from "react";
-import Review from "../reviews/review"; /// ACCEPT INCOMING CHANGE
+import Review from "../reviews/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
 
@@ -20,9 +20,15 @@ class MovieShow extends React.Component {
         }
     }
 
-    render(){ 
-        let similar = [1,2,3,4]
-        return(
+
+    render() {
+        let similar = [1, 2, 3, 4]
+        if (!this.props.movie || !this.props.reviews) return null;
+        if (Object.values(this.props.groups).length === 0) return null;
+        let { movie, reviews, groups } = this.props
+        let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
+        let reviewArr = Object.values(reviews).filter(review => review.movie_id === movie._id)
+        return (
             <div className="movie-show-parent-div">
                 <div className="movie-show-dummy-div"></div>
                 <div className="movie-show-main-content-div">

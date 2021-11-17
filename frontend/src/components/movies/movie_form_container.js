@@ -6,8 +6,9 @@ import { searchMovie, fetchMovie } from '../../util/imdb_api_util';
 
 import { closeModal } from '../../actions/modal_actions';
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
   user: state.session.user,
+  groupId: ownProps.groupId
 })
 
 const mDTP = dispatch => ({

@@ -8,7 +8,6 @@ const mSTP = (state, ownProps) => ({
     movie: state.entities.movies[ownProps.match.params.movieId],
     reviews: state.entities.reviews,
     groups: state.entities.groups
-
 })
 
 const mDTP = dispatch => ({

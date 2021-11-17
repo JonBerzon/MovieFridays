@@ -1,5 +1,7 @@
 import React from "react";
 import GroupMovieItemContainer from "./group_movie_item_container";
+import ModalButtonContainer from '../modal/modal_button_container'
+
 
 class GroupShow extends React.Component {
   constructor(props) {
@@ -123,8 +125,24 @@ class GroupShow extends React.Component {
       "Adventure",
       "Animated",
     ];
+
+    const members = this.props.group.users.map(obj =>  {
+      return obj._id;
+    });
+
+
     return (
+
       <div className="group-show-main-div">
+        
+        {
+          members.includes(this.props.currentUser.id) ? (
+            <ModalButtonContainer modalType={{type:'movie', groupId: this.props.match.params.groupId}} />
+          ) : (
+            null
+          )
+        }
+
         <div className="temp-sidebar-template"></div>
         <div className="filter-movies-container">
           <div className="group-show-header-container">

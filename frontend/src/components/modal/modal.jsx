@@ -11,15 +11,15 @@ function Modal({modal, closeModal}) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case 'review':
-      component = <ReviewFormContainer />;
+      component = <ReviewFormContainer movieId={modal.movieId}/>;
       break;
     case 'group':
       component = <GroupFormContainer />;
       break; 
     case 'movie':
-      component = <MovieFormContainer />;
+      component = <MovieFormContainer groupId={modal.groupId}/>;
       break;
     default:
       return null;

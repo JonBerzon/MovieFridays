@@ -1,55 +1,14 @@
 import React from "react";
 import MovieSearchDisplay from './movie_search_display'
 
-
-
-
 class MovieForm extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       search:'',
-      searchRes:[
-          {description: "(2003)",
-          id:'tt0319061',
-          image: "https://imdb-api.com/images/original/MV5BMmU3NzIyODctYjVhOC00NzBmLTlhNWItMzBlODEwZTlmMjUzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish"},
-
-          {description: "(2012)",
-          id: "2",
-          image: "https://imdb-api.com/images/original/MV5BMTA5MjE3NzM3NzZeQTJeQWpwZ15BbWU3MDUxNTc4NDk@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish",},
-
-          {description: "(2003)",
-          id: "3",
-          image: "https://imdb-api.com/images/original/MV5BMmU3NzIyODctYjVhOC00NzBmLTlhNWItMzBlODEwZTlmMjUzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish"},
-
-          {description: "(2012)",
-          id: "4",
-          image: "https://imdb-api.com/images/original/MV5BMTA5MjE3NzM3NzZeQTJeQWpwZ15BbWU3MDUxNTc4NDk@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish",},
-
-          {description: "(2003)",
-          id: "5",
-          image: "https://imdb-api.com/images/original/MV5BMmU3NzIyODctYjVhOC00NzBmLTlhNWItMzBlODEwZTlmMjUzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish"},
-
-          {description: "(2012)",
-          id: "6",
-          image: "https://imdb-api.com/images/original/MV5BMTA5MjE3NzM3NzZeQTJeQWpwZ15BbWU3MDUxNTc4NDk@._V1_Ratio0.7273_AL_.jpg",
-          resultType: "Title",
-          title: "Big Fish",},
-          ],
-      title:'Big Fish Big Fish Big Fish Big Fish',
-      id:'tt0319061',
-      image: "https://imdb-api.com/images/original/MV5BMmU3NzIyODctYjVhOC00NzBmLTlhNWItMzBlODEwZTlmMjUzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_Ratio0.7273_AL_.jpg",
-
+      searchRes:'',
+      title:'',
+      id:'',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -58,7 +17,7 @@ class MovieForm extends React.Component {
     this.selectMovie = this.selectMovie.bind(this);
   }; 
 
-// Handle form submission
+// Handle movie submission
   handleSubmit(e) {
     if(this.state.id.length < 1){
       const errors = document.getElementById('movieErrors')
@@ -79,16 +38,14 @@ class MovieForm extends React.Component {
             genre: movieObj.genreList.map(genre => genre.value),
             director: movieObj.directorList[0].name,
             runtime: movieObj.runtimeStr,
-            group_id: '6192a40bfed6ea72b5b55403', // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> NEED TO CHANGE TO BE DYNAMIC
+            group_id: this.props.groupId, 
             submitter_id: this.props.user.id,
             similar_movies: movieObj.similars
           }
-          console.log(movie)
           this.props.createMovie(movie)
-            .then(() => this.props.history.push('/groups'));
+            .then(() => this.props.closeModal());
         })
     }
-
   }
 
   searchMovies(e){
@@ -124,7 +81,6 @@ class MovieForm extends React.Component {
 
   render() {
     console.log(this.props)
-    console.log(this.state)
     return (
       <div className="movie-form-container">
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createGroup } from '../../actions/group_actions'
 import { closeModal } from '../../actions/modal_actions';
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
   user: state.session.user,
 })
 
