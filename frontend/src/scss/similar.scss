@@ -1,0 +1,20 @@
+@import "./base.scss";
+
+.similar-movie-div{
+        cursor: pointer;
+
+    h1{
+        font-size: 18px;
+        // color: $golden;
+        text-align: center;
+        
+    }
+}
+
+.similar-movie-img{
+    height: auto;
+    width: 120px;
+    box-shadow: 0 10px 50px 0px $purple-1;
+    
+
+}

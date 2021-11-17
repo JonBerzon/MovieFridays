@@ -2,8 +2,10 @@
 
 .review-parent-div{
     max-width: 1000px;
-    height: 100px;
+    // height: 100px;
+    height: 100%;
     width: 97%;
+    margin-bottom: 20px;
     // background-color: $purple-4;
 }
 
@@ -14,6 +16,7 @@
     border-radius: 50%;
     background-color: $purple-2;
     margin-left: 10px;
+    align-self: flex-start;
 }
 
 .review-content-flex{
@@ -27,7 +30,7 @@
     align-self: flex-start;
  
     width: 70%;
-    height: 150px;
+    // height: 150px;
 
 
 

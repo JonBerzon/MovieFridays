@@ -45,6 +45,7 @@ router.post("/create", (req, res) => {
     runtime: req.body.runtime,
     group_id: req.body.group_id,
     submitter_id: req.body.user_id,
+    similar_movies: req.body.similar_movies.slice(0, 5)
   });
   newMovie.save().then(movie => res.json(movie));
 });

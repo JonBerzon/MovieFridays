@@ -26,7 +26,7 @@ export const fetchMovie = id => dispatch => (
 
 export const fetchMovies = group_id => dispatch => (
     MovieAPIUtil.fetchMovies(group_id)
-        .then(movies => dispatch(receiveMovies(movies)))
+        .then(payload => dispatch(receiveMovies(payload)))
 )
 
 export const createMovie = movie => dispatch => (
