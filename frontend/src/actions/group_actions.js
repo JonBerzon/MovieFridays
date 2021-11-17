@@ -41,7 +41,11 @@ export const addUserToGroup = group => dispatch => (
 
 export const removeUserFromGroup = group => dispatch => (
     axios.patch('/api/groups/remove_user', group)
-        .then(group => dispatch(receiveGroup(group)))
+)
+
+export const editGroupName = group => dispatch => (
+    axios.patch('/api/groups/edit_name', group)
+    .then(group => dispatch(receiveGroup(group)))
 )
 
 export const deleteGroup = id => dispatch => (

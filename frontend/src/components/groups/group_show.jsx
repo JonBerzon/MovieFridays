@@ -12,10 +12,15 @@ class GroupShow extends React.Component {
       genre: null,
       title: null,
       genreSwitch: false,
+      editOpen: false,
+      groupName: null,
     };
+    this.handleNameChange = this.handleNameChange.bind(this);
   }
   componentDidMount() {
-    this.props.fetchGroup(this.props.match.params.groupId);
+    this.props
+      .fetchGroup(this.props.match.params.groupId)
+      .then(res => this.setState({ groupName: res.group.name }));
     this.props
       .fetchMovies(this.props.match.params.groupId)
       .then(() => this.setState({ fetched: true }));
@@ -99,18 +104,35 @@ class GroupShow extends React.Component {
 
   removeUser(e) {
     e.preventDefault();
-    this.props
-      .removeUserFromGroup({
-        user_id: this.props.currentUser.id,
+    this.props.removeUserFromGroup({
+      user_id: this.props.currentUser.id,
+      group_id: this.props.group._id,
+    });
+  }
+
+  handleNameChange(e) {
+    this.setState({ groupName: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.groupName.length === 0) {
+      this.setState({error: <li className='group-name-errors'>Group Name Cant Be Blank</li>})
+    } else {
+      this.setState({error: null})
+      let group = {
+        group_name: this.state.groupName,
         group_id: this.props.group._id,
-      })
+      };
+      this.props
+        .editGroupName(group)
+        .then(() => this.setState({ editOpen: false }));
+    }
   }
 
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    if (this.props.movies.length === 0 && this.state.fetched)
-      return <div>ADD MOVIES</div>;
     let moviesFiltered = this.props.movies.filter(
       movie => movie.group_id === this.props.group._id
     );
@@ -157,7 +179,34 @@ class GroupShow extends React.Component {
         <div className="filter-movies-container">
           <div className="group-show-header-container">
             <div className="filter-header-group-name-container">
-              <h3 className="group-title-h3">{this.props.group.name}</h3>
+              <div className="group-title-edit-container">
+                {this.state.editOpen ? (
+                  <form className='edit-group-name-form' onSubmit={e => this.handleSubmit(e)}>
+                    <input
+                      type="text"
+                      value={this.state.groupName}
+                      placeholder="Enter A Group Name"
+                      onChange={this.handleNameChange}
+                      className="edit-group-name-input"
+                    />
+                    {this.state.error}
+                  </form>
+                ) : (
+                  <h3 className="group-title-h3">{this.props.group.name}</h3>
+                )}
+                {this.props.currentUser.id === this.props.group.owner._id ? (
+                  <div
+                    className="edit-group-name-button"
+                    onClick={e =>
+                      this.state.editOpen
+                        ? this.handleSubmit(e)
+                        : this.setState({ editOpen: true })
+                    }
+                  ></div>
+                ) : (
+                  <div></div>
+                )}
+              </div>
               <button
                 className="filter-header-button"
                 onClick={e => this.toggleClass(e)}

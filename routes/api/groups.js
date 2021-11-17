@@ -70,16 +70,29 @@ router.patch("/remove_user", async (req, res) => {
   );
   group.users.forEach((user, i) => {
     if (user._id === req.body.user_id) {
-      if (owner._id === req.body.user_id && group.users.length === 1) {
-        Group.findOneAndDelete({ _id: group._id })
-      } else if (owner._id === req.body.user_id) {
+      if (group.owner._id === req.body.user_id && group.users.length === 1) {
+        Group.findOneAndDelete({ _id: group._id }).then(() =>
+          res.json("Success")
+        );
+      } else if (group.owner._id === req.body.user_id) {
         group.users.splice(i, 1);
         group.owner = group.users[0];
+        group.save();
+        res.json(group);
       } else {
         group.users.splice(i, 1);
+        group.save();
+        res.json(group);
       }
     }
   });
+});
+
+router.patch("/edit_name", async (req, res) => {
+  let group = await Group.findOne({ _id: req.body.group_id }).then(
+    group => group
+  );
+  group.name = req.body.group_name
   group.save();
   res.json(group);
 });
