@@ -1,7 +1,10 @@
 import React from "react";
-import Review from "../review/review";
+import Review from "../reviews/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
+import ModalButtonContainer from '../modal/modal_button_container';
+import NavbarContainer from '../navbar/navbar_container'
+
 import Sidebar from "../sidebar/sidebar";
 
 class MovieShow extends React.Component {
@@ -28,8 +31,11 @@ class MovieShow extends React.Component {
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
         let reviewArr = Object.values(reviews).filter(review => review.movie_id === movie._id)
+        const groupId = this.props.movie.group_id
+        const members = this.props.groups[groupId].users.map(obj =>  {
+            return obj._id;
+        });
         let {similar_movies} = movie
-        // debugger
         return (
             <div className="movie-show-parent-div">
                 {
@@ -39,12 +45,23 @@ class MovieShow extends React.Component {
                     null
                 )
                 }
+                
+                {
+                  members.includes(this.props.currentUser.id) ? (
+                    <ModalButtonContainer modalType={{type:'review', movieId: this.props.movie._id}} />
+                  ) : (
+                    null
+                  )
+                }
                 <div className="movie-show-dummy-div"></div>
+                <div className='movie-show-navbar-main-content'>
+
+                <NavbarContainer />
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
                         <img src={movie.poster} className="movie-show-poster" />
                         <div className="movie-show-similar-div">
-                            <h1>Reccomended Movies</h1>
+                            <h1>Recommended Movies</h1>
                             <hr />
                             <div className="movie-show-similar-index">
                                 {
@@ -63,7 +80,7 @@ class MovieShow extends React.Component {
                         </div>
                         <div className="movie-show-movie-stats">
                             <h4>{movie.runtime}</h4>
-                            <h4>{movie.genre}</h4>
+                            <h4>{movie.genre[0]}</h4>
                             <h4>{movie.director}</h4>
                         </div>
                         <p className="movie-show-plot">{movie.plot.split("&#39;").join("'")}</p>
@@ -80,7 +97,7 @@ class MovieShow extends React.Component {
                     </div>
 
                 </div>
-
+                </div>
             </div>
         )
     }

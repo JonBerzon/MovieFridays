@@ -1,0 +1,54 @@
+@import "./base.scss";
+
+.review-form-container > h1{
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.review-form > div {
+  width: 100%;
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.review-form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;       /* Remove default arrow */
+  background-color: $purple-1;
+  background-image: url(../assets/icons/star.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 15px 15px;
+  background-position-x: 48px;
+  padding-top:2px;
+  height: 25px; 
+  width: 70px;
+  font-weight: 400;
+  text-indent: 8px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.review-form > textarea{
+  height: 200px; 
+  width:500px;
+  margin:10px;
+  background-color: $purple-1;
+  border-radius: 10px;
+  color: $white;
+  text-align: start;
+  padding: 10px; 
+  resize: none;
+}
+
+.review-form div:last-of-type{
+  justify-content: space-between;
+}
+
+
+
+
+
+

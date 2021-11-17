@@ -46,6 +46,15 @@ class SignupForm extends React.Component {
         }
       }
 
+    loginDemoUser(){
+      const user = {
+          username: 'Demo',
+          password: 'password',
+      }
+
+      this.props.login(user);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let user = {
@@ -70,6 +79,7 @@ class SignupForm extends React.Component {
         // )
 
         // return handleError;
+        this.props.signup(user, this.props.history).then(() => this.props.login(user));
     }
 
     renderErrors() {
@@ -95,6 +105,7 @@ class SignupForm extends React.Component {
     }
 
     renderAvatars() {
+
       return(
         <div className="signup-avatar-container" >
           <h1>Select an Avatar</h1>
@@ -163,14 +174,23 @@ class SignupForm extends React.Component {
     render() {
       return (
         <div className="signup-background">
-
           <div className="signup-intro">
-                    <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
-                    <br/>
-                    <p>Intro intro intro</p>
-                    <p>Intro intro intro intro</p>
-                    <p>Intro intro intro intro intro</p>
-                </div>
+              <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
+              <div>
+                <p>Welcome to Movie Fridays! </p>
+                <p> 
+                With Movie Fridays you can create groups for your friends and family 
+                to view and rate movies, as well as get movie recommendations 
+                based on your ratings and currently popular movies. View ImBd and 
+                MetaCritic ratings as well as your personal rating and current group rating. 
+                Easily find what groups suit your tastes through groups "top picks". 
+
+                Movie Fridays is an application conceptualized, 
+                planned, designed and built by Albert Kim, Jonathan Berzon, 
+                Maisie Bruno-Tyne, and Yehuda Goldschein.
+                </p>
+              </div>
+          </div>
 
           <div className="signup-form">
             <form onSubmit={this.handleSubmit}>
@@ -210,7 +230,7 @@ class SignupForm extends React.Component {
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">
-                    <a href="/login">Demo</a>
+                    <input className="login-demo" onClick={() => this.loginDemoUser()} type="button" value="Demo" />
                     <input type="submit" value="Submit" />
                   </div>
               </div>

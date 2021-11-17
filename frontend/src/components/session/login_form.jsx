@@ -22,6 +22,15 @@ class LoginForm extends React.Component {
         }
     }
 
+    loginDemoUser(){
+      const user = {
+          username: 'Demo',
+          password: 'password',
+      }
+
+      this.props.login(user);
+    }
+
     // Handle field updates (called in the render method)
     update(field) {
         return e => this.setState({
@@ -70,9 +79,20 @@ class LoginForm extends React.Component {
                 <div className="login-intro">
                     <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
                     <br/>
-                    <p>Intro intro intro</p>
-                    <p>Intro intro intro intro</p>
-                    <p>Intro intro intro intro intro</p>
+                    <div>
+                      <p>Welcome to Movie Fridays! </p>
+                      <p> 
+                      With Movie Fridays you can create groups for your friends and family 
+                      to view and rate movies, as well as get movie recommendations 
+                      based on your ratings and currently popular movies. View ImBd and 
+                      MetaCritic ratings as well as your personal rating and current group rating. 
+                      Easily find what groups suit your tastes through groups "top picks". 
+
+                      Movie Fridays is an application conceptualized, 
+                      planned, designed and built by Albert Kim, Jonathan Berzon, 
+                      Maisie Bruno-Tyne, and Yehuda Goldschein.
+                      </p>
+                    </div>
                 </div>
 
                 <form className="login-form" onSubmit={this.handleSubmit}>
@@ -99,7 +119,7 @@ class LoginForm extends React.Component {
                         </label>
                         
                         <div className="login-buttons">
-                            <input className="login-demo" type="submit" value="Demo" />
+                            <input className="login-demo" onClick={() => this.loginDemoUser()} type="button" value="Demo" />
                             <input className="login-submit" type="submit" value="Submit" />
                         </div>
                     </div>

@@ -1,17 +1,21 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { AuthRoute, BlockedRoute, ProtectedRoute } from '../util/route_util';
+import { Switch, Route } from 'react-router-dom';
 import GroupsIndexContainer from './groups/groups_index_container';
 import GroupShowContainer from './groups/group_show_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import NavbarContainer from './navbar/navbar_container';
+import ReviewForm from './reviews/review_form_container'
+import Modal from './modal/modal'
 import MovieShowContainer from './movie_show/movie_show_container';
 
 
 const App = () => (
     <div>
-        <ProtectedRoute path='/' component={NavbarContainer} />
+      <Modal/>
+      <BlockedRoute exact path='/' />
+        <Route path="/movies/:movie_id/review" component={ReviewForm} /> 
         <Switch>
             <ProtectedRoute exact path="/groups/:groupId" component={GroupShowContainer} />
             <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />

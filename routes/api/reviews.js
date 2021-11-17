@@ -24,7 +24,7 @@ router.post('/create', async (req,res) =>{
     let movie = await Movie.findOne({_id: req.body.movie_id }).then(movie => movie)
     let user = await User.findOne({_id: req.body.user_id}).then(user => user)
     let userCopy = { _id: user.id, username: user.username, avatar: user.avatar }
-    await Review.findOneAndDelete({reviewer: userCopy})
+    await Review.findOneAndDelete({reviewer: userCopy, movie_id: movie._id})
     
     if (!user && !movie){
         return res.status(404).json({ nousermovie: "No user or movie found" })
