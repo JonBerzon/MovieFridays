@@ -76,7 +76,7 @@ class MovieShow extends React.Component {
                         </div>
                         <div className="movie-show-movie-stats">
                             <h4>{movie.runtime}</h4>
-                            <h4>{movie.genre}</h4>
+                            <h4>{movie.genre[0]}</h4>
                             <h4>{movie.director}</h4>
                         </div>
                         <p className="movie-show-plot">{movie.plot.split("&#39;").join("'")}</p>
