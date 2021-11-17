@@ -99,6 +99,7 @@ class GroupShow extends React.Component {
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
+    if (this.props.movies.length === 0 && this.state.fetched) return <div>ADD MOVIES</div>
     let moviesFiltered = [...this.props.movies];
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
@@ -110,9 +111,9 @@ class GroupShow extends React.Component {
         movie.genre.includes(this.state.genre)
       );
     } else if (this.state.groupRating) {
-      moviesFiltered.sort((a, b) => (a.groupRating > b.id ? -1 : 1));
+      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? -1 : 1));
     } else if (this.state.groupRating === false) {
-      moviesFiltered.sort((a, b) => (a.groupRating > b.id ? 1 : -1));
+      moviesFiltered.sort((a, b) => ((a.cumulative_rating / a.num_reviews) > (b.cumulative_rating / b.num_reviews) ? 1 : -1));
     }
     let genreArr = [
       "Comedy",
