@@ -57,7 +57,7 @@ class MovieShow extends React.Component {
                     <div className="movie-show-left-content">
                         <img src={movie.poster} className="movie-show-poster" />
                         <div className="movie-show-similar-div">
-                            <h1>Reccomended Movies</h1>
+                            <h1>Recommended Movies</h1>
                             <hr />
                             <div className="movie-show-similar-index">
                                 {

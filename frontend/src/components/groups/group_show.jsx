@@ -132,9 +132,6 @@ class GroupShow extends React.Component {
       return obj._id;
     });
 
-    console.log(this.state.fetched)
-    console.log(this.props.movies.length)
-
     return (
 
     this.props.movies.length === 0 && this.state.fetched ? (

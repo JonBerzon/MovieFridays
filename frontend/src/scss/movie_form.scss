@@ -17,7 +17,13 @@
   border-left: 15px solid $purple-4;
   border-right: 15px solid $purple-4;
   border-radius: 10px;
+  
+  &::-webkit-scrollbar {
+            display: none;
+        }
 }
+
+
 
 .search-results > h1{
   width: max-content;
