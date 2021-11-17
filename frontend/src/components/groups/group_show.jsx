@@ -101,7 +101,6 @@ class GroupShow extends React.Component {
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    if (this.props.movies.length === 0 && this.state.fetched) return <div>ADD MOVIES</div>
     let moviesFiltered = [...this.props.movies];
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
@@ -133,6 +132,18 @@ class GroupShow extends React.Component {
 
     return (
 
+    this.props.movies.length === 0 && this.state.fetched ? (
+      <div>
+        <h1>Add movies to your group</h1>
+        {
+          members.includes(this.props.currentUser.id) ? (
+            <ModalButtonContainer modalType={{type:'movie', groupId: this.props.match.params.groupId}} />
+          ) : (
+            null
+          )
+        }
+      </div>
+    ) : (
       <div className="group-show-main-div">
         
         {
@@ -231,7 +242,8 @@ class GroupShow extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
+  )
   }
 }
 

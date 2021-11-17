@@ -2,6 +2,8 @@ import React from "react";
 import Review from "../reviews/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
+import ModalButtonContainer from '../modal/modal_button_container'
+
 
 class MovieShow extends React.Component {
     constructor(props) {
@@ -28,8 +30,21 @@ class MovieShow extends React.Component {
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
         let reviewArr = Object.values(reviews).filter(review => review.movie_id === movie._id)
+        const groupId = this.props.movie.group_id
+        const members = this.props.groups[groupId].users.map(obj =>  {
+            return obj._id;
+        });
+        console.log(this.props)
+        
         return (
             <div className="movie-show-parent-div">
+                {
+                  members.includes(this.props.currentUser.id) ? (
+                    <ModalButtonContainer modalType={{type:'review', movieId: this.props.movie._id}} />
+                  ) : (
+                    null
+                  )
+                }
                 <div className="movie-show-dummy-div"></div>
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">

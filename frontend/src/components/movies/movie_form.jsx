@@ -75,12 +75,10 @@ class MovieForm extends React.Component {
         display.classList.remove('selected')
       }
     }); 
-    console.log(selected)
     selected.classList.add('selected')
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="movie-form-container">
 

@@ -20,19 +20,18 @@ class GroupForm extends React.Component {
 
 // Handle form submission
   handleSubmit(e) {
+
     if(this.state.name.length === 0){
       const errors = document.getElementById('groupErrors')
       errors.classList.add('display-errors')
     }else{
       e.preventDefault();
       const group = {
-        name: this.props.name,
-        owner: this.props.user.id,
-        users: [this.props.user]
+        name: this.state.name,
+        owner_id: this.props.user.id,
       }
-
       this.props.createGroup(group)
-        .then(() => this.props.history.push('/groups'));  // NEED TO ADD GROUP ID ... NOT SURE HOW WERE GETTING IT THOUGH
+        .then(() => this.props.closeModal());  // NEED TO ADD GROUP ID ... NOT SURE HOW WERE GETTING IT THOUGH
     }
   }
 

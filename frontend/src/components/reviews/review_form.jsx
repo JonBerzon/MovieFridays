@@ -29,18 +29,18 @@ class ReviewForm extends React.Component {
       const review = {
         rating: this.state.rating, 
         body: this.state.body, 
-        reviewer: this.props.user.id,
-        movie_id: '6193cb9188a480b912b2f' // >>>>>>>>>>>>>>>>>>>>>>>>> THIS NEEDS TO CHANGE TO BE DYNAMIC
+        user_id: this.props.user.id,
+        movie_id: this.props.movieId,
       }
 
       this.props.createReview(review)
-        .then(() => this.props.history.push('/groups'));
+        .then(() => this.props.closeModal());
     }
   }
 
   render() {
+    console.log(this.props)
     return (
-      
       <div className="review-form-container">
         <h1 className="movie-title">Movie Title</h1>
         <h1>Add your Review</h1>
