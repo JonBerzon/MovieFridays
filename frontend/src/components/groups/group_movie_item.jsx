@@ -12,16 +12,11 @@ class GroupMovieItem extends React.Component {
       .then(() => this.setState({ fetched: true }));
   }
 
-  componentDidUpdate() {
-    // debugger
-  }
 
   render() {
     if (!this.props.movie) return null;
     if (this.props.reviews.length === 0 && !this.state.fetched) return null;
-    // if (!this.props.reviews) return null;
     let groupRating = 0;
-    // debugger
     let userRating;
     let reviews = [...this.props.reviews];
     reviews = reviews.filter(
@@ -30,11 +25,9 @@ class GroupMovieItem extends React.Component {
     reviews.forEach(review => {
       groupRating += review.rating;
       if (review.reviewer._id === this.props.currentUser.id) {
-        // debugger
         userRating = review.rating;
       }
     });
-    // debugger;
     return (
       <Link
         to={`/movies/${this.props.movie._id}`}

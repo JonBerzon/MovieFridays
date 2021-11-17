@@ -24,17 +24,22 @@
 .down-arrow {
   background-image: url(../assets/arrow.png);
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  height: 25px;
+  width: 25px;
   transform: rotate(180deg);
 }
 
 .up-arrow {
   background-image: url(../assets/arrow.png);
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  height: 25px;
+  width: 25px;
 
+}
+
+.no-arrow {
+  height: 25px;
+  width: 25px;
 }
 
 .filter-box {
@@ -69,6 +74,15 @@
 .filter-group-rating-container {
 }
 
+.none {
+  display: none;
+}
+
+.filter-name-container {
+  display: flex;
+  gap: 5px;
+}
+
 .filter-genre-label,
 .filter-name-h4,
 .filter-group-rating-h4 {
@@ -76,6 +90,7 @@
   color: $white;
   font-size: 25px;
   text-align: center;
+  cursor: pointer;
 }
 
 .filter-group-rating-h4 {
