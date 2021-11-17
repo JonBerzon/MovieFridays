@@ -152,16 +152,16 @@ class GroupShow extends React.Component {
         movie.genre.includes(this.state.genre)
       );
     } else if (this.state.groupRating) {
-      moviesFiltered.sort((a, b) =>
-        a.cumulative_rating / a.num_reviews >
-        b.cumulative_rating / b.num_reviews
+      moviesFiltered.sort((a, b) => {
+        return a.cumulative_reviews / a.num_reviews >
+          b.cumulative_reviews / b.num_reviews
           ? -1
-          : 1
-      );
+          : 1;
+      });
     } else if (this.state.groupRating === false) {
       moviesFiltered.sort((a, b) =>
-        a.cumulative_rating / a.num_reviews >
-        b.cumulative_rating / b.num_reviews
+        a.cumulative_reviews / a.num_reviews >
+        b.cumulative_reviews / b.num_reviews
           ? 1
           : -1
       );
@@ -331,7 +331,12 @@ class GroupShow extends React.Component {
               />
             ))}
           </div>
-          <button onClick={e => this.removeUser(e)}>Leave Group</button>
+          <button
+            className="leave-group-button"
+            onClick={e => this.removeUser(e)}
+          >
+            Leave Group
+          </button>
         </div>
       </div>
     );

@@ -262,3 +262,23 @@
     background: $purple-2;
   }
 }
+
+.leave-group-button {
+  background: $golden;
+  color: $purple-1;
+  font-family: 'Montserrat', sans-serif; 
+  font-weight:700;
+  padding: 8px 15px;
+  margin-top: 50px;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+.leave-group-button:hover {
+  background: #ffaa00;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
+.leave-group-button:active {
+  transform: translateY(4px);
+}
