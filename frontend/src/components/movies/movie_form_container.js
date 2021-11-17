@@ -1,7 +1,8 @@
 import MovieForm from './movie_form';
-import { connect } from 'react-redux'
-import { createMovie } from '../../actions/movie_actions'
-import { searchMovie } from '../../util/imdb_api_util'
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { createMovie } from '../../actions/movie_actions';
+import { searchMovie, fetchMovie } from '../../util/imdb_api_util';
 
 import { closeModal } from '../../actions/modal_actions';
 
@@ -12,7 +13,8 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
   createMovie: movie => dispatch(createMovie(movie)),
   closeModal: () => dispatch(closeModal()), 
-  searchMovie: search => searchMovie(search)
+  searchMovie: search => searchMovie(search), 
+  fetchMovie: movieId => fetchMovie(movieId),
 })
 
-export default connect(mSTP, mDTP)(MovieForm);
+export default withRouter(connect(mSTP, mDTP)(MovieForm));

@@ -1,16 +1,35 @@
 .movie-form-container{
-  height: 350px;
+  height: 380px;
 }
 
 .movie-form{
-  height:265px;
+  height:280px;
+}
+
+.search-results{
+  width:520px;
+  height:100%;
+  display:flex; 
+  padding: 5px;
+  justify-content:left; 
+  align-items: center;
+  overflow:auto;
+  border-left: 15px solid $purple-4;
+  border-right: 15px solid $purple-4;
+  border-radius: 10px;
+}
+
+.search-results > h1{
+  width: max-content;
+  text-align: center;
 }
 
 .movie-form-display {
   display:flex; 
+  justify-content: space-between;
   padding: 10px;
-  width:100%;
 }
+
 
 .movie-form-display > div:first-of-type{
   width: 130px;
@@ -22,6 +41,11 @@
   background-color: $purple-1;
   border-radius:10px;
 }
+
+.movie-form-display > div:first-of-type:hover{
+  background-color: $purple-3 ;
+}
+
 
 #movieTitle {
   padding: 5px;
@@ -40,11 +64,28 @@
 }
 
 
-.movie-search-bar{
+.movie-header{
   display:flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 5px;
+}
+
+.movie-header > div:last-of-type{
+  display:flex;
+  height: 35px;
+  background-color: $purple-5;
+  align-items:center;
+  justify-content: center;
+  border-radius:10px;
+}
+
+.movie-header input{
+  height: 30px;
+}
+
+.movie-header button{
+  padding:5px;
 }
 
 .movie-display-text > h1{
@@ -70,4 +111,5 @@
   width: 100%;
   padding:10px;
   padding-top: 0px;
+  padding-bottom: 5px;
 }

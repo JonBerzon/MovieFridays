@@ -1,13 +1,12 @@
 import React from 'react'; 
 
-const SearchDisplay = (movie) => {
-  const movieObj = movie.movie
-  
+const SearchDisplay = (props) => {
+  const movieObj = props.movie
   const movieTitle = (movieObj.title.length <= 27) ? movieObj.title : movieObj.title.slice(0,24) + '...' 
   return(
-    <div>
+    <div onClick={() => props.selectMovie()} >
       <div className="movie-form-display">
-        <div>
+        <div name="movieDisplay" id={movieObj.id}>
           <img src={movieObj.image} alt="MOVIE POSTER" />
           <h1 id="movieTitle">{movieTitle}</h1>
         </div>
