@@ -41,6 +41,12 @@ const MovieSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "users",
     },
+    num_reviews: {
+      type: Number
+    },
+    cumulative_reviews: {
+      type: Number
+    },
     similar_movies: [{type: Object}]
   },
   {
