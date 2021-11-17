@@ -6,20 +6,22 @@ class GroupRatings extends React.Component{
     }
     
     render(){
-        let reviews = [8, 2, 3, 10, 6, 3, 5, 6]
+        // let reviews = [8, 2, 3, 10, 6, 3, 5, 6]
+        let {reviews, group} = this.props
+        // debugger
         return(
             <div className="group-ratings-div">
-                <h1>The New York Mets Ratings</h1>
+                <h1>{group.name}</h1>
                 <hr />
                 <div className="group-ratings-flex">
                     {
                         reviews.map(review =>{
                             return(
-                                <div className="tester">
+                                <div key={review._id} className="tester">
                                     <div className="group-ratings-index">
-                                        <h1>Username</h1>
+                                        <h1>{review.reviewer.username}</h1>
                                         <div className="group-rating-circle">
-                                            <h5>{review}</h5>
+                                            <h5>{review.rating}</h5>
                                         </div>
                                     </div>
                                 </div>
