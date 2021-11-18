@@ -1,17 +1,13 @@
 import React from "react";
 
 class GroupRatings extends React.Component{
-    constructor(props){
-        super(props)
-    }
+
     
     render(){
-        // let reviews = [8, 2, 3, 10, 6, 3, 5, 6]
         let {reviews, group, movie} = this.props
         let metacritic = movie.meta ? movie.meta : "N/A"
         let imdb = movie.imdb ? movie.imdb : "N/A"
 
-        // debugger
         return(
             <div className="group-ratings-div">
                 <div className="group-ratings-top-div">

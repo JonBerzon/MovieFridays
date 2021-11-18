@@ -1,7 +1,6 @@
 import React from "react";
 import PopularContainer from "../popular/popular_container";
 import ModalButtonContainer from "../modal/modal_button_container";
-import GroupsBlurbs from "./groups_blurbs";
 import Sidebar from "../sidebar/sidebar";
 import GroupsBlurbsContainer from "./groups_blurbs_container";
 import NavbarContainer from "../navbar/navbar_container";

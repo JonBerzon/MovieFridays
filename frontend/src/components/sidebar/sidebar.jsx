@@ -7,46 +7,46 @@ const Sidebar = props => {
             <p className="creators">CREATORS</p>
             <div className="team-members">
                 <div className="container">
-                    <img className="image" src="https://avatars.githubusercontent.com/u/43277845?v=4"/>
+                    <img className="image" src="https://avatars.githubusercontent.com/u/43277845?v=4" alt=""/>
                     <div className="overlay">
                         <p className="member-name">Jonathan</p>
                         <div className="links">
-                            <a className="members" href="https://github.com/JonBerzon" target="_blank"><div className="link1"></div></a>
-                            <a className="members" href="https://www.linkedin.com/in/jonathanberzon/" target="_blank"><div className="link2"></div></a>
-                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
+                            <a className="members" href="https://github.com/JonBerzon" target="_blank" rel="noreferrer"><div className="link1"></div></a>
+                            <a className="members" href="https://www.linkedin.com/in/jonathanberzon/" target="_blank" rel="noreferrer"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank" rel="noreferrer" ><div className="link3" rel="noreferrer"></div></a>
                         </div>
                     </div>
                 </div>
                 <div className="container">
-                    <img className="image" src="https://avatars.githubusercontent.com/u/84539591?v=4"/>
+                    <img className="image" src="https://avatars.githubusercontent.com/u/84539591?v=4" alt=""/>
                     <div className="overlay">
                         <p className="member-name">Yehuda</p>
                         <div className="links">
-                            <a className="members" href="https://github.com/yudagn" target="_blank"><div className="link1"></div></a>
-                            <a className="members" href="https://www.linkedin.com/in/yehuda-goldschein-79872199/" target="_blank"><div className="link2"></div></a>
-                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
+                            <a className="members" href="https://github.com/yudagn" target="_blank" rel="noreferrer"><div className="link1"></div></a>
+                            <a className="members" href="https://www.linkedin.com/in/yehuda-goldschein-79872199/" target="_blank" rel="noreferrer"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank" rel="noreferrer" ><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
                 <div className="container">
-                    <img className="image" src="https://avatars.githubusercontent.com/u/86322564?v=4"/>
+                    <img className="image" src="https://avatars.githubusercontent.com/u/86322564?v=4" alt=""/>
                     <div className="overlay">
                         <p className="member-name">Maisie</p>
                         <div className="links">
-                            <a className="members" href="https://github.com/maisiejillbt" target="_blank"><div className="link1"></div></a>
-                            <a className="members" href="https://www.linkedin.com/in/maisie-bruno-tyne-178a469a/" target="_blank"><div className="link2"></div></a>
-                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
+                            <a className="members" href="https://github.com/maisiejillbt" target="_blank" rel="noreferrer"><div className="link1"></div></a>
+                            <a className="members" href="https://www.linkedin.com/in/maisie-bruno-tyne-178a469a/" target="_blank" rel="noreferrer"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank" rel="noreferrer"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
                 <div className="container">
-                    <img className="image" src="https://avatars.githubusercontent.com/u/84352016?v=4"/>
+                    <img className="image" src="https://avatars.githubusercontent.com/u/84352016?v=4" alt=""/>
                     <div className="overlay">
                         <p className="member-name">Albert</p>
                         <div className="links">
-                            <a className="members" href="https://github.com/rlachivirus" target="_blank"><div className="link1"></div></a>
-                            <a className="members" href="https://www.linkedin.com/in/albertck/" target="_blank"><div className="link2"></div></a>
-                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
+                            <a className="members" href="https://github.com/rlachivirus" target="_blank" rel="noreferrer"><div className="link1"></div></a>
+                            <a className="members" href="https://www.linkedin.com/in/albertck/" target="_blank" rel="noreferrer"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank" rel="noreferrer"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>

@@ -38,9 +38,7 @@ class MovieShow extends React.Component {
     }
 
     render() {
-        let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
-        // if (Object.values(this.props.movie).length < 1 ) return null;
         if (Object.values(this.props.groups).length === 0) return null;
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
@@ -73,7 +71,7 @@ class MovieShow extends React.Component {
 
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
-                        <img src={movie.poster} className="movie-show-poster" />
+                        <img src={movie.poster} className="movie-show-poster" alt=""/>
                         <div onClick={this.groupRedirect} className="movie-show-back-button">Back to Group</div>
                         <div className="movie-show-similar-div">
                             <h1>Recommended Movies</h1>

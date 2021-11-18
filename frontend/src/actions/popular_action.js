@@ -19,7 +19,6 @@ export const getMovies = () => {
 export const fetchPopular = () => dispatch => (
     ImdbAPIUtil.fetchPopular()
         .then(movies => sendPopularMovies(movies))
-        // .then(movies => dispatch(receivePopularMovies(movies)))
 )
 
 export const getPopular = () => dispatch => {
