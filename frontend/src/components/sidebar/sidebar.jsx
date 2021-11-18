@@ -6,62 +6,51 @@ const Sidebar = props => {
         <div className="social-network">
             <p className="creators">CREATORS</p>
             <div className="team-members">
-                {/* <a className="members" href="https://github.com/JonBerzon" target="_blank"> */}
                 <div className="container">
                     <img className="image" src="https://avatars.githubusercontent.com/u/43277845?v=4"/>
                     <div className="overlay">
                         <p className="member-name">Jonathan</p>
-                        <div>git</div>
-                        <div>linkedin</div>
-                        <div>portfolio</div>
+                        <div className="links">
+                            <a className="members" href="https://github.com/JonBerzon" target="_blank"><div className="link1"></div></a>
+                            <div className="link2"></div>
+                            <div className="link3"></div>
+                        </div>
                     </div>
-                    {/* <p className="team-member-name">Jonathan</p> */}
                 </div>
                 <div className="container">
                     <img className="image" src="https://avatars.githubusercontent.com/u/84539591?v=4"/>
                     <div className="overlay">
                         <p className="member-name">Yehuda</p>
-                        <div>git</div>
-                        <div>linkedin</div>
-                        <div>portfolio</div>
+                        <div className="links">
+                            <a className="members" href="https://github.com/yudagn" target="_blank"><div className="link1"></div></a>
+                            <div className="link2"></div>
+                            <div className="link3"></div>
+                        </div>
                     </div>
-                    {/* <p className="team-member-name">Jonathan</p> */}
                 </div>
                 <div className="container">
                     <img className="image" src="https://avatars.githubusercontent.com/u/86322564?v=4"/>
                     <div className="overlay">
                         <p className="member-name">Maisie</p>
-                        <div>git</div>
-                        <div>linkedin</div>
-                        <div>portfolio</div>
+                        <div className="links">
+                            <a className="members" href="https://github.com/maisiejillbt" target="_blank"><div className="link1"></div></a>
+                            <div className="link2"></div>
+                            <div className="link3"></div>
+                        </div>
                     </div>
-                    {/* <p className="team-member-name">Jonathan</p> */}
                 </div>
                 <div className="container">
                     <img className="image" src="https://avatars.githubusercontent.com/u/84352016?v=4"/>
                     <div className="overlay">
                         <p className="member-name">Albert</p>
-                        <div>git</div>
-                        <div>linkedin</div>
-                        <div>portfolio</div>
+                        <div className="links">
+                            <a className="members" href="https://github.com/rlachivirus" target="_blank"><div className="link1"></div></a>
+                            <div className="link2"></div>
+                            <div className="link3"></div>
+                        </div>
                     </div>
-                    {/* <p className="team-member-name">Jonathan</p> */}
                 </div>
-                {/* </a> */}
-                {/* <a className="members" href="https://github.com/yudagn" target="_blank">
-                    <img className="links" src="https://avatars.githubusercontent.com/u/84539591?v=4"/>
-                    <p className="team-member-name">Yehuda</p>
-                </a>
-                <a className="members" href="https://github.com/maisiejillbt" target="_blank">
-                    <img className="links" src="https://avatars.githubusercontent.com/u/86322564?v=4"/>
-                    <p className="team-member-name">Maisie</p>
-                </a>
-                <a className="members" href="https://github.com/rlachivirus" target="_blank">
-                    <img className="links" src="https://avatars.githubusercontent.com/u/84352016?v=4"/>
-                    <p className="team-member-name">Albert</p>
-                </a> */}
             </div>
-
         </div>
     )
 
