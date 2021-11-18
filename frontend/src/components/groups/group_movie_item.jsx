@@ -16,7 +16,8 @@ class GroupMovieItem extends React.Component {
   render() {
     if (!this.props.movie) return null;
     if (this.props.reviews.length === 0 && !this.state.fetched) return null;
-    let groupRating = (this.props.movie.cumulative_reviews / this.props.movie.num_reviews).toFixed(1);
+    let groupRating = (this.props.movie.cumulative_reviews / this.props.movie.num_reviews);
+    groupRating = groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating
     if (!groupRating) groupRating = '?'
     let userRating;
     let reviews = [...this.props.reviews];

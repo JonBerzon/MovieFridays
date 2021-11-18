@@ -91,7 +91,8 @@ class GroupsBlurbs extends React.Component {
 
               <div className="group-blurb-our-top-picks">
                { topPicks.length === 0 ? <li className='group-blurb-no-movies-rated'>NO MOVIES RATED YET</li> : topPicks.map((movie, idx) => {
-                  let groupRating = (movie.cumulative_reviews / movie.num_reviews).toFixed(1);
+                  let groupRating = (movie.cumulative_reviews / movie.num_reviews);
+                  groupRating = groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating
                   return (
                     <div className="group-blurb-top-pick">
                       <li className="group-blurb-top-pick-title">
