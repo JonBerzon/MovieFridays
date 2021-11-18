@@ -1,9 +1,17 @@
 import React from "react";
 
 class Popular extends React.Component{
+    constructor(props){
+        super(props)
+        this.redirectMovie = this.redirectMovie.bind(this)
+    }
 
     componentDidMount(){
         this.props.getPopular();
+    }
+
+    redirectMovie(id){
+        this.props.history.push(`/movie-display/${id}`)
     }
 
     render(){
@@ -20,7 +28,7 @@ class Popular extends React.Component{
                     {
                         movies.map(movie =>{
                             return (
-                                <div key={movie} className="popular-movie-index">
+                                <div onClick={() => this.redirectMovie(movie.id)} key={movie.id} className="popular-movie-index">
                                     <img src={movie.image} className="popular-movie-poster" alt="movie poster" />
                                     
                                     <p>{movie.imDbRating} / 10 <span>★</span></p>

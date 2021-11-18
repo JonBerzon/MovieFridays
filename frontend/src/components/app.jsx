@@ -17,9 +17,9 @@ const App = () => (
       <Modal/>
       <BlockedRoute exact path='/' />
         <Route path="/movies/:movie_id/review" component={ReviewForm} /> 
-        <Route path="/movie-display/:movieId" component={MovieDisplayContainer} />
 
         <Switch>
+            <ProtectedRoute exact path="/movie-display/:movieId" component={MovieDisplayContainer} />
             <ProtectedRoute exact path="/groups/:groupId" component={GroupShowContainer} />
             <ProtectedRoute exact path="/groups" component={GroupsIndexContainer} />
             <ProtectedRoute exact path="/movies/:movieId" component={MovieShowContainer} />
