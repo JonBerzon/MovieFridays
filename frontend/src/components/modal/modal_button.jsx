@@ -3,8 +3,8 @@ import purplePlus from '../../assets/icons/plus-symbol-dk-purple.svg'
 
 const ModalButton = ({ openModal, modalType }) => {
   return (
-    <div className="modal-button">
-      <button onClick={() => openModal(modalType)}>
+    <div onClick={() => openModal(modalType)} className="modal-button">
+      <button >
         <img src={purplePlus} alt="add review" />
       </button>
     </div>
