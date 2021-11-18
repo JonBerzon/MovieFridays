@@ -12,6 +12,7 @@ class MovieDisplay extends React.Component {
           movie: ''
         }
       this.getUserGroups = this.getUserGroups.bind(this);
+
     }
 
     componentDidMount() {
@@ -21,6 +22,17 @@ class MovieDisplay extends React.Component {
           this.setState({
             movie: res.data
           })); 
+    }
+
+    componentDidUpdate(prevProps){
+      if (this.props.match.params.movieId !== prevProps.match.params.movieId){
+        this.props.fetchMovie(this.props.match.params.movieId)
+          .then(res =>
+            this.setState({
+              movie: res.data
+            }));
+      }
+
     }
 
     getUserGroups() {
@@ -35,6 +47,7 @@ class MovieDisplay extends React.Component {
       )
       return list; 
     }
+
 
     render() {
       let similar = [1, 2, 3, 4]
@@ -63,8 +76,8 @@ class MovieDisplay extends React.Component {
                             <hr />
                             <div className="movie-show-similar-index">
                                 {
-                                    similar_movies.map(movie => {
-                                        return <Similar key={movie} movie={movie} />
+                                    similar_movies.map((movie, idx) => {
+                                      return <Similar key={idx} movie={movie} redirectMovie={this.redirectMovie}/>
                                     })
                                 }
                             </div>

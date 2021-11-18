@@ -39,6 +39,7 @@ class MovieShow extends React.Component {
         this.props.history.push(`/groups/${this.props.movie.group_id}`)
     }
 
+
     render() {
         if (!this.props.movie || !this.props.reviews) return null;
         if (Object.values(this.props.groups).length === 0) return null;
@@ -80,8 +81,8 @@ class MovieShow extends React.Component {
                             <hr />
                             <div className="movie-show-similar-index">
                                 {
-                                    similar_movies.map(movie => {
-                                        return <Similar key={movie} movie={movie} />
+                                    similar_movies.map((movie, idx) => {
+                                        return <Similar  key={idx} movie={movie} />
                                     })
                                 }
                             </div>
@@ -121,8 +122,8 @@ class MovieShow extends React.Component {
                         <GroupRatings reviews={reviewArr} group={ourGroup[0]} movie={this.props.movie}/>
                         <div className="movie-show-reviews">
                             {
-                                reviewArr.map(review => {
-                                    return <Review key={review} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
+                                reviewArr.map((review, idx )=> {
+                                    return <Review key={idx} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
                                 })
                             }
 
