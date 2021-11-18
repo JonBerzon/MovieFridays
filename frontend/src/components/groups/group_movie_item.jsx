@@ -80,14 +80,14 @@ class GroupMovieItem extends React.Component {
             <li className="group-movie-item-rating">
               IMDB RATING
               <span className="group-movie-item-rating-number">
-                {this.props.movie.imdb} / 10
+              {this.props.movie.imdb ? this.props.movie.imdb : 'N/A'} / 10
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
               METACRITIC RATING
               <span className="group-movie-item-rating-number">
-                {this.props.movie.meta} / 100
+                {this.props.movie.meta ? this.props.movie.meta : 'N/A'} / 100
               </span>
             </li>
             <div className="vertical-line"></div>
