@@ -50,11 +50,9 @@ const Sidebar = props => {
                 <p>GROUP MEMBERS</p>
                 <ul className="sidebar-user-names">
                     {
-                        Object.values(props.groups.users).map(user => {
-                            if (user._id !== props.currentUser.id) {
-                                return <li key={user._id} className="sidebar-user-name">{user.username}</li>
-                            }
-                        })
+                        Object.values(props.groups.users).map(user => (
+                            <li key={user._id} className="sidebar-user-name">{user.username}</li>
+                        ))
                     }
                 </ul>
 
@@ -68,11 +66,9 @@ const Sidebar = props => {
                 <p>GROUP MEMBERS</p>
                 <ul className="sidebar-user-names">
                     {
-                        Object.values(props.group.users).map(user => {
-                            if (user._id !== props.currentUser.id) {
-                                return <li key={user._id} className="sidebar-user-name">{user.username}</li>
-                            }
-                        })
+                        Object.values(props.group.users).map(user => (
+                            <li key={user._id} className="sidebar-user-name">{user.username}</li>
+                        ))
                     }
                 </ul>
 
