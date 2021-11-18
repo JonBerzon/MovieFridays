@@ -1,20 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchMovie } from '../../actions/movie_actions';
-import { fetchReviews } from '../../actions/review_actions';
-import MovieShow from './movie_show';
-import { fetchGroup } from '../../actions/group_actions';
+import MovieDisplay from './movie_display';
+import { fetchGroups } from '../../actions/group_actions';
+import { searchMovie, fetchMovie } from '../../util/imdb_api_util';
 
-const mSTP = (state, ownProps) => ({
-    movie: state.entities.movies[ownProps.match.params.movieId],
-    reviews: state.entities.reviews,
+
+const mSTP = (state) => ({
     groups: state.entities.groups, 
-    currentUser: state.session.user
+    currentUser: state.session.user, 
 })
 
 const mDTP = dispatch => ({
-    fetchMovie: movieId => dispatch(fetchMovie(movieId)),
-    fetchReviews: movieId => dispatch(fetchReviews(movieId)),
-    fetchGroup: groupId => dispatch(fetchGroup(groupId))
+    fetchGroups: () => dispatch(fetchGroups()),
+    fetchMovie: movieId => fetchMovie(movieId),
 })
 
-export default connect(mSTP, mDTP)(MovieShow);
+export default connect(mSTP, mDTP)(MovieDisplay);

@@ -24,7 +24,8 @@ function Modal({modal, closeModal}) {
       component = <MovieFormContainer groupId={modal.groupId}/>;
       break;
     case 'movieDisplay':
-      component = <MovieDisplayFormContainer groupId={modal.movieId} movieObj={modal.movieObj}/>;
+      component = <MovieDisplayFormContainer userGroups={modal.userGroups} movieObj={modal.movieObj}/>;
+      break;
     case 'edit':
       component = <EditReviewFormContainer review={modal.review} movie={modal.movie}/>
       break;

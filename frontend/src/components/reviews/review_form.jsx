@@ -46,7 +46,6 @@ class ReviewForm extends React.Component {
         <form className="review-form" onSubmit={this.handleSubmit}>
           <div>
             <select id="selectRating" onChange={this.update('rating')}>
-             
               {this.state.rating === 1 ? <option value="1" selected >1/10</option> : <option value="1" >1/10</option>}
               {this.state.rating === 2 ? <option value="2" selected >2/10</option>:<option value="2" >2/10</option> }
               {this.state.rating === 3 ? <option value="3" selected >3/10</option>:<option value="3" >3/10</option> }
