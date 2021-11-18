@@ -116,9 +116,13 @@ class GroupShow extends React.Component {
       });
     } else if (this.state.groupName.length > 20) {
       this.setState({
-        error: <li className="group-name-errors">Group Name Cant Be Longer Than 20 Characters</li>,
+        error: (
+          <li className="group-name-errors">
+            Group Name Cant Be Longer Than 20 Characters
+          </li>
+        ),
       });
-    }else {
+    } else {
       this.setState({ error: null });
       let group = {
         group_name: this.state.groupName,
@@ -133,9 +137,9 @@ class GroupShow extends React.Component {
   render() {
     if (this.props.movies.length === 0 && !this.state.fetched) return null;
     if (!this.props.group) return null;
-    let moviesFiltered = this.props.movies.filter(
-      movie => movie.group_id === this.props.group._id
-    ).reverse();
+    let moviesFiltered = this.props.movies
+      .filter(movie => movie.group_id === this.props.group._id)
+      .reverse();
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
@@ -182,19 +186,7 @@ class GroupShow extends React.Component {
       return obj._id;
     });
 
-    return this.props.movies.length === 0 && this.state.fetched ? (
-      <div>
-        <h1>Add movies to your group</h1>
-        {members.includes(this.props.currentUser.id) ? (
-          <ModalButtonContainer
-            modalType={{
-              type: "movie",
-              groupId: this.props.match.params.groupId,
-            }}
-          />
-        ) : null}
-      </div>
-    ) : (
+    return (
       <div className="group-show-main-div">
         {members.includes(this.props.currentUser.id) ? (
           <ModalButtonContainer
