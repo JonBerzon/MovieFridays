@@ -23,7 +23,7 @@ class GroupRatings extends React.Component{
                     <h1>{group.name}</h1>
                     <h2>IMDb: <span>{imdb} / 10</span></h2>
                     <h2>Metacritic: <span>{metacritic} / 100</span></h2>
-                    <h2>Group Rating: <span>{groupRating}</span></h2>
+                    <h2>Group Rating: <span>{groupRating} / 10</span></h2>
                 </div>
                 <hr />
                 <div className="group-ratings-flex">
