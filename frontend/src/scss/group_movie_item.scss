@@ -10,6 +10,10 @@
   height: 180px;
 }
 
+.group-movie-item-container:last-of-type {
+  margin-bottom: 20px;
+}
+
 .group-movie-poster-container {
   height: 155px;
 }
@@ -36,8 +40,12 @@
   font-size: 30px;
   background: $purple-4;
   min-width: 200px;
+  max-width: 650px;
   padding: 5px 10px 0px 10px;
   border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .group-movie-item-your-rating-container {

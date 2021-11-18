@@ -19,14 +19,13 @@ class GroupsBlurbs extends React.Component {
       group.users.length > 8 ? group.users.slice(0, 8) : group.users;
     if (props.movies.length === 0 && !this.state.fetched) return null;
     let moviesSorted = props.movies;
-    moviesSorted = moviesSorted.filter(movie => movie.group_id === group._id);
+    moviesSorted = moviesSorted.filter(movie => movie.group_id === group._id && movie.num_reviews);
     moviesSorted.sort((a, b) =>
       a.cumulative_reviews / a.num_reviews > b.cumulative_reviews / b.num_reviews
         ? -1
         : 1
     );
     let topPicks = moviesSorted.slice(0, 4);
-    topPicks = topPicks.filter(movie => movie.num_reviews !== 0);
     return (
       <div className="group-blurb-container">
         <div className="group-blurb-header">
@@ -91,9 +90,10 @@ class GroupsBlurbs extends React.Component {
 
               <div className="group-blurb-our-top-picks">
                { topPicks.length === 0 ? <li className='group-blurb-no-movies-rated'>NO MOVIES RATED YET</li> : topPicks.map((movie, idx) => {
-                  let groupRating = (movie.cumulative_reviews / movie.num_reviews).toFixed(1);
+                  let groupRating = (movie.cumulative_reviews / movie.num_reviews);
+                  groupRating = groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating
                   return (
-                    <div className="group-blurb-top-pick">
+                    <div className="group-blurb-top-pick" key={`${movie._id}${idx}`}>
                       <li className="group-blurb-top-pick-title">
                         <span className="group-blurb-top-pick-number">
                           {idx + 1}

@@ -96,10 +96,12 @@ class GroupShow extends React.Component {
 
   removeUser(e) {
     e.preventDefault();
-    this.props.removeUserFromGroup({
-      user_id: this.props.currentUser.id,
-      group_id: this.props.group._id,
-    }).then(()=> this.props.history.push('/groups'));
+    this.props
+      .removeUserFromGroup({
+        user_id: this.props.currentUser.id,
+        group_id: this.props.group._id,
+      })
+      .then(() => this.props.history.push("/groups"));
   }
 
   handleNameChange(e) {
@@ -112,7 +114,11 @@ class GroupShow extends React.Component {
       this.setState({
         error: <li className="group-name-errors">Group Name Cant Be Blank</li>,
       });
-    } else {
+    } else if (this.state.groupName.length > 20) {
+      this.setState({
+        error: <li className="group-name-errors">Group Name Cant Be Longer Than 20 Characters</li>,
+      });
+    }else {
       this.setState({ error: null });
       let group = {
         group_name: this.state.groupName,
@@ -253,7 +259,7 @@ class GroupShow extends React.Component {
                   <div className="filter-genre-container">
                     <button
                       tabIndex="0"
-                      className="filter-genre-label"
+                      className="filter-genre-button"
                       onFocus={e => this.genreSwitch(e)}
                       onBlur={e => this.genreSwitch(e)}
                     >
@@ -302,11 +308,11 @@ class GroupShow extends React.Component {
                       GROUP RATING
                     </button>
                     {this.state.groupRating ? (
-                      <div className="down-arrow"></div>
+                      <div className="rating-down-arrow"></div>
                     ) : this.state.groupRating === false ? (
-                      <div className="up-arrow"></div>
+                      <div className="rating-up-arrow"></div>
                     ) : (
-                      <div className="no-arrow"></div>
+                      <div className="rating-no-arrow"></div>
                     )}
                   </div>
                 </div>
@@ -321,14 +327,16 @@ class GroupShow extends React.Component {
                 />
               ))}
             </div>
-            { members.includes(this.props.currentUser.id) ?
-            <button
-              className="leave-group-button"
-              onClick={e => this.removeUser(e)}
-            >
-              Leave Group
-            </button>
-            : <div></div>}
+            {members.includes(this.props.currentUser.id) ? (
+              <button
+                className="leave-group-button"
+                onClick={e => this.removeUser(e)}
+              >
+                Leave Group
+              </button>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       </div>

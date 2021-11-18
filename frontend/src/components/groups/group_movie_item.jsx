@@ -12,12 +12,18 @@ class GroupMovieItem extends React.Component {
       .then(() => this.setState({ fetched: true }));
   }
 
-
   render() {
     if (!this.props.movie) return null;
     if (this.props.reviews.length === 0 && !this.state.fetched) return null;
-    let groupRating = (this.props.movie.cumulative_reviews / this.props.movie.num_reviews).toFixed(1);
-    if (!groupRating) groupRating = '?'
+    let groupRating;
+    if (this.props.movie.num_reviews) {
+      groupRating =
+        this.props.movie.cumulative_reviews / this.props.movie.num_reviews;
+      groupRating =
+        groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating;
+    } else {
+      groupRating = "?";
+    }
     let userRating;
     let reviews = [...this.props.reviews];
     reviews = reviews.filter(
@@ -74,14 +80,14 @@ class GroupMovieItem extends React.Component {
             <li className="group-movie-item-rating">
               IMDB RATING
               <span className="group-movie-item-rating-number">
-                {this.props.movie.imdb} / 10
+              {this.props.movie.imdb ? this.props.movie.imdb : 'N/A'} / 10
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
               METACRITIC RATING
               <span className="group-movie-item-rating-number">
-                {this.props.movie.meta} / 100
+                {this.props.movie.meta ? this.props.movie.meta : 'N/A'} / 100
               </span>
             </li>
             <div className="vertical-line"></div>
