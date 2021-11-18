@@ -36,7 +36,6 @@ class MovieDisplayForm extends React.Component {
         submitter_id: this.props.user.id,
         similar_movies: movieObj.similars
       }
-      console.log(movie)
       this.props.createMovie(movie)
         .then(() => this.props.closeModal());
     }
@@ -49,8 +48,6 @@ class MovieDisplayForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-    console.log(this.props)
     const movie = this.props.movieObj; 
     return (
       <div className="movie-display-form-container">
