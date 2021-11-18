@@ -14,6 +14,7 @@ class Review extends React.Component{
     }
 
 
+
     render(){
         let {body, rating, reviewer} = this.props.review
         let lorem = body
