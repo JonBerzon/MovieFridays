@@ -13,6 +13,10 @@ class Review extends React.Component{
         this.setState({body: this.state.body === "show more" ? "show less" : "show more"})
     }
 
+    openModal(obj){
+        this.props.openModal(obj)
+
+    }
 
 
     render(){
@@ -29,10 +33,9 @@ class Review extends React.Component{
                             <h1>{reviewer.username}</h1>
                             <h1>{rating}/10</h1>
                         </div>
-                        {/* <hr /> */}
                         {
                             lorem.split(" ").length > 40 ? (
-                                <div className="test1">
+                                <div id="review-content-body">
                                     <p
                                         className={this.state.body === "show more" ? "review-content-show-more" : "review-content-show-less"}
                                     >
@@ -41,13 +44,28 @@ class Review extends React.Component{
                                     <p className={this.state.body === "show more" ? "review-content-show-less" : "review-content-show-more"}>
                                         {lorem}
                                     </p>
-                                    <span
-                                        className="review-show-more-button"
-                                        onClick={this.swapShow}
-                                    >{this.state.body === "show more" ? "Show more" : "Show less"}</span>
+                                    <div className="review-bottom-buttons">
+                                        <span
+                                            className="review-show-more-button"
+                                            onClick={this.swapShow}
+                                        >{this.state.body === "show more" ? "Show more" : "Show less"}</span>
+                                        <div className={this.props.currentUser.id === reviewer._id ? "review-bottom-button-current-user" : "review-bottom-button-hide"}>
+                                            <h5 onClick={() => this.openModal({type: "edit", review: this.props.review, movie: this.props.movie})} >Edit</h5>
+                                            <h6>|</h6>
+                                            <h5>Delete</h5>
+                                        </div>
+                                    </div>
                                 </div>
                             ) : (
-                                <p>{lorem}</p>
+                                <div>
+
+                                    <p>{lorem}</p>
+                                    <div className={this.props.currentUser.id === reviewer._id ? "review-bottom-button-current-user" : "review-bottom-button-hide"}>
+                                        <h5 onClick={() => this.openModal({type: "edit", review: this.props.review, movie: this.props.movie})} >Edit</h5>
+                                        <h6>|</h6>
+                                        <h5>Delete</h5>
+                                    </div>
+                                </div>
                             )
                         }
                         

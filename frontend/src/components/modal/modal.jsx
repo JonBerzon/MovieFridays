@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ReviewFormContainer from '../reviews/review_form_container';
 import GroupFormContainer from '../groups/group_form_container';
 import MovieFormContainer from '../movies/movie_form_container';
+import EditReviewFormContainer from '../reviews/edit_review_form_container';
 
 
 function Modal({modal, closeModal}) {
@@ -13,13 +14,16 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal.type) {
     case 'review':
-      component = <ReviewFormContainer movieId={modal.movieId}/>;
+      component = <ReviewFormContainer movie={modal.movie}/>;
       break;
     case 'group':
       component = <GroupFormContainer />;
       break; 
     case 'movie':
       component = <MovieFormContainer groupId={modal.groupId}/>;
+      break;
+    case 'edit':
+      component = <EditReviewFormContainer review={modal.review} movie={modal.movie}/>
       break;
     default:
       return null;
