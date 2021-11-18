@@ -12,8 +12,8 @@ const Sidebar = props => {
                         <p className="member-name">Jonathan</p>
                         <div className="links">
                             <a className="members" href="https://github.com/JonBerzon" target="_blank"><div className="link1"></div></a>
-                            <div className="link2"></div>
-                            <div className="link3"></div>
+                            <a className="members" href="https://www.linkedin.com/in/jonathanberzon/" target="_blank"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,8 @@ const Sidebar = props => {
                         <p className="member-name">Yehuda</p>
                         <div className="links">
                             <a className="members" href="https://github.com/yudagn" target="_blank"><div className="link1"></div></a>
-                            <div className="link2"></div>
-                            <div className="link3"></div>
+                            <a className="members" href="https://www.linkedin.com/in/yehuda-goldschein-79872199/" target="_blank"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
@@ -34,8 +34,8 @@ const Sidebar = props => {
                         <p className="member-name">Maisie</p>
                         <div className="links">
                             <a className="members" href="https://github.com/maisiejillbt" target="_blank"><div className="link1"></div></a>
-                            <div className="link2"></div>
-                            <div className="link3"></div>
+                            <a className="members" href="https://www.linkedin.com/in/maisie-bruno-tyne-178a469a/" target="_blank"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
@@ -45,8 +45,8 @@ const Sidebar = props => {
                         <p className="member-name">Albert</p>
                         <div className="links">
                             <a className="members" href="https://github.com/rlachivirus" target="_blank"><div className="link1"></div></a>
-                            <div className="link2"></div>
-                            <div className="link3"></div>
+                            <a className="members" href="https://www.linkedin.com/in/albertck/" target="_blank"><div className="link2"></div></a>
+                            <a className="members" href="" target="_blank"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
