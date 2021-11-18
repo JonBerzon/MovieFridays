@@ -50,12 +50,10 @@ class MovieDisplay extends React.Component {
 
 
     render() {
-      let similar = [1, 2, 3, 4]
       const movie = this.state.movie;
 
       if(movie && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
-
         return (
             <div className="movie-show-parent-div">
                 <ModalButtonContainer modalType={{type:'movieDisplay', movieObj: this.state.movie, userGroups: this.getUserGroups() }} />
