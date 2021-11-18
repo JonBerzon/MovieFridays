@@ -11,6 +11,19 @@
     }
 }
 
+.group-ratings-top-div{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    h2{
+        margin-left: 15px;
+        
+    }
+    span{
+        color: $golden;
+    }
+}
+
 .group-ratings-flex{
     display: flex;
     overflow-x: scroll;
@@ -25,9 +38,6 @@
         font-size: 20px;
     }
 
-    // div{
-    //     margin-right: 15px;
-    // }
 
     &::-webkit-scrollbar {
     width: 1px;
@@ -75,4 +85,7 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    h1{
+        white-space: nowrap;
+    }
 }

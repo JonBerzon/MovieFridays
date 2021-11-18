@@ -42,7 +42,6 @@
     h1{
         text-align: center;
     }
-    
 }
 
 .movie-show-similar-index{
@@ -96,6 +95,8 @@
         width: 40vw;
         color: $golden;
     }
+
+    
 }
 
 
@@ -103,3 +104,32 @@
     margin-top: 20px;
 }
 
+#overflow-button{
+    font-size: 13px;
+    color: $golden;
+    cursor: pointer;
+}
+
+.movie-show-none{
+    display: none;
+}
+
+.movie-show-back-button {
+    font-family: "Bebas Neue", cursive;
+    color: $purple-2;
+    font-size: 30px;
+    background: $golden;
+    //   padding: 5px 10px;
+    border-radius: 5px;
+    width: 120px;
+    font-size: 20px;
+    text-align: center;
+    padding: 3px 0px 3px 0px;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover{
+        background: rgb(250, 193, 47);
+    }
+
+}

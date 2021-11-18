@@ -71,23 +71,25 @@ class GroupMovieItem extends React.Component {
           <div className="group-movie-item-movie-plot-container">
             <p className="group-movie-item-movie-plot">
               {this.props.movie.plot
-                ? this.props.movie.plot.slice(0, 200).split("&#39;").join("'")
+                ? this.props.movie.plot.length > 200
+                  ? `${this.props.movie.plot.slice(0, 200).split("&#39;").join("'")}...`
+                  : this.props.movie.plot
                 : ""}
-              ...
+              
             </p>
           </div>
           <div className="group-movie-item-movie-ratings-container">
             <li className="group-movie-item-rating">
               IMDB RATING
               <span className="group-movie-item-rating-number">
-              {this.props.movie.imdb ? this.props.movie.imdb : 'N/A'} / 10
+                {this.props.movie.imdb ? this.props.movie.imdb : "N/A"} / 10
               </span>
             </li>
             <div className="vertical-line"></div>
             <li className="group-movie-item-rating">
               METACRITIC RATING
               <span className="group-movie-item-rating-number">
-                {this.props.movie.meta ? this.props.movie.meta : 'N/A'} / 100
+                {this.props.movie.meta ? this.props.movie.meta : "N/A"} / 100
               </span>
             </li>
             <div className="vertical-line"></div>

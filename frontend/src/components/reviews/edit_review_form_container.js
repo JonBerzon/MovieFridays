@@ -16,7 +16,6 @@ const mSTP = (state, ownProps) => ({
     movie: ownProps.movie
 })
 
-// debugger
 const mDTP = dispatch => ({
     action: review => dispatch(updateReview(review)),
     closeModal: () => dispatch(closeModal())

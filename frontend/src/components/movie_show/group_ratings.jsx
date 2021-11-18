@@ -1,17 +1,30 @@
 import React from "react";
 
 class GroupRatings extends React.Component{
-    constructor(props){
-        super(props)
-    }
+
     
     render(){
-        // let reviews = [8, 2, 3, 10, 6, 3, 5, 6]
-        let {reviews, group} = this.props
-        // debugger
+        let {reviews, group, movie} = this.props
+        let metacritic = movie.meta ? movie.meta : "N/A"
+        let imdb = movie.imdb ? movie.imdb : "N/A"
+        let groupRating;
+        if (movie.num_reviews) {
+            groupRating =
+                movie.cumulative_reviews / movie.num_reviews;
+            groupRating =
+                groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating;
+        } else {
+            groupRating = "?";
+        }
+
         return(
             <div className="group-ratings-div">
-                <h1>{group.name}</h1>
+                <div className="group-ratings-top-div">
+                    <h1>{group.name}</h1>
+                    <h2>IMDb: <span>{imdb} / 10</span></h2>
+                    <h2>Metacritic: <span>{metacritic} / 100</span></h2>
+                    <h2>Group Rating: <span>{groupRating} / 10</span></h2>
+                </div>
                 <hr />
                 <div className="group-ratings-flex">
                     {
@@ -21,7 +34,7 @@ class GroupRatings extends React.Component{
                                     <div className="group-ratings-index">
                                         <h1>{review.reviewer.username}</h1>
                                         <div className="group-rating-circle">
-                                            <h5>{review.rating}</h5>
+                                            <h5>{review.rating}/10</h5>
                                         </div>
                                     </div>
                                 </div>

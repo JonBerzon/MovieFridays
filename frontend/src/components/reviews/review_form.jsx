@@ -37,7 +37,6 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="review-form-container">
         <h1 className="movie-title">{this.props.movie.title}</h1>

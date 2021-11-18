@@ -26,7 +26,7 @@ router.post("/create", (req, res) => {
 
   Movie.findOne({
     imdb_movie_id: req.body.imdb_movie_id,
-    groups_id: req.body.group_id,
+    group_id: req.body.group_id,
   }).then(movie => {
     if (movie) {
       return res.status(400).json("This movie is already in your group");

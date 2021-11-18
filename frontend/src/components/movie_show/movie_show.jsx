@@ -12,6 +12,11 @@ import Sidebar from "../sidebar/sidebar";
 class MovieShow extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            overflow: "Show more"
+        }
+        this.overflowSwitch = this.overflowSwitch.bind(this)
+        this.groupRedirect = this.groupRedirect.bind(this)
     }
 
     componentDidMount() {
@@ -26,10 +31,16 @@ class MovieShow extends React.Component {
         }
     }
 
+    overflowSwitch(){
+        this.setState({ overflow: this.state.overflow === "Show more" ? "Show less" : "Show more" })
+    }
+
+    groupRedirect(){
+        this.props.history.push(`/groups/${this.props.movie.group_id}`)
+    }
+
     render() {
-        let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
-        // if (Object.values(this.props.movie).length < 1 ) return null;
         if (Object.values(this.props.groups).length === 0) return null;
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
@@ -62,7 +73,8 @@ class MovieShow extends React.Component {
 
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
-                        <img src={movie.poster} className="movie-show-poster" />
+                        <img src={movie.poster} className="movie-show-poster" alt=""/>
+                        <div onClick={this.groupRedirect} className="movie-show-back-button">Back to Group</div>
                         <div className="movie-show-similar-div">
                             <h1>Recommended Movies</h1>
                             <hr />
@@ -78,8 +90,27 @@ class MovieShow extends React.Component {
                     </div>
                     <div className="movie-show-right-content">
                         <div className="movie-show-right-title">
-                            <h1>{movie.title}<span>{movie.year}</span> </h1>
-                            <hr />
+                            {
+                                movie.title.length >= 50 ? (
+                                    <div>
+                                        <div className={this.state.overflow === "Show more" ? "movie-show-right-title" : "movie-show-none"}>
+                                            <h1>{movie.title.slice(0,50)}...<span>{movie.year}</span><span id="overflow-button" onClick={this.overflowSwitch}>{this.state.overflow}</span> </h1>
+                                            <hr /> 
+                                        </div>
+                                        <div className={this.state.overflow === "Show less" ? "movie-show-right-title" : "movie-show-none"}>
+                                            <h1>{movie.title}<span>{movie.year}</span><span id="overflow-button" onClick={this.overflowSwitch}>{this.state.overflow}</span> </h1>
+                                            <hr /> 
+                                        </div>
+                                    </div>
+
+                                ) : (
+                                        <div className="movie-show-right-title">
+                                        <h1>{movie.title}<span>{movie.year}</span> </h1>
+                                        <hr />
+                                    </div>
+                                )
+                            }
+                            
                         </div>
                         <div className="movie-show-movie-stats">
                             <h4>{movie.runtime}</h4>
@@ -87,11 +118,11 @@ class MovieShow extends React.Component {
                             <h4>{movie.director}</h4>
                         </div>
                         <p className="movie-show-plot">{movie.plot.split("&#39;").join("'")}</p>
-                        <GroupRatings reviews={reviewArr} group={ourGroup[0]} />
+                        <GroupRatings reviews={reviewArr} group={ourGroup[0]} movie={this.props.movie}/>
                         <div className="movie-show-reviews">
                             {
                                 reviewArr.map(review => {
-                                    return <Review key={review} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser}/>
+                                    return <Review key={review} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
                                 })
                             }
 
