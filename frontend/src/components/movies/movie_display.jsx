@@ -6,8 +6,6 @@ import ModalButtonContainer from '../modal/modal_button_container'
 
 import Sidebar from "../sidebar/sidebar";
 
-
-
 class MovieShow extends React.Component {
     constructor(props) {
         super(props)
@@ -36,25 +34,6 @@ class MovieShow extends React.Component {
         const members = this.props.groups[groupId].users.map(obj =>  {
             return obj._id;
         });
-
-        const movieObject = {
-          directorList: ["Peter Jackson"],
-          fullTitle: "The Lord of the Rings: The Fellowship of the Ring (2001)",
-          genres: ['Action', 'Adventure', 'Drama', 'Fantasy'],
-          id: "tt0120737",
-          imDbRating: "8.8",
-          imDbRatingVotes: "1684517",
-          image: "https://imdb-api.com/images/original/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_Ratio0.6791_AL_.jpg",
-          metacriticRating: "92",
-          plot: "An ancient Ring thought lost for centuries has been found, and through a strange twist of fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the Cracks of Doom in order to destroy it. However, he does not go alone. He is joined by Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir, and his three Hobbit friends Merry, Pippin, and Samwise. Through mountains, snow, darkness, forests, rivers and plains, facing evil and danger at every corner the Fellowship of the Ring must go. Their quest to destroy the One Ring is the only hope for the end of the Dark Lords reign.",
-          runtimeStr: "2h 58mins",
-          similars:[{starwars:'starwars'},{starwars:'starwars'},{starwars:'starwars'},{starwars:'starwars'},{starwars:'starwars'},],
-          tagline: "Even the smallest person can change the course of the future.",
-          title: "The Lord of the Rings: The Fellowship of the Ring",
-          year: "2001"
-        }
-        // console.log(members)
-        // console.log(this.props.currentUser.id)
         let {similar_movies} = movie
         return (
             <div className="movie-show-parent-div">
@@ -68,7 +47,7 @@ class MovieShow extends React.Component {
                 
                 {
                   members.includes(this.props.currentUser.id) ? (
-                    <ModalButtonContainer modalType={{type:'movieDisplay', movieId: this.props.movie._id, movieObj: movieObject }} />
+                    <ModalButtonContainer modalType={{type:'review', movieId: this.props.movie._id}} />
                   ) : (
                     null
                   )

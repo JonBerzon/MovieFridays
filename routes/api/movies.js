@@ -17,6 +17,7 @@ router.get("/show/:movie_id", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
+  console.log(req)
   const { errors, isValid } = validateCreateMovies(req.body);
 
   if (!isValid) {

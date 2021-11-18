@@ -1,0 +1,50 @@
+.movie-display-form-container{
+  height: 300px;
+  display:flex; 
+  justify-content: space-between;
+
+  h1{
+    font-size: 40px; 
+  }
+
+  h3 {
+    font-size:15px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight:400;
+    margin-right:20px;
+  }
+
+  img{
+    height: 250px;
+    border-radius: 10px;
+  }
+
+  div:first-of-type{
+    display: flex;
+  }
+
+  .movie-details-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding:10px;
+  }
+
+  div:last-of-type{
+    display:flex; 
+    justify-content: space-between;
+  }
+  
+}
+
+.movie-display-details{
+  display: flex;
+  flex-direction: row;
+  margin-bottom:8px;
+  padding-top:10px;
+  border-top: 2px solid $golden;
+  h3{
+    width:fit-content;
+    font-weight:400;
+  }
+}

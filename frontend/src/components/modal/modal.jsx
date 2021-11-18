@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import ReviewFormContainer from '../reviews/review_form_container';
 import GroupFormContainer from '../groups/group_form_container';
 import MovieFormContainer from '../movies/movie_form_container';
+import MovieDisplayFormContainer from '../movies/movie_display_form_container';
+
 
 
 function Modal({modal, closeModal}) {
@@ -20,6 +22,9 @@ function Modal({modal, closeModal}) {
       break; 
     case 'movie':
       component = <MovieFormContainer groupId={modal.groupId}/>;
+      break;
+    case 'movieDisplay':
+      component = <MovieDisplayFormContainer groupId={modal.movieId} movieObj={modal.movieObj}/>;
       break;
     default:
       return null;

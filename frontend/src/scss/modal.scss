@@ -18,7 +18,8 @@
 
 .review-form-container h1:first-of-type, 
 .group-form-container > h1:first-of-type,
-.movie-form-container h1:first-of-type{
+.movie-form-container h1:first-of-type,
+.movie-display-form-container > h1{
   font-size: 40px;
   text-decoration: 2px underline $golden;
   text-underline-offset: 4px;
@@ -26,7 +27,8 @@
 
 .review-form-container, 
 .group-form-container,
-.movie-form-container{
+.movie-form-container, 
+.movie-display-form-container{
   display: flex; 
   flex-direction: column;
   height: 400px; 
