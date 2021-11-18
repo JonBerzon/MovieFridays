@@ -41,10 +41,10 @@ class SignupForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.errors !== prevProps.errors){
+        if (this.props.errors !== prevProps.errors) {
             this.setState({ errors: this.props.errors })
         }
-    }
+      }
 
     loginDemoUser(){
       const user = {
@@ -56,14 +56,33 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        let user = {
-            username: this.state.username,
-            password: this.state.password,
-            avatar: this.state.avatar,
-        };
+      e.preventDefault();
+      let user = {
+          username: this.state.username,
+          password: this.state.password,
+          avatar: this.state.avatar,
+      };
 
-        this.props.signup(user, this.props.history).then(() => this.props.login(user));
+      if (user.username.length < 4 || user.username.length > 20) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (user.password.length < 6) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (!user.avatar) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.add('display-avatarErrors')
+        this.setState(prevState => {
+          let errors = Object.assign({}, prevState.errors);
+          errors.username = "";
+          errors.password = "";
+          return { errors };
+        })
+      } else {
+        this.props.signup(user, this.props.history).then(() => this.props.login(user))
+      }
     }
 
     renderErrors() {
@@ -75,7 +94,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        ) : (
+      ) : (
           <ul>
               {Object.keys(this.state.errors).map((error, i) => (
                   <li className="signup-pwerror" key={`error-${i}`}>
@@ -83,7 +102,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        )
+      )
 
         return renderErr;
     }
@@ -218,7 +237,7 @@ class SignupForm extends React.Component {
                   </div>
                   
                   {this.renderErrors()}
-                  
+                    <p id="avatarError" className="hide-avatarErrors">Avatar is required</p>
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">
