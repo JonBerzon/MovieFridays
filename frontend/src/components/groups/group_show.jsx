@@ -39,7 +39,11 @@ class GroupShow extends React.Component {
   setGenre(e, field) {
     field
       ? this.setState({ genre: null })
-      : this.setState({ genre: e.target.textContent });
+      : this.setState({
+          genre: e.target.textContent,
+          title: null,
+          groupRating: null,
+        });
     let genreDropdown = document.getElementsByClassName("genre-dropdown");
     genreDropdown[0].classList.add("no-hover");
   }
@@ -47,20 +51,6 @@ class GroupShow extends React.Component {
   handleChange(e, field) {
     e.preventDefault();
     switch (field) {
-      case "genre":
-        if (e.target.value === "none") {
-          return this.setState({
-            [field]: null,
-            title: null,
-            groupRating: null,
-          });
-        } else {
-          return this.setState({
-            [field]: e.target.value,
-            title: null,
-            groupRating: null,
-          });
-        }
       case "title":
         if (this.state.title === null) {
           return this.setState({
@@ -166,12 +156,20 @@ class GroupShow extends React.Component {
     }
 
     let genreArr = [
-      "Comedy",
       "Action",
-      "Drama",
-      "Thriller",
       "Adventure",
-      "Animated",
+      "Animation",
+      "Comedy",
+      "Documentary",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Horror",
+      "Musical",
+      "Romance",
+      "Sci-Fi",
+      "Thriller",
+      "Western",
     ];
 
     const members = this.props.group.users.map(obj => {

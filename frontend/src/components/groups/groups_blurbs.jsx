@@ -27,7 +27,6 @@ class GroupsBlurbs extends React.Component {
     );
     let topPicks = moviesSorted.slice(0, 4);
     topPicks = topPicks.filter(movie => movie.num_reviews !== 0);
-    debugger
     return (
       <div className="group-blurb-container">
         <div className="group-blurb-header">
