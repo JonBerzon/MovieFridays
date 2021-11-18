@@ -96,6 +96,8 @@
         width: 40vw;
         color: $golden;
     }
+
+    
 }
 
 
@@ -103,3 +105,12 @@
     margin-top: 20px;
 }
 
+#overflow-button{
+    font-size: 13px;
+    color: $golden;
+    cursor: pointer;
+}
+
+.movie-show-none{
+    display: none;
+}

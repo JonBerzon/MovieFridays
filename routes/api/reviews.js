@@ -64,7 +64,6 @@ router.patch('/update', async (req, res) => {
     }
 
     let review = await Review.findOne({ _id: req.body._id }).then(review => review)
-    console.log(review)
     let movie = await Movie.findOne({ _id: review.movie_id }).then(movie => movie)
     if (!review) return res.json({ noreview: "No review found" })
 
@@ -79,9 +78,17 @@ router.patch('/update', async (req, res) => {
     review.save()
         .then(review => res.json(review))
         .catch(() => res.status(400).json({ updatefail: "Could not update review" }))
+        
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
+    let review = await Review.findOne({ _id: req.params.id }).then(review => review)
+    let movie = await Movie.findOne({ _id: review.movie_id }).then(movie => movie)
+
+    movie.cumulative_reviews -= review.rating
+    movie.num_reviews -= 1,
+    movie.save()
+
     Review.findOneAndDelete({ _id: req.params.id })
         .then(res.json("Success"))
 })

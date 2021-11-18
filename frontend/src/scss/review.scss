@@ -113,7 +113,8 @@
     display: none;
 }
 
-.review-bottom-button-current-user{
+.review-bottom-button-current-user,
+.review-bottom-button-current-user1{
     display: flex;
     h5{
         cursor: pointer;
@@ -138,6 +139,10 @@
 
     }
 
+}
+
+.review-bottom-button-current-user1{
+    margin-left: 20px;
 }
 
 #review-content-body{

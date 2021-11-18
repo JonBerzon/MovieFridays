@@ -52,7 +52,7 @@ class Review extends React.Component{
                                         <div className={this.props.currentUser.id === reviewer._id ? "review-bottom-button-current-user" : "review-bottom-button-hide"}>
                                             <h5 onClick={() => this.openModal({type: "edit", review: this.props.review, movie: this.props.movie})} >Edit</h5>
                                             <h6>|</h6>
-                                            <h5>Delete</h5>
+                                            <h5 onClick={() => this.props.deleteReview(this.props.review._id)}>Delete</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -60,10 +60,10 @@ class Review extends React.Component{
                                 <div>
 
                                     <p>{lorem}</p>
-                                    <div className={this.props.currentUser.id === reviewer._id ? "review-bottom-button-current-user" : "review-bottom-button-hide"}>
+                                    <div className={this.props.currentUser.id === reviewer._id ? "review-bottom-button-current-user1" : "review-bottom-button-hide"}>
                                         <h5 onClick={() => this.openModal({type: "edit", review: this.props.review, movie: this.props.movie})} >Edit</h5>
                                         <h6>|</h6>
-                                        <h5>Delete</h5>
+                                            <h5 onClick={() => this.props.deleteReview(this.props.review._id)}>Delete</h5>
                                     </div>
                                 </div>
                             )
