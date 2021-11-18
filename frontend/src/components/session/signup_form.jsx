@@ -56,30 +56,33 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        let user = {
-            username: this.state.username,
-            password: this.state.password,
-            avatar: this.state.avatar,
-        };
+      e.preventDefault();
+      let user = {
+          username: this.state.username,
+          password: this.state.password,
+          avatar: this.state.avatar,
+      };
 
-        if (user.username.length < 4) {
-          <li className="signup-errors">fix me</li>
-        }
-        // let handleError = user.username.length < 4 || user.username.length > 20 ? (
-        //   <li className="signup-errors">
-        //     Username must be between 4 and 20 characters
-        //   </li>
-        // ) : !user.avatar ? (
-        //   <li className="signup-avatar-error">
-        //     Username must be between 4 and 20 characters
-        //   </li>
-        // ) : (
-          this.props.signup(user, this.props.history).then(() => this.props.login(user))
-        // )
-
-        // return handleError;
-        this.props.signup(user, this.props.history).then(() => this.props.login(user));
+      if (user.username.length < 4 || user.username.length > 20) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (user.password.length < 6) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (!user.avatar) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.add('display-avatarErrors')
+        this.setState(prevState => {
+          let errors = Object.assign({}, prevState.errors);
+          errors.username = "";
+          errors.password = "";
+          return { errors };
+        })
+      } else {
+        this.props.signup(user, this.props.history).then(() => this.props.login(user))
+      }
     }
 
     renderErrors() {
@@ -226,7 +229,7 @@ class SignupForm extends React.Component {
                   </div>
                   
                   {this.renderErrors()}
-                  
+                    <p id="avatarError" className="hide-avatarErrors">Avatar is required</p>
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">
