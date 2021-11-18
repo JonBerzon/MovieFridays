@@ -5,7 +5,7 @@ import ReviewFormContainer from '../reviews/review_form_container';
 import GroupFormContainer from '../groups/group_form_container';
 import MovieFormContainer from '../movies/movie_form_container';
 import MovieDisplayFormContainer from '../movies/movie_display_form_container';
-
+import EditReviewFormContainer from '../reviews/edit_review_form_container';
 
 
 function Modal({modal, closeModal}) {
@@ -15,7 +15,7 @@ function Modal({modal, closeModal}) {
   let component;
   switch (modal.type) {
     case 'review':
-      component = <ReviewFormContainer movieId={modal.movieId}/>;
+      component = <ReviewFormContainer movie={modal.movie}/>;
       break;
     case 'group':
       component = <GroupFormContainer />;
@@ -25,6 +25,8 @@ function Modal({modal, closeModal}) {
       break;
     case 'movieDisplay':
       component = <MovieDisplayFormContainer groupId={modal.movieId} movieObj={modal.movieObj}/>;
+    case 'edit':
+      component = <EditReviewFormContainer review={modal.review} movie={modal.movie}/>
       break;
     default:
       return null;

@@ -2,7 +2,8 @@ import React from "react";
 import Review from "../reviews/review";
 import GroupRatings from "./group_ratings";
 import Similar from "./similar";
-import ModalButtonContainer from '../modal/modal_button_container'
+import ModalButtonContainer from '../modal/modal_button_container';
+import NavbarContainer from '../navbar/navbar_container'
 
 import Sidebar from "../sidebar/sidebar";
 
@@ -28,6 +29,7 @@ class MovieShow extends React.Component {
     render() {
         let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
+        // if (Object.values(this.props.movie).length < 1 ) return null;
         if (Object.values(this.props.groups).length === 0) return null;
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
@@ -56,6 +58,7 @@ class MovieShow extends React.Component {
         // console.log(members)
         // console.log(this.props.currentUser.id)
         let {similar_movies} = movie
+        let yourReview = reviewArr.filter(review => review.reviewer._id === this.props.currentUser.id)
         return (
             <div className="movie-show-parent-div">
                 {
@@ -69,11 +72,15 @@ class MovieShow extends React.Component {
                 {
                   members.includes(this.props.currentUser.id) ? (
                     <ModalButtonContainer modalType={{type:'movieDisplay', movieId: this.props.movie._id, movieObj: movieObject }} />
+                    // members.includes(this.props.currentUser.id) && (yourReview.length === 0) ? (
+                    // <ModalButtonContainer modalType={{type:'review', movie: this.props.movie}} />
                   ) : (
                     null
                   )
                 }
+                <NavbarContainer />
                 <div className="movie-show-dummy-div"></div>
+
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
                         <img src={movie.poster} className="movie-show-poster" />
@@ -105,7 +112,7 @@ class MovieShow extends React.Component {
                         <div className="movie-show-reviews">
                             {
                                 reviewArr.map(review => {
-                                    return <Review key={review} review={review}/>
+                                    return <Review key={review} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser}/>
                                 })
                             }
 
@@ -114,7 +121,6 @@ class MovieShow extends React.Component {
                     </div>
 
                 </div>
-
             </div>
         )
     }

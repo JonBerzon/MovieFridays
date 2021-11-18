@@ -41,10 +41,10 @@ class SignupForm extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.errors !== prevProps.errors){
+        if (this.props.errors !== prevProps.errors) {
             this.setState({ errors: this.props.errors })
         }
-    }
+      }
 
     loginDemoUser(){
       const user = {
@@ -56,14 +56,33 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        let user = {
-            username: this.state.username,
-            password: this.state.password,
-            avatar: this.state.avatar,
-        };
+      e.preventDefault();
+      let user = {
+          username: this.state.username,
+          password: this.state.password,
+          avatar: this.state.avatar,
+      };
 
-        this.props.signup(user, this.props.history).then(() => this.props.login(user));
+      if (user.username.length < 4 || user.username.length > 20) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (user.password.length < 6) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.remove('display-avatarErrors')
+        this.props.signup(user, this.props.history)
+      } else if (!user.avatar) {
+        const errors = document.getElementById('avatarError')
+        errors.classList.add('display-avatarErrors')
+        this.setState(prevState => {
+          let errors = Object.assign({}, prevState.errors);
+          errors.username = "";
+          errors.password = "";
+          return { errors };
+        })
+      } else {
+        this.props.signup(user, this.props.history).then(() => this.props.login(user))
+      }
     }
 
     renderErrors() {
@@ -75,7 +94,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        ) : (
+      ) : (
           <ul>
               {Object.keys(this.state.errors).map((error, i) => (
                   <li className="signup-pwerror" key={`error-${i}`}>
@@ -83,7 +102,7 @@ class SignupForm extends React.Component {
                   </li>
               ))}
           </ul>
-        )
+      )
 
         return renderErr;
     }
@@ -160,18 +179,26 @@ class SignupForm extends React.Component {
         <div className="signup-background">
           <div className="signup-intro">
               <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
-              <div>
+              <div className='signup-intro-text'>
                 <p>Welcome to Movie Fridays! </p>
                 <p> 
                 With Movie Fridays you can create groups for your friends and family 
-                to view and rate movies, as well as get movie recommendations 
-                based on your ratings and currently popular movies. View ImBd and 
-                MetaCritic ratings as well as your personal rating and current group rating. 
+                to view and rate movies.
+                </p>
+                <p>
+                Get movie recommendations 
+                based on currently popular movies.
+                </p>
+                <p>
+                View IMDb, Metacritic, and your groups rating as well as
+                your own rating of a movie. 
+                </p>
+                <p>
                 Easily find what groups suit your tastes through groups "top picks". 
-
-                Movie Fridays is an application conceptualized, 
-                planned, designed and built by Albert Kim, Jonathan Berzon, 
-                Maisie Bruno-Tyne, and Yehuda Goldschein.
+                </p>
+                <p>
+                Movie Fridays was planned, designed and built by<br/> <span>Albert Kim</span>, 
+                 <span> Jonathan Berzon</span>, <span>Maisie Bruno-Tyne</span>, and <span>Yehuda Goldschein</span>.
                 </p>
               </div>
           </div>
@@ -210,7 +237,7 @@ class SignupForm extends React.Component {
                   </div>
                   
                   {this.renderErrors()}
-                  
+                    <p id="avatarError" className="hide-avatarErrors">Avatar is required</p>
                   {this.renderAvatars()}
                   
                   <div className="signup-buttons">

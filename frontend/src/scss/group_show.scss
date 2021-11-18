@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+.group-show-navbar-main-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  align-items: center;
+  width: 100%;
+}
+
 .group-show-movies-container {
   margin-top: 20px;
   width: 100%;
@@ -28,6 +36,8 @@
   width: 25px;
   transform: rotate(180deg);
   filter: invert(100%);
+  position: absolute;
+  right: 0px;
 }
 
 .up-arrow {
@@ -36,11 +46,43 @@
   height: 25px;
   width: 25px;
   filter: invert(100%);
+  position: absolute;
+  right: 0px;
 }
 
 .no-arrow {
   height: 25px;
   width: 25px;
+  position: absolute;
+  right: 0px;
+}
+
+.rating-down-arrow {
+  background-image: url(../assets/arrow.png);
+  background-size: cover;
+  height: 25px;
+  width: 25px;
+  transform: rotate(180deg);
+  filter: invert(100%);
+  position: absolute;
+  right: -33px;
+}
+
+.rating-up-arrow {
+  background-image: url(../assets/arrow.png);
+  background-size: cover;
+  height: 25px;
+  width: 25px;
+  filter: invert(100%);
+  position: absolute;
+  right: -33px;
+}
+
+.rating-no-arrow {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: -33px;
 }
 
 .group-show-header-container {
@@ -80,7 +122,6 @@
 
 .edit-group-name-button:hover {
   filter: invert(75%);
-
 }
 
 .edit-group-name-button:active {
@@ -156,23 +197,22 @@
   display: flex;
   gap: 10px;
   position: relative;
-}
-
-.visible {
-  display: flex;
-}
-
-.hidden {
-  display: none;
+  width: 130px;
+  justify-content: center;
+  position: relative;
 }
 
 .filter-name-container,
 .filter-group-rating-container {
   display: flex;
   gap: 10px;
+  align-items: center;
+  width: 130px;
+  justify-content: center;
+  position: relative;
 }
 
-.filter-genre-label,
+.filter-genre-button,
 .filter-name-button,
 .filter-group-rating-button {
   font-family: "Bebas Neue", cursive;
@@ -180,12 +220,31 @@
   font-size: 25px;
   text-align: center;
   cursor: pointer;
+  border: 1px solid $golden;
+  padding: 10px 10px 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.filter-genre-button:active,
+.filter-name-button:active,
+.filter-group-rating-button:active {
+  transform: translateY(1px)
 }
 
 .filter-group-rating-button {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+
+.visible {
+  display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 #genre {
@@ -203,14 +262,13 @@
 
 .genre-dropdown {
   position: absolute;
-  // border-radius: 10px;
+  border-radius: 5px;
   width: 150px;
   height: 250px;
   box-shadow: 0px 0px 25px 5px $purple-1;
   color: #414141;
-  left: 60px;
-  top: 3px;
-  border-radius: 2px;
+  left: 105px;
+  top: 2px;
   background-color: $golden;
   overflow-y: scroll;
 
@@ -266,12 +324,13 @@
 .leave-group-button {
   background: $golden;
   color: $purple-1;
-  font-family: 'Montserrat', sans-serif; 
-  font-weight:700;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   padding: 8px 15px;
   margin-top: 50px;
   border-radius: 10px;
   font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .leave-group-button:hover {

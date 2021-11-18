@@ -77,22 +77,29 @@ class LoginForm extends React.Component {
         return (
             <div className="login-background">
                 <div className="login-intro">
-                    <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
-                    <br/>
-                    <div>
-                      <p>Welcome to Movie Fridays! </p>
-                      <p> 
-                      With Movie Fridays you can create groups for your friends and family 
-                      to view and rate movies, as well as get movie recommendations 
-                      based on your ratings and currently popular movies. View ImBd and 
-                      MetaCritic ratings as well as your personal rating and current group rating. 
-                      Easily find what groups suit your tastes through groups "top picks". 
-
-                      Movie Fridays is an application conceptualized, 
-                      planned, designed and built by Albert Kim, Jonathan Berzon, 
-                      Maisie Bruno-Tyne, and Yehuda Goldschein.
-                      </p>
-                    </div>
+                <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
+              <div className='signup-intro-text'>
+                <p>Welcome to Movie Fridays! </p>
+                <p> 
+                With Movie Fridays you can create groups for your friends and family 
+                to view and rate movies.
+                </p>
+                <p>
+                Get movie recommendations 
+                based on currently popular movies.
+                </p>
+                <p>
+                View IMDb, Metacritic, and your groups rating as well as
+                your own rating of a movie. 
+                </p>
+                <p>
+                Easily find what groups suit your tastes through groups "top picks". 
+                </p>
+                <p>
+                Movie Fridays was planned, designed and built by<br/> <span>Albert Kim</span>, 
+                 <span> Jonathan Berzon</span>, <span>Maisie Bruno-Tyne</span>, and <span>Yehuda Goldschein</span>.
+                </p>
+              </div>
                 </div>
 
                 <form className="login-form" onSubmit={this.handleSubmit}>

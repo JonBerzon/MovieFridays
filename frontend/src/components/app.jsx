@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, BlockedRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route } from 'react-router-dom';
 import GroupsIndexContainer from './groups/groups_index_container';
 import GroupShowContainer from './groups/group_show_container';
@@ -14,7 +14,7 @@ import MovieShowContainer from './movie_show/movie_show_container';
 const App = () => (
     <div>
       <Modal/>
-        <ProtectedRoute path='/' component={NavbarContainer} />
+      <BlockedRoute exact path='/' />
         <Route path="/movies/:movie_id/review" component={ReviewForm} /> 
         <Switch>
             <ProtectedRoute exact path="/groups/:groupId" component={GroupShowContainer} />

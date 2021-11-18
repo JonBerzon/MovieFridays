@@ -10,6 +10,14 @@
     background: $purple-2;
 }
 
+.main-content-nav-bar-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    align-items: center;
+    width: 100%;
+}
+
 .groups-index-popular-container {
     display: flex;
     flex-direction: column;
