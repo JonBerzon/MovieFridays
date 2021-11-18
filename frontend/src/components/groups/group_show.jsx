@@ -135,7 +135,7 @@ class GroupShow extends React.Component {
     if (!this.props.group) return null;
     let moviesFiltered = this.props.movies.filter(
       movie => movie.group_id === this.props.group._id
-    );
+    ).reverse();
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
