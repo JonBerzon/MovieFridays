@@ -13,7 +13,8 @@
   padding: 5px;
   justify-content:left; 
   align-items: center;
-  overflow:auto;
+  overflow-x:scroll;
+  overflow-y:hidden;
   border-left: 15px solid $purple-4;
   border-right: 15px solid $purple-4;
   border-radius: 10px;
@@ -88,6 +89,7 @@
 
 .movie-header input{
   height: 30px;
+  text-indent: 10px;
 }
 
 .movie-header button{
