@@ -180,26 +180,31 @@ class SignupForm extends React.Component {
           <div className="signup-intro">
               <h1 className="border-bottom-heavy" >MOVIE FRIDAYS</h1>
               <div className='signup-intro-text'>
-                <p>Welcome to Movie Fridays! </p>
-                <p> 
-                With Movie Fridays you can create groups for your friends and family 
+              <p>Welcome to Movie Fridays! </p>
+              <br />
+              <p>
+                With Movie Fridays you can create groups for your friends and family
                 to view and rate movies.
-                </p>
-                <p>
-                Get movie recommendations 
+              </p>
+              <br />
+              <p>
+                Get movie recommendations
                 based on currently popular movies.
-                </p>
-                <p>
+              </p>
+              <br />
+              <p>
                 View IMDb, Metacritic, and your groups rating as well as
-                your own rating of a movie. 
-                </p>
-                <p>
-                Easily find what groups suit your tastes through groups "top picks". 
-                </p>
-                <p>
-                Movie Fridays was planned, designed and built by<br/> <span>Albert Kim</span>, 
-                 <span> Jonathan Berzon</span>, <span>Maisie Bruno-Tyne</span>, and <span>Yehuda Goldschein</span>.
-                </p>
+                your own rating of a movie.
+              </p>
+              <br />
+              <p>
+                Easily find what groups suit your tastes through groups "top picks".
+              </p>
+              <br />
+              <p>
+                Movie Fridays was planned, designed and built by<br /> <span>Albert Kim</span>,
+                <span> Jonathan Berzon</span>, <span>Maisie Bruno-Tyne</span>, and <span>Yehuda Goldschein</span>.
+              </p>
               </div>
           </div>
 

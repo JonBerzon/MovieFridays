@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchMovie } from '../../actions/movie_actions';
-import { fetchReviews, updateReview } from '../../actions/review_actions';
+import { deleteReview, fetchReviews, updateReview } from '../../actions/review_actions';
 import MovieShow from './movie_show';
 import { fetchGroup } from '../../actions/group_actions';
 import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router';
 
 const mSTP = (state, ownProps) => ({
     movie: state.entities.movies[ownProps.match.params.movieId],
@@ -16,7 +17,8 @@ const mDTP = dispatch => ({
     fetchMovie: movieId => dispatch(fetchMovie(movieId)),
     fetchReviews: movieId => dispatch(fetchReviews(movieId)),
     fetchGroup: groupId => dispatch(fetchGroup(groupId)),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    deleteReview: reviewId => dispatch(deleteReview(reviewId))
 })
 
-export default connect(mSTP, mDTP)(MovieShow);
+export default withRouter(connect(mSTP, mDTP)(MovieShow));
