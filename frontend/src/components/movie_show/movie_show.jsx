@@ -27,6 +27,7 @@ class MovieShow extends React.Component {
     render() {
         let similar = [1, 2, 3, 4]
         if (!this.props.movie || !this.props.reviews) return null;
+        // if (Object.values(this.props.movie).length < 1 ) return null;
         if (Object.values(this.props.groups).length === 0) return null;
         let { movie, reviews, groups } = this.props
         let ourGroup = Object.values(groups).filter(group => movie.group_id === group._id)
@@ -36,6 +37,7 @@ class MovieShow extends React.Component {
             return obj._id;
         });
         let {similar_movies} = movie
+        let yourReview = reviewArr.filter(review => review.reviewer._id === this.props.currentUser.id)
         return (
             <div className="movie-show-parent-div">
                 {
@@ -47,8 +49,8 @@ class MovieShow extends React.Component {
                 }
                 
                 {
-                  members.includes(this.props.currentUser.id) ? (
-                    <ModalButtonContainer modalType={{type:'review', movieId: this.props.movie._id}} />
+                    members.includes(this.props.currentUser.id) && (yourReview.length === 0) ? (
+                    <ModalButtonContainer modalType={{type:'review', movie: this.props.movie}} />
                   ) : (
                     null
                   )
@@ -87,7 +89,7 @@ class MovieShow extends React.Component {
                         <div className="movie-show-reviews">
                             {
                                 reviewArr.map(review => {
-                                    return <Review key={review} review={review}/>
+                                    return <Review key={review} review={review} openModal={this.props.openModal} movie={this.props.movie} currentUser={this.props.currentUser}/>
                                 })
                             }
 

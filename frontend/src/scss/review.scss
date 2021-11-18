@@ -96,3 +96,52 @@
     width: 93%;
     border-top: 2px solid $golden;
 }
+
+.review-bottom-buttons{
+    display: flex;
+    align-items: center;
+
+    span{
+        margin-right: 10px;
+    }
+
+    
+
+}
+
+.review-bottom-button-hide{
+    display: none;
+}
+
+.review-bottom-button-current-user{
+    display: flex;
+    h5{
+        cursor: pointer;
+        color: $golden;
+        
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: end;
+
+
+    }
+
+    h6{
+        color: $golden;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+        font-size: 12px;
+        text-align: end;
+        margin-left: 5px;
+        margin-right: 5px;
+
+    }
+
+}
+
+#review-content-body{
+    p{
+        margin-top: 10px;
+    }
+}
