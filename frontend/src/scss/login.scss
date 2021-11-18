@@ -12,7 +12,7 @@
         position: relative;
         top: 100px;
         height: 500px;
-        width: 450px;
+        width: 600px;
 
         h1 {
             text-align: center;
@@ -20,18 +20,26 @@
         }
 
         p:first-of-type{
-          font-size: 20px;
+          font-size: 25px;
           padding-bottom: 10px;
+          font-weight: 600;
         }
 
         p {
-            font-size: 15px;
+            font-size: 20px;
         }
 
-        div{
+        .signup-intro-text{
           padding:20px;
           border-radius:10px;
-          background-color: rgba(23, 1, 20, .5);
+          background-color: rgba(23, 1, 20, 0.836);
+          margin-top:18px;
+        }
+
+        p:last-of-type {
+          span {
+            font-weight: 600;
+          }
         }
     }
 
