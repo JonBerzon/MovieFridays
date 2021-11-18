@@ -10,6 +10,7 @@
     z-index: 5;
 
     .sidebar-title-and-groups {
+        
         p {
             margin-top: 80px;
             margin-left: 30px;
@@ -54,7 +55,10 @@
     }
 
     .sidebar-title-and-groups {
-        height:400px;
+        // height:400px;
+        display: flex;
+        flex-direction: column;
+        height: 60%;
 
 
         p {
@@ -70,7 +74,7 @@
         }
 
         .sidebar-user-names {
-            height:280px;
+            // height:280px;
             overflow: scroll;
 
     
