@@ -178,8 +178,6 @@ class GroupShow extends React.Component {
       return obj._id;
     });
 
-
-
     return this.props.movies.length === 0 && this.state.fetched ? (
       <div>
         <h1>Add movies to your group</h1>
@@ -203,13 +201,13 @@ class GroupShow extends React.Component {
           />
         ) : null}
 
-        <div className="temp-sidebar-template"></div>
+        <NavbarContainer />
         <Sidebar
           currentUser={this.props.currentUser}
           group={this.props.group}
         />
+        <div className="temp-sidebar-template"></div>
         <div className="group-show-navbar-main-div">
-          <NavbarContainer />
           <div className="filter-movies-container">
             <div className="group-show-header-container">
               <div className="filter-header-group-name-container">

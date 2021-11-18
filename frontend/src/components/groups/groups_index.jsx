@@ -16,6 +16,8 @@ class GroupsIndex extends React.Component {
 
     return (
       <div className="groups-index-main-div">
+        
+        <NavbarContainer /> 
         <div className="temp-sidebar-template"></div>
           <Sidebar
             display="group"
@@ -23,7 +25,6 @@ class GroupsIndex extends React.Component {
             groups={this.props.groups}
           />
         <div className="main-content-nav-bar-container">
-        <NavbarContainer />
           <div className="groups-index-popular-container">
             <ModalButtonContainer modalType={{ type: "group" }} />
             <PopularContainer />

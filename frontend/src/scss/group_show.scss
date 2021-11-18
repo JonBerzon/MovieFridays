@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+.group-show-navbar-main-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  align-items: center;
+  width: 100%;
+}
+
 .group-show-movies-container {
   margin-top: 20px;
   width: 100%;
@@ -80,7 +88,6 @@
 
 .edit-group-name-button:hover {
   filter: invert(75%);
-
 }
 
 .edit-group-name-button:active {
@@ -266,8 +273,8 @@
 .leave-group-button {
   background: $golden;
   color: $purple-1;
-  font-family: 'Montserrat', sans-serif; 
-  font-weight:700;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   padding: 8px 15px;
   margin-top: 50px;
   border-radius: 10px;
