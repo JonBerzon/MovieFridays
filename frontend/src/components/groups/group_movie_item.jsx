@@ -12,13 +12,18 @@ class GroupMovieItem extends React.Component {
       .then(() => this.setState({ fetched: true }));
   }
 
-
   render() {
     if (!this.props.movie) return null;
     if (this.props.reviews.length === 0 && !this.state.fetched) return null;
-    let groupRating = (this.props.movie.cumulative_reviews / this.props.movie.num_reviews);
-    groupRating = groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating
-    if (!groupRating) groupRating = '?'
+    let groupRating;
+    if (this.props.movie.num_reviews) {
+      groupRating =
+        this.props.movie.cumulative_reviews / this.props.movie.num_reviews;
+      groupRating =
+        groupRating % 1 !== 0 ? groupRating.toFixed(1) : groupRating;
+    } else {
+      groupRating = "?";
+    }
     let userRating;
     let reviews = [...this.props.reviews];
     reviews = reviews.filter(
