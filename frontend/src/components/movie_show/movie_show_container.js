@@ -4,6 +4,7 @@ import { deleteReview, fetchReviews, updateReview } from '../../actions/review_a
 import MovieShow from './movie_show';
 import { fetchGroup } from '../../actions/group_actions';
 import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router';
 
 const mSTP = (state, ownProps) => ({
     movie: state.entities.movies[ownProps.match.params.movieId],
@@ -20,4 +21,4 @@ const mDTP = dispatch => ({
     deleteReview: reviewId => dispatch(deleteReview(reviewId))
 })
 
-export default connect(mSTP, mDTP)(MovieShow);
+export default withRouter(connect(mSTP, mDTP)(MovieShow));
