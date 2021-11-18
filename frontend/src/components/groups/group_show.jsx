@@ -99,7 +99,7 @@ class GroupShow extends React.Component {
     this.props.removeUserFromGroup({
       user_id: this.props.currentUser.id,
       group_id: this.props.group._id,
-    });
+    }).then(()=> this.props.history.push('/groups'));
   }
 
   handleNameChange(e) {
@@ -321,12 +321,14 @@ class GroupShow extends React.Component {
                 />
               ))}
             </div>
+            { members.includes(this.props.currentUser.id) ?
             <button
               className="leave-group-button"
               onClick={e => this.removeUser(e)}
             >
               Leave Group
             </button>
+            : <div></div>}
           </div>
         </div>
       </div>
