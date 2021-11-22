@@ -5,6 +5,13 @@
   padding-bottom: 5px;
 }
 
+.movie-title{
+  white-space: nowrap;
+  width:500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .review-form > div {
   width: 100%;
   display:flex;

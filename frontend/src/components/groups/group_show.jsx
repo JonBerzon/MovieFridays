@@ -140,6 +140,9 @@ class GroupShow extends React.Component {
     let moviesFiltered = this.props.movies
       .filter(movie => movie.group_id === this.props.group._id)
       .reverse();
+    let zeroRatingMovies = this.props.movies.filter(
+      movie => movie.cumulative_reviews === 0
+    );
     if (this.state.title === true) {
       moviesFiltered.sort((a, b) => a.title.localeCompare(b.title));
     } else if (this.state.title === false) {
@@ -150,19 +153,23 @@ class GroupShow extends React.Component {
         movie.genre.includes(this.state.genre)
       );
     } else if (this.state.groupRating) {
+      moviesFiltered = moviesFiltered.filter(movie => movie.cumulative_reviews !== 0);
       moviesFiltered.sort((a, b) => {
         return a.cumulative_reviews / a.num_reviews >
           b.cumulative_reviews / b.num_reviews
           ? -1
           : 1;
       });
+      moviesFiltered = [...moviesFiltered, ...zeroRatingMovies]
     } else if (this.state.groupRating === false) {
+      moviesFiltered = moviesFiltered.filter(movie => movie.cumulative_reviews !== 0);
       moviesFiltered.sort((a, b) =>
         a.cumulative_reviews / a.num_reviews >
         b.cumulative_reviews / b.num_reviews
           ? 1
           : -1
       );
+      moviesFiltered = [...zeroRatingMovies,...moviesFiltered]
     }
 
     let genreArr = [

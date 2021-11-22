@@ -26,7 +26,6 @@ class MovieForm extends React.Component {
       e.preventDefault();
       this.props.fetchMovie(this.state.id)
         .then(res => {
-          console.log(res)
 
           const movieObj = res.data;
           const movie = {
@@ -81,7 +80,6 @@ class MovieForm extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="movie-form-container">
 
