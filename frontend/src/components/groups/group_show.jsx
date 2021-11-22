@@ -140,7 +140,7 @@ class GroupShow extends React.Component {
     let moviesFiltered = this.props.movies
       .filter(movie => movie.group_id === this.props.group._id)
       .reverse();
-    let zeroRatingMovies = this.props.movies.filter(
+    let zeroRatingMovies = moviesFiltered.filter(
       movie => movie.cumulative_reviews === 0
     );
     if (this.state.title === true) {
