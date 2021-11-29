@@ -8,7 +8,7 @@ import {
 } from "../../actions/group_actions";
 import { fetchMovies } from "../../actions/movie_actions";
 import { fetchReviews } from "../../actions/review_actions";
-
+import { openModal, closeModal } from "../../actions/modal_actions";
 const mSTP = (state, ownProps) => ({
   group: state.entities.groups[ownProps.match.params.groupId],
   movies: Object.values(state.entities.movies),
@@ -24,6 +24,8 @@ const mDTP = dispatch => ({
   addUserToGroup: group => dispatch(addUserToGroup(group)),
   removeUserFromGroup: group => dispatch(removeUserFromGroup(group)),
   editGroupName: group => dispatch(editGroupName(group)),
+  openModal: modal => dispatch(openModal(modal)),
+  closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mSTP, mDTP)(GroupShow);

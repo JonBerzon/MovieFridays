@@ -1,0 +1,57 @@
+.leave-group-form-container{
+    display: flex; 
+    flex-direction: column;
+    background-color: $purple-3;
+    border-radius: 10px;
+    padding: 15px;
+    animation: popup .5s 1 ease-in-out;
+  }
+
+.leave-group-form {
+  display:flex; 
+  flex-direction: column;
+  align-items: center;
+  background-color: $purple-4;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.leave-group-h3 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.select-admin-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.select-admin {
+    border: 1px solid $white;
+    border-radius: 5px;
+    padding: 1px;
+    option {
+        color: black;
+    }
+}
+
+.leave-group-errors {
+    margin-top: 20px;
+    display:block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
+    font-size: 15px !important;
+    color:red;
+}
+
+.leave-group-form button{
+  margin: 10px;
+  margin-top: 20px;
+}
+
+.leave-group-form button:hover{
+  text-decoration: 2px underline $golden;
+  text-underline-offset: 2px;
+}

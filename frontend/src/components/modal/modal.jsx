@@ -6,7 +6,7 @@ import GroupFormContainer from '../groups/group_form_container';
 import MovieFormContainer from '../movies/movie_form_container';
 import MovieDisplayFormContainer from '../movies/movie_display_form_container';
 import EditReviewFormContainer from '../reviews/edit_review_form_container';
-
+import LeaveGroupFormContainer from '../groups/leave_group_form_container';
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -28,6 +28,9 @@ function Modal({modal, closeModal}) {
       break;
     case 'edit':
       component = <EditReviewFormContainer review={modal.review} movie={modal.movie}/>
+      break;
+    case 'remove user':
+      component = <LeaveGroupFormContainer userId={modal.user_id} groupId={modal.group_id} users={modal.users} owner={modal.owner}/>
       break;
     default:
       return null;
