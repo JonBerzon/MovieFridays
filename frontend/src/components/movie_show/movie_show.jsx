@@ -17,6 +17,7 @@ class MovieShow extends React.Component {
         }
         this.overflowSwitch = this.overflowSwitch.bind(this)
         this.groupRedirect = this.groupRedirect.bind(this)
+        this.deleteMovie = this.deleteMovie.bind(this)
     }
 
     componentDidMount() {
@@ -27,7 +28,9 @@ class MovieShow extends React.Component {
 
     componentDidUpdate(prevProps){
         if (this.props.movie !== prevProps.movie){
-            this.props.fetchGroup(this.props.movie.group_id)
+            if (this.props.movie) {
+                this.props.fetchGroup(this.props.movie.group_id)
+            }
         }
     }
 
@@ -39,6 +42,10 @@ class MovieShow extends React.Component {
         this.props.history.push(`/groups/${this.props.movie.group_id}`)
     }
 
+    deleteMovie(){
+        let groupId = this.props.movie.group_id;
+        this.props.deleteMovie(this.props.movie._id).then(()=>this.props.history.push(`/groups/${groupId}`))
+    }
 
     render() {
         if (!this.props.movie || !this.props.reviews) return null;
@@ -51,7 +58,7 @@ class MovieShow extends React.Component {
             return obj._id;
         });
         let {similar_movies} = movie
-        let yourReview = reviewArr.filter(review => review.reviewer._id === this.props.currentUser.id)
+        let yourReview = reviewArr.filter(review => review.reviewer._id === this.props.currentUser.id);
         return (
             <div className="movie-show-parent-div">
                 {
@@ -76,6 +83,11 @@ class MovieShow extends React.Component {
                     <div className="movie-show-left-content">
                         <img src={movie.poster} className="movie-show-poster" alt=""/>
                         <div onClick={this.groupRedirect} className="movie-show-back-button">Back to Group</div>
+                        { 
+                        this.props.currentUser.id === ourGroup[0].owner._id || this.props.currentUser.id === movie.submitter_id ?
+                        <div onClick={this.deleteMovie} className="movie-show-back-button">Remove Movie</div>
+                        : <div></div>
+                        }
                         <div className="movie-show-similar-div">
                             <h1>Recommended Movies</h1>
                             <hr />
