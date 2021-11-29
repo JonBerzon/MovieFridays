@@ -24,9 +24,9 @@ class SignupForm extends React.Component {
     }
 
     update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.value
-        });
+      return e => this.setState({
+          [field]: e.currentTarget.value
+      });
     }
 
     toggleSelected(id){
@@ -81,7 +81,12 @@ class SignupForm extends React.Component {
           return { errors };
         })
       } else {
-        this.props.signup(user, this.props.history).then(() => this.props.login(user))
+        this.props.signup(user, this.props.history)
+          .then((res) => {
+            if (res.type === "RECEIVE_USER_SIGN_IN") {
+              this.props.login(user)
+            }
+          });
       }
     }
 
