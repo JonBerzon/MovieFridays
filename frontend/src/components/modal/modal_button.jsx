@@ -14,6 +14,10 @@ const ModalButton = ({ openModal, modalType }) => {
       startButtonText = 'Add'
       endButtonText = 'Movie'
       break;
+    case 'movieDisplay': 
+      startButtonText = 'Add'
+      endButtonText = 'Movie'
+      break;
     case 'review': 
       startButtonText = 'Add'
       endButtonText = 'Review'
