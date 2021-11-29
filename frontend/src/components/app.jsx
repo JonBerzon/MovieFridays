@@ -9,6 +9,7 @@ import ReviewForm from './reviews/review_form_container'
 import Modal from './modal/modal'
 import MovieShowContainer from './movie_show/movie_show_container';
 import MovieDisplayContainer from './movies/movie_display_container';
+import NotFound from "./not_found/not_found";
 
 
 
@@ -25,7 +26,7 @@ const App = () => (
             <ProtectedRoute exact path="/movies/:movieId" component={MovieShowContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
+            <Route component={NotFound} />
         </Switch>
     </div>
 );

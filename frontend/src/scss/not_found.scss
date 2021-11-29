@@ -1,0 +1,32 @@
+.notFound {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+
+    p:first-child {
+        font-size: 15vw;
+        font-weight: bold;
+    }
+
+    p:nth-child(2) {
+        font-size: 3vw;
+        margin-bottom: 3%;
+    }
+
+    button {
+        font-size: 1vw;
+        border: 1px solid white;
+        border-radius: 50px;
+        width: 10vw;
+        height: 2.5vw;
+    }
+
+    button:hover {
+        box-shadow: 0 0 7px $golden;
+    }
+}

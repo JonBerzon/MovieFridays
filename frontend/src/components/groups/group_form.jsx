@@ -22,6 +22,7 @@ class GroupForm extends React.Component {
   handleSubmit(e) {
 
     if(this.state.name.length === 0){
+      e.preventDefault();
       const errors = document.getElementById('groupErrors')
       errors.classList.add('display-errors')
     }else{
