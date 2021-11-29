@@ -14,14 +14,13 @@ class MovieDisplay extends React.Component {
           movie: '',
           valid: null,
         }
-
       this.getUserGroups = this.getUserGroups.bind(this);
       this.checkImage = this.checkImage.bind(this); 
       this.validMovie = this.validMovie.bind(this);
-
     }
 
     componentDidMount() {
+      console.log("component did mount")
       this.props.fetchGroups();
       this.props.fetchMovie(this.props.match.params.movieId)
         .then(res => 
@@ -29,7 +28,6 @@ class MovieDisplay extends React.Component {
             movie: res.data
           }))
           .then(() => this.validMovie(this.state.movie)); 
-      
     }
 
     componentDidUpdate(prevProps){
@@ -58,7 +56,7 @@ class MovieDisplay extends React.Component {
     validMovie(movie){
       this.checkImage(movie.image)
         .then(res => {
-          if(!res){
+          if(res !== true){
             this.setState({
                 valid: res,
               })
@@ -66,6 +64,7 @@ class MovieDisplay extends React.Component {
           })
         .then(() => {
         if (
+            movie.type == "TVSeries" ||
             movie.directorList.length === 0 ||
             !movie.title ||
             !movie.plot ||
@@ -75,16 +74,12 @@ class MovieDisplay extends React.Component {
             this.setState({
               valid: false
             });
-            console.log("no director")
-          }else{
+          }else if(this.state.valid === null){
             this.setState({
-              valid:true,
+              valid: true,
             })
-            console.log("its valid bb")
           }
         });
-        
-      
     }
 
     async checkImage(url){
@@ -106,10 +101,6 @@ class MovieDisplay extends React.Component {
     render() {
 
       const movie = this.state.movie;
-      console.log(movie)
-      console.log(this.state.valid)
-
-
       if(movie && this.state.valid && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
         return (
@@ -126,7 +117,7 @@ class MovieDisplay extends React.Component {
                 <div className="movie-show-dummy-div"></div>
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
-                        {/* <img src={movie.image} className="movie-show-poster" /> */}
+                        <img src={movie.image} className="movie-show-poster" />
                         <div className="movie-show-similar-div">
                             <h1>Recommended Movies</h1>
                             <hr />
@@ -158,7 +149,7 @@ class MovieDisplay extends React.Component {
         )
       }else{
         return(
-          <div></div>
+          <div>Movie not valid bb</div>
         )
       }
     }
