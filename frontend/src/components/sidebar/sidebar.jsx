@@ -46,7 +46,7 @@ const Sidebar = props => {
                         <div className="links">
                             <a className="members" href="https://github.com/rlachivirus" target="_blank" rel="noreferrer"><div className="link1"></div></a>
                             <a className="members" href="https://www.linkedin.com/in/albertck/" target="_blank" rel="noreferrer"><div className="link2"></div></a>
-                            <a className="members" href="" target="_blank" rel="noreferrer"><div className="link3"></div></a>
+                            <a className="members" href="https://rlachivirus.github.io/albertck/" target="_blank" rel="noreferrer"><div className="link3"></div></a>
                         </div>
                     </div>
                 </div>
