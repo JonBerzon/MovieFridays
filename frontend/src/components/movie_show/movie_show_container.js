@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchMovie } from '../../actions/movie_actions';
+import { deleteMovie, fetchMovie } from '../../actions/movie_actions';
 import { deleteReview, fetchReviews } from '../../actions/review_actions';
 import MovieShow from './movie_show';
 import { fetchGroup } from '../../actions/group_actions';
@@ -18,7 +18,8 @@ const mDTP = dispatch => ({
     fetchReviews: movieId => dispatch(fetchReviews(movieId)),
     fetchGroup: groupId => dispatch(fetchGroup(groupId)),
     openModal: modal => dispatch(openModal(modal)),
-    deleteReview: reviewId => dispatch(deleteReview(reviewId))
+    deleteReview: reviewId => dispatch(deleteReview(reviewId)),
+    deleteMovie: movieId => dispatch(deleteMovie(movieId))
 })
 
 export default withRouter(connect(mSTP, mDTP)(MovieShow));

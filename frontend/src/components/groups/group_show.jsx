@@ -18,6 +18,7 @@ class GroupShow extends React.Component {
       groupName: null,
     };
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.addUser = this.addUser.bind(this)
   }
   componentDidMount() {
     this.props
@@ -96,16 +97,30 @@ class GroupShow extends React.Component {
 
   removeUser(e) {
     e.preventDefault();
-    this.props
-      .removeUserFromGroup({
-        user_id: this.props.currentUser.id,
+    // this.props
+    //   .removeUserFromGroup({
+    //     user_id: this.props.currentUser.id,
+    //     group_id: this.props.group._id,
+    //   })
+      this.props.openModal({
+        type: 'remove user',
+        user_id: this.props.currentUser.id, 
         group_id: this.props.group._id,
+        users: this.props.group.users,
+        owner: this.props.group.owner 
       })
-      .then(() => this.props.history.push("/groups"));
+      // .then(() => this.props.history.push("/groups"));
   }
 
   handleNameChange(e) {
     this.setState({ groupName: e.target.value });
+  }
+
+  addUser(){
+    this.props.addUserToGroup({
+      user_id: this.props.currentUser.id,
+      group_id: this.props.group._id,
+    })
   }
 
   handleSubmit(e) {
@@ -193,6 +208,13 @@ class GroupShow extends React.Component {
       return obj._id;
     });
 
+    let isMember = false;
+    this.props.group.users.forEach(user =>{
+      if (user._id === this.props.currentUser.id){
+        isMember = true;
+      }
+    })
+
     return (
       <div className="group-show-main-div">
         {members.includes(this.props.currentUser.id) ? (
@@ -245,6 +267,15 @@ class GroupShow extends React.Component {
                     <div></div>
                   )}
                 </div>
+                {
+                  !isMember ? (<button
+                    className="filter-header-button"
+                    onClick={this.addUser}
+                  >
+                    JOIN GROUP
+                  </button>) : ""
+                }
+                
                 <button
                   className="filter-header-button"
                   onClick={e => this.toggleClass(e)}
@@ -316,6 +347,11 @@ class GroupShow extends React.Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div>
+              {
+                this.state.genre ? <h2 className="group-show-genre-header">{this.state.genre}</h2> : null
+              }
             </div>
             <div className="group-show-movies-container">
               {moviesFiltered.map((movie, idx) => (
