@@ -4,6 +4,8 @@ import ModalButtonContainer from '../modal/modal_button_container'
 import Similar from "../movie_show/similar";
 import NavbarContainer from '../navbar/navbar_container'
 import Sidebar from "../sidebar/sidebar";
+import axios from 'axios';
+
 
 class MovieDisplay extends React.Component {
     constructor(props) {
@@ -48,12 +50,45 @@ class MovieDisplay extends React.Component {
       return list; 
     }
 
+    validMovie(movie){
+      let valid = this.checkImage(movie.image); 
+      const movieKeys = [
+        movie.title, 
+        movie.year, 
+        movie.plot,
+        movie.imDbRating,
+        movie.metacriticRating,
+        movie.runtimeStr,
+        movie.similars,
+        movie.genreList,
+        movie.directorList
+      ];
+
+      
+
+      return valid;
+    }
+
+    async checkImage(url){
+      let valid = true;
+      let response = await fetch(url)
+        .catch((err) => { 
+          valid = false 
+          });
+      return(valid);
+    }
+
 
     render() {
+
       const movie = this.state.movie;
 
       if(movie && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
+        
+        this.validMovie(movie) 
+
+
         return (
             <div className="movie-show-parent-div">
                 <ModalButtonContainer modalType={{type:'movieDisplay', movieObj: this.state.movie, userGroups: this.getUserGroups() }} />
@@ -68,7 +103,7 @@ class MovieDisplay extends React.Component {
                 <div className="movie-show-dummy-div"></div>
                 <div className="movie-show-main-content-div">
                     <div className="movie-show-left-content">
-                        <img src={movie.image} className="movie-show-poster" />
+                        {/* <img src={movie.image} className="movie-show-poster" /> */}
                         <div className="movie-show-similar-div">
                             <h1>Recommended Movies</h1>
                             <hr />
