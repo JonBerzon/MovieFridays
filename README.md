@@ -41,6 +41,7 @@ On Movie Fridays, users have the ability to search for their favorite movies and
 ```
 
 <img src="assets/gifs/MF_Movie_Search_Display_GIF.gif" width="" height="" />
+
 ## Multiple CRUD Cycles
 Movie Fridays utilizes multiple crud cycles to create a powerful experience for the user. Users can add movies, as mentioned above, through API search and select methods The user who submitted the movie as well as the group admin have the ability to delete movies from the group if desired. Reviews follow a similar cycle and are able to be created, edited, and deleted by the appropiate user, utilizing reusable modal forms to create a seemeless experience. Groups also follow the same ideology and can be created, edited, or deleted. Functionality was given that if the user who leaves a group is an admin, they must designate the next admin before leaving the group. If the last user leaves the group, the group is destroyed.
 
