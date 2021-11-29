@@ -76,7 +76,6 @@ router.patch("/remove_user", async (req, res) => {
         );
       } else if (group.owner._id === req.body.user_id) {
         group.users.splice(i, 1);
-        // group.owner = group.users[0];
         group.owner = req.body.newAdmin;
         group.save();
         res.json(group);

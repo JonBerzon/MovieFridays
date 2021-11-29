@@ -15,8 +15,17 @@ class GroupsBlurbs extends React.Component {
   render() {
     let props = this.props;
     let group = props.group;
+    let groupUsers = group.users;
+    let owner;
+    for (let i = 0; i < groupUsers.length; i++) {
+      if (groupUsers[i]._id === group.owner._id) {
+        owner = groupUsers[i]
+        groupUsers.splice(i,1)
+        groupUsers.unshift(owner)
+      }
+    }
     let members =
-      group.users.length > 8 ? group.users.slice(0, 8) : group.users;
+      groupUsers.length > 8 ? groupUsers.slice(0, 8) : groupUsers;
     if (props.movies.length === 0 && !this.state.fetched) return null;
     let moviesSorted = props.movies;
     moviesSorted = moviesSorted.filter(movie => movie.group_id === group._id && movie.num_reviews);
