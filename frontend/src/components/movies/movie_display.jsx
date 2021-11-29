@@ -11,9 +11,13 @@ class MovieDisplay extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-          movie: ''
+          movie: '',
+          valid: null,
         }
+
       this.getUserGroups = this.getUserGroups.bind(this);
+      this.checkImage = this.checkImage.bind(this); 
+      this.validMovie = this.validMovie.bind(this);
 
     }
 
@@ -23,7 +27,9 @@ class MovieDisplay extends React.Component {
         .then(res => 
           this.setState({
             movie: res.data
-          })); 
+          }))
+          .then(() => this.validMovie(this.state.movie)); 
+      
     }
 
     componentDidUpdate(prevProps){
@@ -34,7 +40,6 @@ class MovieDisplay extends React.Component {
               movie: res.data
             }));
       }
-
     }
 
     getUserGroups() {
@@ -51,44 +56,62 @@ class MovieDisplay extends React.Component {
     }
 
     validMovie(movie){
-      let valid = this.checkImage(movie.image); 
-      const movieKeys = [
-        movie.title, 
-        movie.year, 
-        movie.plot,
-        movie.imDbRating,
-        movie.metacriticRating,
-        movie.runtimeStr,
-        movie.similars,
-        movie.genreList,
-        movie.directorList
-      ];
-
+      this.checkImage(movie.image)
+        .then(res => {
+          if(!res){
+            this.setState({
+                valid: res,
+              })
+            }
+          })
+        .then(() => {
+        if (
+            movie.directorList.length === 0 ||
+            !movie.title ||
+            !movie.plot ||
+            movie.similars.length === 0 || 
+            movie.genreList.length === 0
+          ){
+            this.setState({
+              valid: false
+            });
+            console.log("no director")
+          }else{
+            this.setState({
+              valid:true,
+            })
+            console.log("its valid bb")
+          }
+        });
+        
       
-
-      return valid;
     }
 
     async checkImage(url){
       let valid = true;
-      let response = await fetch(url)
-        .catch((err) => { 
-          valid = false 
+      try {
+        let response = await fetch(url)
+          .then(response => {
+            valid = true; 
           });
-      return(valid);
+      }
+      catch(error){
+        console.log("error")
+        valid = false;
+      }
+      return valid;
     }
 
 
     render() {
 
       const movie = this.state.movie;
+      console.log(movie)
+      console.log(this.state.valid)
 
-      if(movie && (Object.values(this.props.groups).length > 0)){
+
+      if(movie && this.state.valid && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
-        
-        this.validMovie(movie) 
-
-
         return (
             <div className="movie-show-parent-div">
                 <ModalButtonContainer modalType={{type:'movieDisplay', movieObj: this.state.movie, userGroups: this.getUserGroups() }} />
@@ -125,7 +148,7 @@ class MovieDisplay extends React.Component {
                         <div className="movie-show-movie-stats">
                             <h4>{movie.runtimeStr}</h4>
                             <h4>{movie.genreList[0].value}</h4>
-                            <h4>{movie.directorList[0].name}</h4>
+                            {/* <h4>{movie.directorList[0].name}</h4> */}
                         </div>
                         <p className="movie-show-plot">{movie.plot.split("&#39;").join("'")}</p>
 
