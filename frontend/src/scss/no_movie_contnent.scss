@@ -4,6 +4,10 @@
 
     div{
         width:500px;
+        margin-top: 50px;
+        padding: 20px;
+        border-radius:10px;
+        background-color: $purple-3;
     }
     h1{
         font-size: 150px;
@@ -11,5 +15,15 @@
 
     p{
         font-size: 25px;
+        padding-bottom: 15px;
+    }
+
+    button{
+        height: 35px; 
+        width: 100px;
+        border-radius:10px;
+        justify-content: center;
+        text-align: center; 
+        background-color: $purple-5;
     }
 }

@@ -12,7 +12,7 @@ class MovieDisplay extends React.Component {
         this.state = {
           movie: '',
           validImage: null,
-          // validContent: null,
+          fetched: false,
         }
       this.getUserGroups = this.getUserGroups.bind(this);
       this.checkImage = this.checkImage.bind(this); 
@@ -20,17 +20,17 @@ class MovieDisplay extends React.Component {
     }
 
     componentDidMount() {
-      console.log("component did mount")
       this.props.fetchGroups();
       this.props.fetchMovie(this.props.match.params.movieId)
         .then(res => 
           this.setState({
-            movie: res.data
+            movie: res.data,
+            fetched: true,
           }))
           .then(() => this.validMovie(this.state.movie)); 
     }
 
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps){
       if (this.props.match.params.movieId !== prevProps.match.params.movieId){
         this.props.fetchMovie(this.props.match.params.movieId)
           .then(res => {
@@ -100,8 +100,11 @@ class MovieDisplay extends React.Component {
 
 
     render() {
+      // console.log("render called")
+      if(!this.state.fetched || this.state.validImage === null){
+        return null;
+      }
       const movie = this.state.movie;
-      
       if(movie && this.state.validImage && this.validContent(movie) && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
         return (
@@ -153,8 +156,9 @@ class MovieDisplay extends React.Component {
           <div className="no-movie-content">
           <div>
             <h1>OOPS!</h1>
-            <p>Looks like this movie doesn't have much content yet, sometimes if the movie is really new our API won't have enough content for us to add it to a group.</p>
+            <p>Looks like this movie doesn't have much content yet, sometimes if the movie is really new our API won't have enough information for us to add it to a group.</p>
             <p>Try back later and hopefully it will have been updated.</p>
+            <button onClick={() => this.props.history.goBack()}>Go back</button>
           </div>
           </div>
         )
