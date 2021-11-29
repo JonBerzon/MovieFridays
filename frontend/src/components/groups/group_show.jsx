@@ -341,6 +341,11 @@ class GroupShow extends React.Component {
                 </div>
               </div>
             </div>
+            <div>
+              {
+                this.state.genre ? <h2 className="group-show-genre-header">{this.state.genre}</h2> : null
+              }
+            </div>
             <div className="group-show-movies-container">
               {moviesFiltered.map((movie, idx) => (
                 <GroupMovieItemContainer
