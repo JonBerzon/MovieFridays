@@ -14,7 +14,7 @@ The backend for Movie Fridays was built using Node.js, Express.js, and MongoDB f
 
 # Features
 ## Movie Searching and Displaying
-On Movie Fridays, users have the ability to search for their favorite movies and add them to their groups show page. This is accomplished by utilizing multiple API calls to the IMDb API. The first API call is a search through IMDB's database for the movie which we use the response display it with its available poster as to reduce user confusion and give them a visual aid to select the correct movie. The second API call is cast after the user selects the searched movie, which we then use to pull the entirety of IMDB's information about said movie to add to our database. Modals were utilized to create a better UI experience for the user. 
+On Movie Fridays, users have the ability to search for their favorite movies and add them to their groups show page. This is accomplished by utilizing multiple API calls to the IMDb API. The first API call is a search through IMDB's database. Search results are displayed with its available poster to reduce user confusion and give them a visual aid to select the correct movie. The second API call is cast after the user selects the searched movie, which we then use to pull the entirety of IMDB's information about said movie to add to our database. Modals were utilized to create a better UI experience for the user. 
 
 ```Javascript
   handleSubmit(e) {
