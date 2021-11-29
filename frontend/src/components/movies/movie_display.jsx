@@ -4,7 +4,6 @@ import ModalButtonContainer from '../modal/modal_button_container'
 import Similar from "../movie_show/similar";
 import NavbarContainer from '../navbar/navbar_container'
 import Sidebar from "../sidebar/sidebar";
-import axios from 'axios';
 
 
 class MovieDisplay extends React.Component {
@@ -12,7 +11,8 @@ class MovieDisplay extends React.Component {
         super(props)
         this.state = {
           movie: '',
-          valid: null,
+          validImage: null,
+          // validContent: null,
         }
       this.getUserGroups = this.getUserGroups.bind(this);
       this.checkImage = this.checkImage.bind(this); 
@@ -30,13 +30,14 @@ class MovieDisplay extends React.Component {
           .then(() => this.validMovie(this.state.movie)); 
     }
 
-    componentDidUpdate(prevProps){
+    componentDidUpdate(prevProps, prevState){
       if (this.props.match.params.movieId !== prevProps.match.params.movieId){
         this.props.fetchMovie(this.props.match.params.movieId)
-          .then(res =>
+          .then(res => {
             this.setState({
               movie: res.data
-            }));
+            })
+          })
       }
     }
 
@@ -53,35 +54,6 @@ class MovieDisplay extends React.Component {
       return list; 
     }
 
-    validMovie(movie){
-      this.checkImage(movie.image)
-        .then(res => {
-          if(res !== true){
-            this.setState({
-                valid: res,
-              })
-            }
-          })
-        .then(() => {
-        if (
-            movie.type == "TVSeries" ||
-            movie.directorList.length === 0 ||
-            !movie.title ||
-            !movie.plot ||
-            movie.similars.length === 0 || 
-            movie.genreList.length === 0
-          ){
-            this.setState({
-              valid: false
-            });
-          }else if(this.state.valid === null){
-            this.setState({
-              valid: true,
-            })
-          }
-        });
-    }
-
     async checkImage(url){
       let valid = true;
       try {
@@ -91,17 +63,46 @@ class MovieDisplay extends React.Component {
           });
       }
       catch(error){
-        console.log("error")
         valid = false;
       }
       return valid;
     }
 
+    validMovie(movie){
+      this.checkImage(movie.image)
+        .then(res => {
+          this.setState({
+              validImage: res,
+            })
+          });
+    }
+
+    validContent(movie){
+      let validContent = null;
+
+      if(movie){
+          if (
+            movie.type == "TVSeries" ||
+            movie.directorList.length === 0 ||
+            !movie.title ||
+            !movie.plot ||
+            movie.similars.length === 0 || 
+            movie.genreList.length === 0
+          ){
+            validContent = false;
+          }else{
+            validContent = true;
+          };
+        }
+        return validContent
+
+    }
+
 
     render() {
-
       const movie = this.state.movie;
-      if(movie && this.state.valid && (Object.values(this.props.groups).length > 0)){
+      
+      if(movie && this.state.validImage && this.validContent(movie) && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
         return (
             <div className="movie-show-parent-div">
@@ -139,7 +140,7 @@ class MovieDisplay extends React.Component {
                         <div className="movie-show-movie-stats">
                             <h4>{movie.runtimeStr}</h4>
                             <h4>{movie.genreList[0].value}</h4>
-                            {/* <h4>{movie.directorList[0].name}</h4> */}
+                            <h4>{movie.directorList[0].name}</h4>
                         </div>
                         <p className="movie-show-plot">{movie.plot.split("&#39;").join("'")}</p>
 
@@ -149,7 +150,13 @@ class MovieDisplay extends React.Component {
         )
       }else{
         return(
-          <div>Movie not valid bb</div>
+          <div className="no-movie-content">
+          <div>
+            <h1>OOPS!</h1>
+            <p>Looks like this movie doesn't have much content yet, sometimes if the movie is really new our API won't have enough content for us to add it to a group.</p>
+            <p>Try back later and hopefully it will have been updated.</p>
+          </div>
+          </div>
         )
       }
     }
