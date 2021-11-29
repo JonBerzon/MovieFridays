@@ -5,7 +5,6 @@ import Similar from "../movie_show/similar";
 import NavbarContainer from '../navbar/navbar_container'
 import Sidebar from "../sidebar/sidebar";
 
-
 class MovieDisplay extends React.Component {
     constructor(props) {
         super(props)
@@ -95,16 +94,16 @@ class MovieDisplay extends React.Component {
           };
         }
         return validContent
-
     }
 
 
     render() {
-      // console.log("render called")
       if(!this.state.fetched || this.state.validImage === null){
         return null;
       }
+
       const movie = this.state.movie;
+
       if(movie && this.state.validImage && this.validContent(movie) && (Object.values(this.props.groups).length > 0)){
         let similar_movies = movie.similars.slice(0,4);
         return (
