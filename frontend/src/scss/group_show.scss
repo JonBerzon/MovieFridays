@@ -341,3 +341,10 @@
 .leave-group-button:active {
   transform: translateY(4px);
 }
+
+.group-show-genre-header{
+  margin-top: 10px;
+  font-size: 25px;
+  border-bottom: 2px solid $golden;
+  font-weight: 1000;
+}
