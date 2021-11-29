@@ -97,12 +97,19 @@ class GroupShow extends React.Component {
 
   removeUser(e) {
     e.preventDefault();
-    this.props
-      .removeUserFromGroup({
-        user_id: this.props.currentUser.id,
+    // this.props
+    //   .removeUserFromGroup({
+    //     user_id: this.props.currentUser.id,
+    //     group_id: this.props.group._id,
+    //   })
+      this.props.openModal({
+        type: 'remove user',
+        user_id: this.props.currentUser.id, 
         group_id: this.props.group._id,
+        users: this.props.group.users,
+        owner: this.props.group.owner 
       })
-      .then(() => this.props.history.push("/groups"));
+      // .then(() => this.props.history.push("/groups"));
   }
 
   handleNameChange(e) {
