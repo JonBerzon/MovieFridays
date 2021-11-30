@@ -20,7 +20,7 @@ class LeaveGroupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (this.state.newAdmin || this.props.currentUser.id !== this.props.owner._id) {
+        if (this.state.newAdmin || this.props.currentUser.id !== this.props.owner._id || this.props.users.length === 1) {
             this.setState({errors: null})
             this.props.removeUserFromGroup({
                 user_id: this.props.userId,
