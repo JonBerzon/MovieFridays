@@ -18,7 +18,7 @@ router.post("/create", async (req,res) => {
         const newPopular = new Popular({
             movies: movies
         })
-        newPopular.save()
+        newPopular.save().then( () => res.json("success"));
     }   
 })
 
