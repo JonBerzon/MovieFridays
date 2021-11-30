@@ -121,13 +121,13 @@ class GroupShow extends React.Component {
     e.preventDefault();
     if (this.state.groupName.length === 0) {
       this.setState({
-        error: <li className="group-name-errors">Group Name Cant Be Blank</li>,
+        error: <li className="group-name-errors">Group name can't be blank</li>,
       });
     } else if (this.state.groupName.length > 20) {
       this.setState({
         error: (
           <li className="group-name-errors">
-            Group Name Cant Be Longer Than 20 Characters
+            Group name can't be longer than 20 characters
           </li>
         ),
       });

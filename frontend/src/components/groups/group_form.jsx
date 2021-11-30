@@ -20,19 +20,25 @@ class GroupForm extends React.Component {
 
 // Handle form submission
   handleSubmit(e) {
-
-    if(this.state.name.length === 0){
-      e.preventDefault();
+    if (this.state.name.length > 20) {
       const errors = document.getElementById('groupErrors')
-      errors.classList.add('display-errors')
-    }else{
-      e.preventDefault();
-      const group = {
-        name: this.state.name,
-        owner_id: this.props.user.id,
-      }
-      this.props.createGroup(group)
+      errors.classList.remove('display-errors')
+      this.setState({errors: <h1 className='display-errors'>Group name cannot be more than 20 characters</h1>})
+    } else {
+      this.setState({errors: null})
+      if(this.state.name.length === 0){
+        e.preventDefault();
+        const errors = document.getElementById('groupErrors')
+        errors.classList.add('display-errors')
+      }else{
+        e.preventDefault();
+        const group = {
+          name: this.state.name,
+          owner_id: this.props.user.id,
+        }
+        this.props.createGroup(group)
         .then(() => this.props.closeModal());  // NEED TO ADD GROUP ID ... NOT SURE HOW WERE GETTING IT THOUGH
+      }
     }
   }
 
@@ -49,6 +55,7 @@ class GroupForm extends React.Component {
           />
         <div>
           <h1 id="groupErrors" className="hide">You must add a name for your group</h1>
+          {this.state.errors}
         </div>
         <div>
           <button>Create Group</button>
