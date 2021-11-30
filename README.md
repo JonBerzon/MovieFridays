@@ -40,7 +40,7 @@ On Movie Fridays, users have the ability to search for their favorite movies and
     this.setState({ id: movieId });
 ```
 
-<img src="assets/gifs/MF_Movie_Search_Display_GIF.gif" width="" height="" />
+<img src="assets/gifs/MF_display_create_show_movie.gif" width="" height="" />
 
 ## Multiple CRUD Cycles
 Movie Fridays utilizes multiple crud cycles to create a powerful experience for the user. Users can add movies, as mentioned above, through API search and select methods The user who submitted the movie as well as the group admin have the ability to delete movies from the group if desired. Reviews follow a similar cycle and are able to be created, edited, and deleted by the appropriate user, utilizing reusable modal forms to create a seamless experience. Groups also follow the same ideology and can be created, edited, or deleted. Functionality was given that if the user who leaves a group is an admin, they must designate the next admin before leaving the group. If the last user leaves the group, the group is destroyed.
@@ -80,6 +80,8 @@ router.post("/create", async (req, res) => {
   }
 );
 ```
+<img src="assets/gifs/Review-CRUD.gif" width="" height="" />
+
 
 ## Movie Recommendations
 The Movie Fridays team understands how hard it is to pick a movie sometimes, so with that in mind we added a number of features to aid the user in finding a new movie to watch. When reaching the splash page after logging in, the user will be met with a navbar displaying the six most popular movies, pulled from IMDb's API for current top movies. Upon clicking on one of the top movies, you'll be redirected to a movie display page where you can read up on the plot, runtime, genre, etc. and have a button available to add it to one of your groups.
@@ -105,3 +107,5 @@ class Similar extends React.Component{
     }
 }
 ```
+<img src="assets/gifs/Movie-Recommendation.gif" width="" height="" />
+
