@@ -110,3 +110,9 @@ class Similar extends React.Component{
 ```
 <img src="assets/gifs/Movie-Recommendation.gif" width="" height="" />
 
+# Meet the Team
+Maisie Bruno-Tyne: Lead Designer & Frontend Engineer
+Albert Kim: Frontend Engineer
+Yehuda Goldschein: Backend Lead
+Jonathan Berzon: Flex Lead
+
