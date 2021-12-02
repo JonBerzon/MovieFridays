@@ -9,6 +9,7 @@ Movie Fridays is a movie based social media site that allows you to create group
 
 + A movie show page that displays all information about the movie that has been collected from the IMDb API. Information about similar movies was also collected. On this page you have the option to add, edit, or delete an existing review.
 
+# Technologies Used
 The backend for Movie Fridays was built using Node.js, Express.js, and MongoDB for the database. The frontend was built using React, Redux, and SCSS. The site utilized the IMDb API (https://imdb-api.com/) for both searching for movies with a given title and displaying information about the movie based off search results.
 
 
