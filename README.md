@@ -115,7 +115,7 @@ class Similar extends React.Component{
 <br />
 **Albert Kim** - *Frontend Engineer*
 <br />
-**Yehuda Goldschein** - *Backend Lead* [LinkedIn](https://www.linkedin.com/in/yehuda-goldschein-79872199/)
+**Yehuda Goldschein** - *Backend Lead* - [LinkedIn](https://www.linkedin.com/in/yehuda-goldschein-79872199/)
 <br />
 **Jonathan Berzon** - *Flex Lead* - [LinkedIn](https://www.linkedin.com/in/jonathanberzon/)
 
