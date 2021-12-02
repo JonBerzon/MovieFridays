@@ -112,7 +112,10 @@ class Similar extends React.Component{
 
 # Meet the Team
 Maisie Bruno-Tyne: Lead Designer & Frontend Engineer
+<br />
 Albert Kim: Frontend Engineer
+<br />
 Yehuda Goldschein: Backend Lead
+<br />
 Jonathan Berzon: Flex Lead
 
